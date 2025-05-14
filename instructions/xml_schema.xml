@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Architectum Enhanced XML Schema - Final Version -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Module">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Metadata" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ApiSurface" minOccurs="0">
+                <xs:complexType>
+                  <xs:attribute name="version" type="xs:string"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="LastModified" minOccurs="0">
+                <xs:complexType>
+                  <xs:attribute name="date" type="xs:dateTime"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element name="Dependencies" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Import" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="module" type="xs:string" use="required"/>
+                  <xs:attribute name="version" type="xs:string"/>
+                  <xs:attribute name="path" type="xs:string"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Export" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element name="Component" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Documentation" type="xs:string" minOccurs="0"/>
+              
+              <xs:element name="TypeParameters" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="TypeParameter" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" use="required"/>
+                        <xs:attribute name="constraint" type="xs:string"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              
+              <xs:element name="Relationships" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Relationship" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="type" use="required">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="extends"/>
+                              <xs:enumeration value="implements"/>
+                              <xs:enumeration value="composes"/>
+                              <xs:enumeration value="uses"/>
+                              <xs:enumeration value="depends"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="target" type="xs:string" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              
+              <xs:element name="Contracts" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="InterfaceImplementation" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="MissingMethod" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="name" type="xs:string" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="interface" type="xs:string" use="required"/>
+                        <xs:attribute name="status">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:enumeration value="complete"/>
+                              <xs:enumeration value="partial"/>
+                              <xs:enumeration value="missing"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              
+              <xs:element name="Method" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Documentation" type="xs:string" minOccurs="0"/>
+                    
+                    <xs:element name="TypeParameters" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="TypeParameter" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="name" type="xs:string" use="required"/>
+                              <xs:attribute name="constraint" type="xs:string"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element name="Parameters" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Parameter" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="name" type="xs:string" use="required"/>
+                              <xs:attribute name="type" type="xs:string" use="required"/>
+                              <xs:attribute name="optional" type="xs:boolean" default="false"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element name="Returns" minOccurs="0">
+                      <xs:complexType>
+                        <xs:attribute name="type" type="xs:string" use="required"/>
+                        <xs:attribute name="nullable" type="xs:boolean" default="false"/>
+                      </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element name="Throws" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="type" type="xs:string" use="required"/>
+                        <xs:attribute name="condition" type="xs:string"/>
+                      </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element name="DataFlow" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ParameterFlow" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="param" type="xs:string" use="required"/>
+                              <xs:attribute name="target" type="xs:string" use="required"/>
+                              <xs:attribute name="paramPosition" type="xs:integer"/>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ReturnValueFlow" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="source" type="xs:string" use="required"/>
+                              <xs:attribute name="target" type="xs:string" use="required"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    
+                    <xs:element name="Dependencies" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Calls" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="target" type="xs:string" use="required"/>
+                              <xs:attribute name="direction" default="outgoing">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="outgoing"/>
+                                    <xs:enumeration value="incoming"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="CalledBy" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="source" type="xs:string" use="required"/>
+                              <xs:attribute name="direction" default="incoming">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="outgoing"/>
+                                    <xs:enumeration value="incoming"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" use="required"/>
+                  <xs:attribute name="visibility">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="public"/>
+                        <xs:enumeration value="protected"/>
+                        <xs:enumeration value="private"/>
+                        <xs:enumeration value="package"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="static" type="xs:boolean" default="false"/>
+                </xs:complexType>
+              </xs:element>
+              
+              <xs:element name="Field" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Documentation" type="xs:string" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" use="required"/>
+                  <xs:attribute name="type" type="xs:string" use="required"/>
+                  <xs:attribute name="visibility">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="public"/>
+                        <xs:enumeration value="protected"/>
+                        <xs:enumeration value="private"/>
+                        <xs:enumeration value="package"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="static" type="xs:boolean" default="false"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="type" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="class"/>
+                  <xs:enumeration value="interface"/>
+                  <xs:enumeration value="enum"/>
+                  <xs:enumeration value="function"/>
+                  <xs:enumeration value="struct"/>
+                  <xs:enumeration value="module"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="path" type="xs:string" use="required"/>
+            <xs:attribute name="isPublicApi" type="xs:boolean" default="false"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="namespace" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
