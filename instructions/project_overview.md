@@ -1,5 +1,5 @@
 # Architectum Project Overview
-status: in progress
+status: approved
 
 ## Vision
 
