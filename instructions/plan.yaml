@@ -1,0 +1,14 @@
+project:
+  name: Daily Movement App
+  status: pending # pending | in progress | complete | review
+  description: 
+
+dependencies:
+
+xml_groups: tbd
+
+xml_focus: tbd
+
+plan: 
+  phase 1:
+    status: pending
