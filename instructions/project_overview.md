@@ -1,18 +1,19 @@
-status: approved
 # Architectum Project Overview
+status: in progress
 
 ## Vision
 
-Architectum is an AI-first code comprehension system that transforms complex codebases into structured XML blueprints. By extracting and maintaining the architectural essence of code without implementation details, Architectum enables more effective collaboration between developers and AI assistants.
+Architectum is an AI-first code comprehension system that leverages Language Server Protocol (LSP) to analyze codebases and transform them into structured XML blueprints. By extracting the architectural essence of code files without implementation details, Architectum enables more effective collaboration between developers and AI assistants.
 
-The project addresses the fundamental challenge of providing AI with the right level of contextual understanding of a codebase—detailed enough for meaningful assistance but abstracted enough to fit within token limitations and avoid overwhelming the AI with irrelevant implementation details.
+The project addresses the fundamental challenge of providing AI with the right level of contextual understanding of a codebase—detailed enough for meaningful assistance but abstracted enough to fit within token limitations and avoid overwhelming the AI with irrelevant implementation details. By using LSP's accurate parsing combined with configurable XML representations, Architectum creates code maps that dramatically improve AI's ability to reason about complex software systems.
 
 ## Core Concepts
 
-- **Component-Based XML**: Every source file becomes a `<Component>` with structured representation of its key elements
-- **Plan-Driven Focus**: Development phases in `plan.yaml` control what's actively being worked on
-- **Language-Neutral Architecture**: Single unified representation across multiple programming languages
-- **Scriptable Pipeline**: All tools are CLI-first for flexible integration into workflows
+- **LSP-Powered Analysis**: Leverage Language Server Protocol as the engine for accurate code structure extraction
+- **Framework-Aware Extraction**: Special handling for framework-specific patterns in React, Vue, and other frameworks
+- **File-Based XML Representation**: Transform extracted information into structured XML optimized for AI comprehension
+- **Language-Neutral Architecture**: Unified representation across multiple programming languages and frameworks
+- **Multi-Level Indexing**: Configurable hierarchical views from system-wide summaries to detailed component specifications
 
 ## Applications
 
@@ -21,55 +22,17 @@ The project addresses the fundamental challenge of providing AI with the right l
 - Provide AI with focused structural context without implementation details
 - Enable precise contextual understanding for code generation
 - Support planning and architectural discussions
-- Optimize token usage in AI context windows
+- Optimize token usage in AI context windows (5-10x more architectural context in the same token budget)
 
 ### Developer Tools
 
 - Visualize system architecture and dependencies
-- Track architectural drift over time
 - Document code structure automatically
-- Onboard new team members quickly
 
 ### Technical Documentation
 
 - Generate structural documentation from code
-- Maintain living architecture diagrams
-- Track API evolution over time
 - Support technical decision making
-
-## Implementation Roadmap
-
-### Phase 1: Core Extraction (Current)
-
-- ✅ Basic extractors for Python, TypeScript, Kotlin, and Flutter
-- ✅ Component-based XML structure
-- ✅ Index generation and diffing
-- ✅ Plan-based workflow
-
-### Phase 2: Enhanced Structure Extraction
-
-- Enhanced type information extraction
-- Documentation comment extraction
-- Improved relationship mapping between components
-- Language Server Protocol integration
-
-### Phase 3: Visualization and Navigation
-
-- Web-based visualization of component relationships
-- Interactive dependency graphs
-- Timeline view of architectural evolution
-- Component and relationship navigation
-
-### Phase 4: Integration and Ecosystem
-
-- Editor/IDE plugins
-- CI/CD integration for tracking architectural changes
-- API for third-party tool integration
-- Extensible plugin system for custom extractors
-
-## Status
-
-Architectum's core extraction and indexing capabilities are functional. The system is actively evolving toward richer relationship mapping, enhanced type information, and visualization capabilities. The immediate focus is on enhancing extractors to capture more detailed type information and relationships between components.
 
 ---
 
