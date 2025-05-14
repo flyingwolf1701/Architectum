@@ -6,7 +6,7 @@ Welcome to the Architectum AI-guided engineering workspace.
 Build, document, and validate this project using XML-based system mapping and a shape-first workflow.
 
 **Begin by:**
-1. Read `project_desc.md`  
+1. Read `project_overview.md`  
 2. If approved, read `tech_onepager.md`  
 3. If both are approved, continue to `plan.yaml`  
 4. If `plan.yaml` is empty, reference `sample_plan.yaml`  
