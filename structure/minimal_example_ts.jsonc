@@ -1,0 +1,65 @@
+{
+  "src/components/UserProfile.vue": {
+    // Inferred from LSP symbol references
+    "imports": [
+      {"from": "src/services/UserService.js", "symbols": ["UserService"]},
+      {"from": "src/services/AuthService.js", "symbols": ["AuthService"]}
+    ],
+    // Inferred from exports in module
+    "exports": {
+      "default": "UserProfile",
+      "named": ["formatUserData"]
+    },
+    "symbols": {
+      "UserProfile": {
+        "kind": "class",  // From LSP: 5 = Class
+        // Inferred from LSP References (component-level aggregation)
+        "relationships": {
+          "calls_on": [
+            {"getUserData": "src/services/UserService.js"},
+            {"updateUser": "src/services/UserService.js"},
+            {"requiresAuth": "src/services/AuthService.js"}
+          ],
+          "called_by": []
+        }
+      },
+      "formatUserData": {
+        "kind": "function",  // From LSP: 12 = Function
+        // Inferred from LSP References
+        "relationships": {
+          "calls_on": [],
+          "called_by": [
+            {"fetchUserData": "src/components/UserProfile.vue"}
+          ]
+        }
+      }
+    }
+  },
+  "src/services/UserService.js": {
+    // Inferred from LSP symbol references
+    "imports": [
+      {"from": "src/api/ApiClient.js", "symbols": ["ApiClient"]}
+    ],
+    // Inferred from exports in module
+    "exports": {
+      "default": "UserService",
+      "named": []
+    },
+    "symbols": {
+      "UserService": {
+        "kind": "class",  // From LSP: 5 = Class
+        // Inferred from LSP References (component-level aggregation)
+        "relationships": {
+          "calls_on": [
+            {"fetchData": "src/api/ApiClient.js"}
+          ],
+          "called_by": [
+            {"fetchUserData": "src/components/UserProfile.vue"},
+            {"updateProfile": "src/components/UserProfile.vue"},
+            {"loadUserData": "src/components/UserSettings.vue"}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "src/components/UserProfile.vue": {
+    // Inferred from LSP symbol references
+    "imports": [
+      {"from": "src/services/UserService.js", "symbols": ["UserService"]},
+      {"from": "src/services/AuthService.js", "symbols": ["AuthService"]}
+    ],
+    "symbols": {
+      "UserProfile": {
+        "kind": "class",  // From LSP: 5 = Class
+        "methods": {
+          "fetchUserData": {
+            // Inferred from LSP Signature
+            "parameters": [
+              {"name": "userId", "type": "string"}
+            ],
+            // Inferred from LSP Signature
+            "returnType": "Promise<UserData>",
+            // Inferred from LSP References
+            "relationships": {
+              "calls_on": [
+                {"getUserData": "src/services/UserService.js"},
+                {"formatUserData": "src/components/UserProfile.vue"}
+              ],
+              "called_by": []
+            }
+          },
+          "updateProfile": {
+            // Inferred from LSP Signature
+            "parameters": [
+              {"name": "data", "type": "UserUpdateData"}
+            ],
+            // Inferred from LSP Signature
+            "returnType": "Promise<boolean>",
+            // Inferred from LSP References
+            "relationships": {
+              "calls_on": [
+                {"updateUser": "src/services/UserService.js"},
+                {"requiresAuth": "src/services/AuthService.js"}
+              ],
+              "called_by": []
+            }
+          }
+        },
+        // Inferred from LSP References (component-level aggregation)
+        "relationships": {
+          "calls_on": [
+            {"getUserData": "src/services/UserService.js"},
+            {"updateUser": "src/services/UserService.js"},
+            {"requiresAuth": "src/services/AuthService.js"}
+          ],
+          "called_by": []
+        }
+      },
+      "formatUserData": {
+        "kind": "function",  // From LSP: 12 = Function
+        // Inferred from LSP Signature
+        "parameters": [
+          {"name": "data", "type": "UserData"}
+        ],
+        // Inferred from LSP Signature
+        "returnType": "FormattedUserData",
+        // Inferred from LSP References (component-level aggregation)
+        "relationships": {
+          "calls_on": [],
+          "called_by": [
+            {"fetchUserData": "src/components/UserProfile.vue"}
+          ]
+        }
+      }
+    }
+  },
+  "src/services/UserService.js": {
+    // Inferred from LSP symbol references
+    "imports": [
+      {"from": "src/api/ApiClient.js", "symbols": ["ApiClient"]}
+    ],
+    "symbols": {
+      "UserService": {
+        "kind": "class",  // From LSP: 5 = Class
+        "methods": {
+          "getUserData": {
+            // Inferred from LSP Signature
+            "parameters": [
+              {"name": "id", "type": "string"}
+            ],
+            // Inferred from LSP Signature
+            "returnType": "Promise<UserData>",
+            // Inferred from LSP References
+            "relationships": {
+              "calls_on": [
+                {"fetchData": "src/api/ApiClient.js"}
+              ],
+              "called_by": [
+                {"fetchUserData": "src/components/UserProfile.vue"}
+              ]
+            }
+          },
+          "updateUser": {
+            // Inferred from LSP Signature
+            "parameters": [
+              {"name": "id", "type": "string"},
+              {"name": "data", "type": "Partial<UserData>"}
+            ],
+            // Inferred from LSP Signature
+            "returnType": "Promise<boolean>",
+            // Inferred from LSP References
+            "relationships": {
+              "calls_on": [
+                {"updateData": "src/api/ApiClient.js"}
+              ],
+              "called_by": [
+                {"updateProfile": "src/components/UserProfile.vue"}
+              ]
+            }
+          }
+        },
+        // Inferred from LSP References
+        "relationships": {
+          "calls_on": [
+            {"fetchData": "src/api/ApiClient.js"}
+          ],
+          "called_by": [
+            {"fetchUserData": "src/components/UserProfile.vue"},
+            {"updateProfile": "src/components/UserProfile.vue"},
+            {"loadUserData": "src/components/UserSettings.vue"}
+          ]
+        }
+      }
+    }
+  }
+}
