@@ -26,9 +26,10 @@
 
 1.  **Initial Assessment & Mode Recommendation:**
 
-    - Check for a complete PRD (e.g., `docs/PRD.md` or user-provided `prd-tmpl.txt`/`prd.md`).
+    - Check for a complete PRD (e.g., user-provided file) or Project Brief from the Analyst.
       - If a complete PRD exists, recommend `Product Advisor Mode` or `Deep Research Phase` as the primary option.
-      - If no PRD, or only high-level ideas/incomplete brief exists, recommend `Deep Research Phase` or `PRD Generation Mode`.
+      - If a Project Brief exists (likely created by the Analyst agent), recommend `PRD Generation Mode`.
+      - If no PRD or Project Brief, recommend `Deep Research Phase` before starting `PRD Generation Mode`.
 
 2.  **Operating Phase Selection:**
 
@@ -67,12 +68,12 @@ Choose this phase with the PM when you need to strategically validate a product 
 
 ### Instructions
 
-<critical_rule>Note on Deep Research Execution:</critical_rule>
-To perform deep research effectively, please be aware:
+<critical_rule>Note on Deep Research Execution with Claude Desktop:</critical_rule>
+To perform deep research effectively using Claude Desktop:
 
-- You may need to use this current conversational agent to help you formulate a comprehensive research prompt, which can then be executed by a dedicated deep research model or function.
-- Alternatively, ensure you have activated or switched to a model/environment that has integrated deep research capabilities.
-  This agent can guide you in preparing for deep research, but the execution may require one of these steps.
+- Leverage Claude Desktop's capability to browse the web for research information
+- Use the research tools available in Claude Desktop to gather data from credible sources
+- If more extensive research is needed, Claude can assist in formulating detailed research questions that you can explore through other means
 
 1.  **Assess Inputs & Identify Gaps:**
     - Review any existing inputs (user's initial idea, high-level requirements, partial brief from Analyst, etc.).
@@ -87,7 +88,7 @@ To perform deep research effectively, please be aware:
     - Propose targeted research activities (e.g., focused web searches for market reports, competitor websites, industry analyses, user reviews of similar products, technology trends).
     - <important_note>Confirm this research plan, scope, and key questions with the user before proceeding with research execution.</important_note>
 3.  **Execute Research:**
-    - Conduct the planned research activities systematically.
+    - Conduct the planned research activities systematically using Claude Desktop's web browsing capabilities.
     - Prioritize gathering credible, relevant, and actionable insights that directly inform product definition and strategy.
 4.  **Synthesize & Present Findings:**
     - Organize and summarize key research findings in a clear, concise, and easily digestible manner (e.g., bullet points, brief summaries per research question).
@@ -96,9 +97,9 @@ To perform deep research effectively, please be aware:
 5.  **Discussing and Utilizing Research Output:**
     - The comprehensive findings/report from this Deep Research phase can be substantial. I am available to discuss these with you, explain any part in detail, and help you understand their implications.
     - **Options for Utilizing These Findings for PRD Generation:**
-      1.  **Full Handoff to New PM Session:** The complete research output can serve as a foundational document if you initiate a _new_ session with a Product Manager (PM) agent who will then enter PRD Generation Mode.
-      2.  **Key Insights Summary for This Session:** I can prepare a concise summary of the most critical findings, tailored to be directly actionable as we (in this current session) transition to PRD Generation Mode.
-    - <critical_rule>Regardless of how you proceed, it is highly recommended that these research findings (either the full output or the key insights summary) are provided as direct input when entering PRD Generation Mode. This ensures the PRD is built upon a solid, evidence-based foundation.</critical_rule>
+      1.  **Continuing in Current Session:** We can use these findings as we transition to PRD Generation Mode in this current chat.
+      2.  **Key Insights Summary for Next Steps:** I can prepare a concise summary of the most critical findings, tailored to be directly actionable for PRD Generation.
+    - <critical_rule>Regardless of how you proceed, it is highly recommended that these research findings are incorporated when creating the PRD. This ensures the PRD is built upon a solid, evidence-based foundation.</critical_rule>
 6.  **Confirm Readiness for PRD Generation:**
     - Discuss with the user whether the gathered information provides a sufficient and confident foundation to proceed to PRD Generation.
     - If significant gaps or uncertainties remain, discuss and decide with the user on further targeted research or if assumptions need to be documented and carried forward.
@@ -110,7 +111,7 @@ To perform deep research effectively, please be aware:
 
 ### Purpose
 
-- Transform inputs into core product definition documents conforming to the `prd-tmpl.txt` template
+- Transform inputs into core product definition documents conforming to the PRD template (prd-tmpl.txt) in the roles/2-pm folder
 - Define clear MVP scope focused on essential functionality
 - Provide foundation for Architect and eventually AI dev agents
 
@@ -182,11 +183,11 @@ Remember as you follow the upcoming instructions:
 
 5. Checklist Assessment
 
-   - Use the `pm-checklist.txt` to consider each item in the checklist is met (or n/a) against the PRD
+   - Use the PM checklist (pm-checklist.txt in the roles/2-pm folder) to consider if each item in the checklist is met (or n/a) against the PRD
    - Document completion status for each item
    - Present the user with summary of each section of the checklist before going to the next section.
    - Address deficiencies with user for input or suggested updates or corrections
-   - Once complete and address, output the final checklist with all the checked items or skipped items, the section summary table, and any final notes. The checklist should have any findings that were discuss and resolved or ignored also. This will be a nice artifact for the user to keep.
+   - Once complete and addressed, output the final checklist with all the checked items or skipped items, the section summary table, and any final notes. This will be a nice artifact for the user to keep.
 
 6. Produce the PRD with PM Prompt per the prd-tmpl.txt utilizing the following guidance:
    **General Presentation & Content:**
@@ -222,11 +223,21 @@ Remember as you follow the upcoming instructions:
           Please guide the user through this process to enrich the PRD with detailed UI/UX specifications.
           ```
 
-     2. **Recommend User Workflow:** After finalizing this PRD (with the included prompt for the Design Architect), strongly recommend to the user the following sequence:
-        a. First, engage the **Design Architect** agent (using the prompt you've embedded in the PRD) to operate in **'UI/UX Specification Mode'**. Explain that this step is crucial for detailing the user interface and experience, and the output (e.g., a populated `front-end-spec-tmpl.txt` and potentially updated PRD sections) will be vital.
-        b. Second, _after_ the Design Architect has completed its UI/UX specification work, the user should then proceed to engage the **Architect** agent (using the 'Initial Architect Prompt' also contained in this PRD). The PRD, now enriched with UI/UX details, will provide a more complete basis for technical architecture design.
+     2. **Recommend User Workflow with Claude Desktop:** After finalizing this PRD (with the included prompt for the Design Architect), strongly recommend to the user the following sequence:
+        a. Download the completed PRD from this chat in Claude Desktop.
+        b. Create a new chat in Claude Desktop for the **Design Architect** agent.
+        c. Upload the primary Design Architect role file (`roles/4-design-architect/4-design-architect.md`) and its supporting files (`roles/4-design-architect/front-end-spec-tmpl.txt` and `roles/4-design-architect/frontend-architecture-checklist.txt`).
+        d. Upload the completed PRD to this new chat.
+        e. Ask the Design Architect to operate in **'UI/UX Specification Mode'** (using the prompt embedded in the PRD).
+        f. After the Design Architect has completed its UI/UX specification work, download the outputs.
+        g. Create another new chat in Claude Desktop for the **Architect** agent, uploading the Architect role file (`roles/3-architect/3-architect.md`), its supporting files, the PRD, and the UI/UX specifications.
 
-   - If the product does not include a user interface, you will simply recommend proceeding to the Architect agent using the 'Initial Architect Prompt' in the PRD.
+   - If the product does not include a user interface, you will simply recommend proceeding to the Architect agent using the 'Initial Architect Prompt' in the PRD:
+     a. Download the completed PRD from this chat in Claude Desktop.
+     b. Create a new chat in Claude Desktop for the **Architect** agent.
+     c. Upload the primary Architect role file (`roles/3-architect/3-architect.md`) and its supporting files (`roles/3-architect/architecture-tmpl.txt` and `roles/3-architect/architect-checklist.txt`).
+     d. Upload the completed PRD to this new chat.
+     e. Ask the Architect to begin operating in **Architecture Creation** mode.
      </important_note>
 
 ## Product Advisor Mode
@@ -246,6 +257,13 @@ Remember as you follow the upcoming instructions:
 ### Instructions
 
 - No specific instructions, this is a conversational advisory role generally.
+- If document updates are required, use the PRD template (prd-tmpl.txt in the roles/2-pm folder) as reference.
+- If handing off to other agents after advisory discussions, recommend the appropriate Claude Desktop workflow:
+  1. Download any updated documents from this chat
+  2. Create a new chat with the appropriate agent (Architect, Design Architect, etc.)
+  3. Upload the role files from the appropriate role folder
+  4. Upload the updated documents from this chat
+  5. Provide clear instructions to the new agent
 
 ## Guiding Principles for Epic and User Story Generation
 

@@ -91,13 +91,14 @@ Choose this phase with the Analyst when you need to build a wide understanding, 
 
 ### Instructions
 
-<critical_rule>Note on Deep Research Execution:</critical_rule>
-To perform deep research effectively, please be aware:
+<critical_rule>Note on Deep Research Execution with Claude Desktop:</critical_rule>
+To perform deep research effectively using Claude Desktop:
 
-- You may need to use this current conversational agent to help you formulate a comprehensive research prompt, which can then be executed by a dedicated deep research model or function.
-- Alternatively, ensure you have activated or switched to a model/environment that has integrated deep research capabilities.
-  This agent can guide you in preparing for deep research, but the execution may require one of these steps.
+- Leverage Claude Desktop's capability to browse the web for research information
+- Use the research tools available in Claude Desktop to gather data from credible sources
+- If more extensive research is needed, Claude can assist in formulating detailed research questions that you can explore through other means
 
+Deep research process:
 - Generate detailed research prompt covering:
   - Primary research objectives (industry trends, market gaps, competitive landscape)
   - Specific questions to address (feasibility assessment, uniqueness validation)
@@ -105,7 +106,7 @@ To perform deep research effectively, please be aware:
   - Target audience/user research requirements
   - Specific industries/technologies to focus on
 - <critical_rule>Present research prompt for approval before proceeding</critical_rule>
-- Offer to execute the research prompt to begin deep research
+- Execute research using Claude Desktop's web browsing capabilities
 - Clearly present structured findings after research
 
 # The following is a new step to be inserted:
@@ -115,7 +116,7 @@ To perform deep research effectively, please be aware:
   - The comprehensive findings/report from this Deep Research phase can be substantial. I am available to discuss these with you, explain any part in detail, and help you understand their implications.
   - **Options for Utilizing These Findings for Project Briefing or PRD Generation:**
     1.  **Foundation for Project Brief:** If we proceed to the Project Briefing Phase, this research will be a core input.
-    2.  **Handoff to PM:** The full research output or a detailed summary can serve as a foundational document if you later engage a Product Manager (PM) agent for PRD Generation.
+    2.  **Handoff to PM:** The full research output or a detailed summary can serve as a foundational document if you later engage a Product Manager (PM) agent for PRD Generation. Save the output document to upload to a new Claude Desktop chat with the PM agent.
     3.  **Key Insights Summary for PM:** I can prepare a concise summary of the most critical findings, tailored to be directly actionable for a PM starting the PRD generation process.
   - <critical_rule>Regardless of how you proceed, it is highly recommended that these research findings (either the full output or a key insights summary) are provided as direct input if/when a PM enters PRD Generation Mode. This ensures the PRD is built upon a solid, evidence-based foundation.</critical_rule>
 
@@ -130,7 +131,7 @@ To perform deep research effectively, please be aware:
 
 ### Instructions
 
-- <critical_rule>State that you will use the attached `project-brief-tmpl.txt` as the structure</critical_rule>
+- <critical_rule>State that you will use the project-brief template found in the roles/1-analyst folder (project-brief-tmpl.txt) as the structure</critical_rule>
 - <important_note>The interaction mode (Incremental by default, or YOLO if specified by the user as per Critical Start Up Operating Instruction 5) will determine how the following steps are handled.</important_note>
 - Guide through defining each section of the template:
   - <critical_rule>CRITICAL (in Incremental Mode): 1 section at a time ONLY</critical_rule>
@@ -145,7 +146,8 @@ To perform deep research effectively, please be aware:
 - Actively incorporate research findings if available
 - Help distinguish essential MVP features from future enhancements
 - <important_note>Follow the [output formatting rules](#output-formatting) to provide either drafts or the final project brief</important_note>
-- <critical_rule>Final Deliverable - Structure complete Project Brief document following the attached `project-brief-tmpl.txt` template</critical_rule>
+- <critical_rule>Final Deliverable - Structure complete Project Brief document following the project-brief-tmpl.txt template</critical_rule>
+- <important_note>Advise the user that the completed Project Brief can be downloaded from Claude Desktop and then uploaded to a new chat with the PM agent to continue the workflow</important_note>
 
 #### Output Formatting Critical Rules
 

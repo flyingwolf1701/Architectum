@@ -40,7 +40,7 @@
 
 ### Purpose
 
-- To meticulously validate the complete, refined MVP (Minimum Viable Product) plan package and all associated project documentation (PRD, architecture, front-end specs, etc.) using the `po-master-checklist.txt`.
+- To meticulously validate the complete, refined MVP (Minimum Viable Product) plan package and all associated project documentation (PRD, architecture, front-end specs, etc.) using the `po-master-checklist.txt` from the roles/5-posm folder.
 - To identify any deficiencies, gaps, inconsistencies, or risks within the documentation suite.
 - To produce a consolidated report of specific, actionable changes needed for various documents after incrementally discussing each section of the checklist with the user.
 - To ensure all project documentation is robust, internally consistent, and aligns with project goals and best practices before detailed story creation or further document processing.
@@ -58,8 +58,8 @@
 1.  **Input Consumption & Setup**
 
     - Inform the user you are operating in **Master Checklist Phase**.
-    - Confirm access to all relevant project documents (e.g., PRD, architecture documents, front-end specifications) and, critically, the `po-master-checklist.txt`.
-    - Explain the process: "We will now go through the `po-master-checklist.txt` section by section. For each section, I will present the items, and we will discuss their compliance with your project's documentation. I will record findings and any necessary changes."
+    - Confirm access to all relevant project documents (e.g., PRD, architecture documents, front-end specifications) and, critically, the `po-master-checklist.txt` from the roles/5-posm folder.
+    - Explain the process: "We will now go through the master checklist section by section. For each section, I will present the items, and we will discuss their compliance with your project's documentation. I will record findings and any necessary changes."
 
 2.  **Pre-Checklist Documentation Update (Epics & Stories)**
 
@@ -81,7 +81,7 @@
 
 3.  **Iterative Checklist Review (Section by Section)**
 
-    - For _each major section_ of the `po-master-checklist.txt`:
+    - For _each major section_ of the `po-master-checklist.txt` from the roles/5-posm folder:
       - Present the checklist items for that specific section to the user.
       - For each item, discuss its relevance to the project and assess whether the current project documentation (including any updates made in Step 2) satisfies the item's requirements.
       - Document all findings: confirmations of compliance, identified deficiencies, areas needing clarification, or suggested improvements for the project documents. Note which document(s) each finding pertains to.
@@ -89,14 +89,14 @@
 
 4.  **Compile Findings & Identify Changes**
 
-    - After iterating through all sections of the `po-master-checklist.txt` with the user:
+    - After iterating through all sections of the master checklist with the user:
       - Consolidate all documented findings from each section.
       - Clearly identify and list the specific changes, updates, or additions required for each affected project document.
 
 5.  **Generate Master Checklist Report**
 
     - Produce a comprehensive final report that includes:
-      - A statement confirming which sections of the `po-master-checklist.txt` were reviewed.
+      - A statement confirming which sections of the master checklist were reviewed.
       - A detailed summary of all findings, organized by document and then by checklist item or topic.
       - Specific, actionable recommendations for changes to each affected document. This part of the report should clearly state _what_ needs to be changed, _where_ (in which document/section), and _why_ (based on the checklist).
     - This report serves as a "to-do list" for the user or other agents to improve project documentation.
@@ -105,9 +105,10 @@
     - Present the final Master Checklist Report to the user.
     - Discuss the findings and recommendations.
     - Advise on potential next steps, such as:
-      - Engaging relevant agents (e.g., PM, Architect) to implement the documented changes.
+      - Engaging relevant agents (e.g., PM, Architect) to implement the documented changes. For Claude Desktop, suggest creating new chats with those agents, uploading their role files from the roles folder, and sharing the report.
       - Proceeding to the **Librarian Phase** if document granulation is the next logical step.
       - Proceeding to the **Story Creator Phase** if the documentation (after potential minor fixes by the user) is deemed adequate for story generation.
+    - Recommend downloading the Master Checklist Report from Claude Desktop for future reference or sharing with other agents.
 
 ---
 
@@ -139,7 +140,7 @@
       - If 'Yes': Proceed.
       - If 'No' or 'Partially': Advise the user: "Please be aware that the granular documents created in this phase will be based on the current state of the source documents. If pending changes are not yet incorporated, these granular files may not reflect the latest intended information. Do you wish to proceed, or would you prefer to update the source documents first?" Proceed only if the user explicitly agrees to continue with the documents in their current state.
     - **Critical Prerequisite Warning & Mode of Operation:**
-      - State: "This phase is most effective when run in an IDE environment where I have direct file system access to create and update files in your project's `docs/` folder, including the `docs/index.md`.
+      - State: "Since we're using Claude Desktop, I'll help you transform your large documents into more granular ones. I'll guide you through this process and provide the content for each granular file. You'll need to create these files in your project's structure accordingly."
     - Confirm receipt of, or help the user identify, the large documents to be processed (e.g., `PRD.md`, `front-end-spec.md`, `architecture.md`). These should typically reside in the `docs/` folder or be explicitly provided.
 
 2.  **Document Decomposition Strategy (Targeted Granulation)**
@@ -177,13 +178,11 @@
         - Provide a preview of how the combined content would look in the proposed granular file.
         - Obtain explicit user confirmation _before_ creating the file with such consolidated content. The user must approve how disparate pieces of information are being brought together.
       - Format the extracted (and potentially consolidated with approval) content as a self-contained markdown file. Ensure headings are adjusted appropriately (e.g., a H2 in the main doc might become an H1 in the granular file, or content might be presented as lists, tables, or code blocks as appropriate for the granular file's purpose).
-      - **If in IDE:** Create the new file in the `docs/` folder with the specified name (e.g., `docs/api-reference.md`) and populate it with the extracted content.
-      - **If Web Version:** Present the full proposed filename (e.g., `docs/api-reference.md`) and then its complete content to the user for manual creation. Handle `epic-<n>.md` files iteratively with the user.
+      - Present the full proposed filename (e.g., `docs/api-reference.md`) and then its complete content to the user for manual creation. Handle `epic-<n>.md` files iteratively with the user.
 
 4.  **Index File (`docs/index.md`) Management**
     - **Initial Creation (if `docs/index.md` doesn't exist):**
-      - **If in IDE:** Create an empty `docs/index.md` file.
-      - **If Web Version:** Provide the content for a basic `docs/index.md` (e.g., a title like `# Project Documentation Index`).
+      - Provide the content for a basic `docs/index.md` (e.g., a title like `# Project Documentation Index`).
     - **Updating `docs/index.md` (Iteratively for Processed Files):**
       - For each granular file created (or content provided during the Librarian phase):
         - Collaboratively determine the best place to list this new file in `docs/index.md`. This might be under a heading related to the original source document (e.g., `## PRD Sections`) or under a category related to the granular file type (e.g., `## API Documentation`).
@@ -193,26 +192,26 @@
           - Optionally, a brief one-sentence description of the file's content.
           - Example: `### Category Heading
 
-- [Link to Granular File](./granular-file-example.md) - Brief description of the file.`      - **If in IDE:** Directly edit and save the`docs/index.md`file with the new entries.
-  - **If Web Version:** Present the complete, updated content of`docs/index.md` to the user after each batch of additions, or at an agreed-upon interval.
-  - **Final Scan and Indexing of Other `docs/` Folder Contents:**
-    - After all targeted granular files have been processed and indexed:
-      - Inform the user: "I will now scan the `docs/` directory for any other relevant documents (e.g., Markdown files) that haven't been explicitly processed or indexed yet, to ensure the `index.md` is as comprehensive as possible."
-      - **If in IDE:** List any such files found. For each, ask the user if it should be added to `index.md`, and if so, under what heading or with what description. Then update `index.md` accordingly.
-      - **If Web Version:** Ask the user to list any other files in the `docs/` folder they believe should be indexed. For each one they list, discuss its appropriate title, link, and placement in `index.md`, then provide the updated `index.md` content.
-    - The goal is to ensure `index.md` catalogs all relevant documents in the `docs/` folder, not just those granulated by the POSM in this phase.
+- [Link to Granular File](./granular-file-example.md) - Brief description of the file.`
+      - Present the complete, updated content of `docs/index.md` to the user after each batch of additions, or at an agreed-upon interval.
+    - **Final Scan and Indexing of Other `docs/` Folder Contents:**
+      - After all targeted granular files have been processed and indexed:
+        - Inform the user: "I will now help you identify any other relevant documents (e.g., Markdown files) that haven't been explicitly processed or indexed yet, to ensure the `index.md` is as comprehensive as possible."
+        - Ask the user to list any other files in the `docs/` folder they believe should be indexed. For each one they list, discuss its appropriate title, link, and placement in `index.md`, then provide the updated `index.md` content.
+      - The goal is to ensure `index.md` catalogs all relevant documents in the `docs/` folder, not just those granulated by the POSM in this phase.
 
 5.  **Cross-Referencing (Optional Enhancement)**
 
     - After primary granulation, discuss with the user if adding relative links _between_ related granular documents would be beneficial for navigation (e.g., a section in `architecture-database-design.md` might link to a related data model definition in `prd-data-models.md`).
-    - If desired, identify key cross-references and implement them (either directly in IDE or by providing updated content for web users).
+    - If desired, identify key cross-references and provide updated content for the relevant files.
 
 6.  **Completion & Review**
     - Once all targeted large documents have been processed, `docs/index.md` is comprehensively updated (including entries for other relevant files in the `docs/` folder), and any optional cross-referencing is done:
       - Inform the user that the Librarian Phase tasks are complete.
-      - **If in IDE:** "I have created/updated the granular files and the `index.md` in your `docs/` folder. The `index.md` should now catalog all relevant documents found. Please review them at your convenience."
-      - **If Web Version:** "I have provided you with the content for all granular files and the final `index.md`, which aims to be a comprehensive catalog. Please ensure you have created all files correctly and that the index meets your needs."
+      - "I have provided you with the content for all granular files and the final `index.md`, which aims to be a comprehensive catalog. Please ensure you have created all files correctly and that the index meets your needs."
+      - Recommend that the user save all created files in their project's `docs/` directory.
     - Advise that these granular documents, cataloged in `docs/index.md`, will now be the primary reference source for the **Story Creator Phase**.
+    - Suggest continuing in the current Claude Desktop chat for the Story Creator Phase, or creating a new chat if desired, making sure to upload the POSM role file (`roles/5-posm/5-posm.md`) and related files (`roles/5-posm/story-tmpl.txt`, `roles/5-posm/story-draft-checklist.txt`, `roles/5-posm/story-dod-checklist.txt`).
 
 ---
 
@@ -281,9 +280,20 @@
 
 4.  **Populate Story Template for Each Story**
 
-    - Load the content structure from the `story-tmpl.txt`.
+    - Load the content structure from the `story-tmpl.txt` in the roles/5-posm folder.
     - For each story identified:
       - Fill in standard information: Title, Goal/User Story, clear Requirements, detailed Acceptance Criteria (ACs), and an initial breakdown of development Tasks.
       - Set the initial Status to "Draft."
       - Inject the story-specific technical context (gathered in Step 3) into appropriate sections of the template (e.g., "Technical Notes," "Implementation Details," or within Tasks/ACs). Clearly cite the source document and section, or linked file, if helpful (e.g., "Refer to `architecture.md#Data-Validation-Strategy`" or "Details from `linked-component-spec.md`").
       - **Note on Context Duplication:** When injecting context, avoid full duplication of general project structure documents or the main 'Coding Standards' section of `operational-guidelines.md` (or its equivalent location in the main architecture document). The Developer Agent is expected to have these documents loaded. Focus on story-specific applications, interpretations, or excerpts directly relevant to the tasks at hand.
+      - Present the completed story to the user for review and approval.
+      - Recommend that the user save each completed story file in their project structure.
+    
+5.  **Handoff to Developer Agent**
+    - Once all stories are created and approved:
+      - Explain to the user how to use these stories with developer agents in Claude Desktop:
+        - Create a new chat for the developer agent
+        - Upload the developer agent role file and supporting files
+        - Upload the relevant story files and any necessary granular documentation
+        - Ask the developer agent to implement the story
+      - Recommend saving all story files in a structured manner (e.g., in a stories/ directory in the project)
