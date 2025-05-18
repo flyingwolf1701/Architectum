@@ -88,7 +88,7 @@ Architectum's architecture is guided by the following principles:
 - **Declarative Blueprint Definition**: YAML files provide a clear way to define what belongs in a blueprint
 - **Developer-Controlled Synchronization**: Developers explicitly control when to synchronize code with Architectum using the `arch sync` command
 - **Incremental Processing**: Changes should only regenerate affected portions of representations
-- **Format Flexibility**: Internal processing uses JSON but supports transformation to other formats
+- **Format Flexibility**: Internal processing uses JSON for both processing and output formats
 - **Extension Points**: Clear interfaces for adding new languages, blueprint types, and features
 
 ## 2. Core Components
@@ -564,11 +564,11 @@ graph TD
 
 ### 5.1 Technology Stack
 
-- **Primary Language**: Python 3.9+
-- **Graph Library**: NetworkX or custom implementation
+- **Primary Language**: Python 3.13
+- **Graph Library**: NetworkX
 - **CLI Framework**: Click
-- **API Framework** (optional): Flask/FastAPI
-- **Serialization**: JSON (primary), XML (for AI consumption)
+- **API Framework**: FastAPI
+- **Serialization**: JSON
 - **VSCode Extension**: TypeScript
 - **Testing**: pytest, hypothesis, pact
 - **Documentation**: Sphinx
@@ -616,7 +616,7 @@ architectum/
 │   ├── cli/                      # Command-line interface
 │   │   ├── __init__.py
 │   │   └── commands.py          # CLI commands
-│   └── api/                      # API interface (optional)
+│   └── api/                      # API interface
 │       ├── __init__.py
 │       └── routes.py            # API endpoints
 ├── vscode-extension/            # VSCode extension
@@ -673,33 +673,53 @@ class GraphMLFormatter(OutputFormatter):
         """Format blueprint as GraphML."""
 ```
 
-## 7. Future Enhancements
+## 7. Error Handling Strategy
 
-### 7.1 Enhanced LSP Integration
+- **General Approach:** Use exceptions as the primary mechanism for error handling throughout the codebase. A clear custom exception hierarchy will be implemented with a base `ArchitectumError` class that all custom exceptions inherit from.
+
+- **Logging:**
+  - Library/Method: Python `logging` module with `structlog` for structured logging.
+  - Format: JSON format for all logs to enable easy parsing and analysis.
+  - Levels: DEBUG, INFO, WARN, ERROR, CRITICAL with standardized usage:
+    - DEBUG: Detailed information for diagnosing problems
+    - INFO: Confirmation that things are working as expected
+    - WARN: Indication that something unexpected happened, but processing can continue
+    - ERROR: Application has failed to perform some function
+    - CRITICAL: System is in a critical state requiring immediate attention
+  - Context: All logs must include: Correlation ID (for request tracing), Component Name, Operation Name, and relevant parameters (sanitized of sensitive data).
+
+- **Specific Handling Patterns:**
+  - External API Calls: Implement automatic retry with exponential backoff using `tenacity` library, with 3 max retries. All HTTP errors (4xx, 5xx) are translated to specific exception types (e.g., `ApiNotFoundError`, `ApiServerError`). Connection timeouts set to 5 seconds, read timeouts to 30 seconds.
+  - Internal Errors / Business Logic Exceptions: All business logic exceptions inherit from `BusinessError`. User-facing errors include error codes and user-friendly messages, while preserving technical details in logs. Business exceptions will include `code`, `message`, and `details` fields.
+  - Transaction Management: Repository operations use context managers to ensure consistent state in database operations. For multi-step operations, implement a saga pattern with compensating actions defined for each operation that might need rollback.
+
+## 8. Future Enhancements
+
+### 8.1 Enhanced LSP Integration
 
 - Deeper integration with Language Server Protocol
 - Real-time updates as code is edited
 - More accurate relationship detection
 
-### 7.2 Git Integration
+### 8.2 Git Integration
 
 - Post-commit hooks for automatic synchronization
 - Branch-aware blueprint generation
 - Diff-based incremental updates
 
-### 7.3 Props Tracking
+### 8.3 Props Tracking
 
 - Track component property flow across React/Vue components
 - Identify prop origins and prop usage
 - Visualize prop flow in the relationship map
 
-### 7.4 Advanced Feature Tagging
+### 8.4 Advanced Feature Tagging
 
 - AI-assisted feature boundary detection
 - Automatic tagging based on naming conventions
 - Feature tag propagation through relationships
 
-### 7.5 Interactive Visualization
+### 8.5 Interactive Visualization
 
 - Web-based graph visualization
 - Interactive navigation through the codebase
@@ -712,3 +732,4 @@ class GraphMLFormatter(OutputFormatter):
 | Initial draft | 05-17-2025 | 0.1     | Initial architecture document  | System Architect |
 | Update        | 05-17-2025 | 0.2     | Added arch sync workflow       | System Architect |
 | Revision      | 05-17-2025 | 0.3     | Refined blueprint types and core representations | System Architect |
+| Update        | 05-18-2025 | 0.4     | Updated Python version to 3.13, made definitive technology choices, added specific error handling strategy | System Architect |
