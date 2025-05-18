@@ -1,3 +1,0 @@
-"""
-Blueprint implementations.
-"""

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Architectum addresses two parallel challenges in modern software development: AI comprehension limitations and human navigation difficulties in complex codebases. While these challenges manifest differently, they share a common solution in a graph-based representation of code relationships.
+Architectum addresses two parallel challenges in modern software development: AI comprehension limitations and human navigation difficulties in complex codebases. While these challenges manifest differently, they share a common solution in a relationship-based representation of code.
 
 ## Problem #1: AI Comprehension Barriers
 
@@ -29,12 +29,12 @@ Current tools primarily offer hierarchical views (file trees) that fail to captu
 
 ## A Unified Solution
 
-Architectum addresses both AI and human challenges through a graph-based code representation that:
+Architectum addresses both AI and human challenges through a dual representation approach:
 
-1. Models code as a network of nodes and relationships
-2. Enables "virtual feature slices" across architectural boundaries
-3. Provides multiple perspectives on the same underlying structure
-4. Maintains the actual codebase in its optimal architecture
+1. **Relationship Map**: Models code as a network of nodes and relationships for efficient navigation
+2. **JSON Mirrors**: Maintains detailed JSON representations of code files in a parallel structure
+3. **Blueprints**: Creates specialized views by assembling elements from both core representations
+4. **Feature Tagging**: Enables "virtual feature slices" across architectural boundaries
 
 This approach bridges the gap between human-optimized code organization and comprehension patterns for both AI and humans.
 
@@ -46,19 +46,21 @@ To transform how both AI assistants and humans understand and interact with soft
 
 ### Primary Goals (MVP)
 
-1. **Graph-Based Blueprint Generation**: Create a system that models codebases as networks with explicit nodes (files, functions, classes, features) and relationships (contains, calls, implements, depends-on), representing the multi-dimensional nature of code.
+1. **Dual Representation System**: Implement both a Relationship Map (for navigation efficiency) and JSON Mirrors (for content detail) to provide complementary views of the codebase.
 
-2. **LSP-Powered Relationship Extraction**: Leverage Language Server Protocol to extract precise relationship data, including line numbers, call hierarchies, and type information, while minimizing processing overhead.
+2. **Blueprint Generation**: Create a system that assembles specialized views from the core representations, including File-Based Blueprints, Component-Based Blueprints, Feature Blueprints, and Temporary Blueprints.
 
-3. **Intelligent Caching & Incremental Updates**: Implement a blueprint caching strategy that only regenerates affected portions when code changes, maintaining blueprint accuracy without constant full reprocessing.
+3. **LSP-Powered Relationship Extraction**: Leverage Language Server Protocol to extract precise relationship data, including line numbers, call hierarchies, and type information, while minimizing processing overhead.
 
-4. **Multiple Blueprint Perspectives**: Support directory-based, file-based, and element-based blueprint generation, with all views derived from the underlying graph model.
+4. **Intelligent Caching & Incremental Updates**: Implement a blueprint caching strategy that only regenerates affected portions when code changes, maintaining blueprint accuracy without constant full reprocessing.
 
-5. **Virtual Feature Slicing**: Enable the extraction of subgraphs representing logical features regardless of their physical distribution across the codebase.
+5. **YAML-Based Blueprint Definition**: Enable declarative specification of blueprint contents through YAML files, supporting both persistent documentation and ad-hoc exploration.
 
-6. **Format Optimization**: Generate blueprints in formats optimized for both AI consumption and human visualization.
+6. **Virtual Feature Slicing**: Enable the extraction of subgraphs representing logical features regardless of their physical distribution across the codebase.
 
-7. **Proof-of-Concept Visualizer**: Develop a rudimentary web-based graph visualization that demonstrates the power of the relationship-centric approach.
+7. **Format Optimization**: Generate blueprints in formats optimized for both AI consumption and human visualization.
+
+8. **Proof-of-Concept Visualizer**: Develop a rudimentary web-based graph visualization that demonstrates the power of the relationship-centric approach.
 
 ### Success Metrics
 
@@ -125,23 +127,36 @@ To transform how both AI assistants and humans understand and interact with soft
 
 ## Key Features / Technical Scope (MVP)
 
-### 1. Graph-Based Code Model
+### 1. Dual Representation Core
 
-- **Node Types**: Files, Functions, Classes, Methods, Features (virtual)
-- **Relationship Types**: Contains, Calls, Implements, Imports, Inherits, Depends-On
-- **Metadata**: Line numbers, signatures, types, documentation references
-- **Subgraph Extraction**: Ability to create focused views based on nodes or relationships
-- **Traversal Support**: Methods to navigate the graph in any direction
+- **Relationship Map**: Efficient graph-based representation for navigation
+  - **Node Types**: Files, Functions, Classes, Methods, Features (virtual)
+  - **Relationship Types**: Contains, Calls, Implements, Imports, Inherits, Depends-On
+  - **Metadata**: Line numbers, signatures, basic type information
+  - **Navigation Support**: Methods to traverse relationships in any direction
 
-### 2. Blueprint Generation System
+- **JSON Mirrors**: Detailed content representation mirroring code files
+  - **Mirror Structure**: JSON representation for each code file
+  - **Content Detail**: Functions, classes, methods, properties with full signatures
+  - **Type Information**: Parameter types, return types, property types
+  - **Context Preservation**: Import/export information, file-level declarations
 
-- **DirectoryBlueprint**: Graph representation of a directory with its code elements
-- **FileSetBlueprint**: Custom graph slice based on a specific list of files
-- **CodeElementBlueprint**: Focused subgraph centered on specific functions or classes
-- **Detail Levels**: Minimal (structure), Standard (types), Detailed (documentation)
-- **Feature Tagging**: Association of elements with logical features (manual or AI-assisted)
+### 2. Blueprint Types
 
-### 3. LSP Integration
+- **File-Based Blueprint**: Combines selected files for comprehensive context
+- **Component-Based Blueprint**: Focuses on specific functions/classes within files
+- **Feature Blueprint**: Persistent documentation of a complete feature
+- **Temporary Blueprint**: Ad-hoc creation for immediate development tasks
+- **Detail Levels**: Configurable detail inclusion for different use cases
+
+### 3. YAML-Based Blueprint Definition
+
+- **Declarative Specification**: Define blueprint contents through YAML files
+- **Component Selection**: Specify files and elements to include
+- **Feature Tagging**: Associate elements with logical features
+- **Persistence Control**: Define whether blueprints should be saved as documentation
+
+### 4. LSP Integration
 
 - **Smart Querying**: Targeted LSP queries for relationship extraction
 - **Parser Bridge**: Abstraction over different language servers
@@ -149,30 +164,30 @@ To transform how both AI assistants and humans understand and interact with soft
 - **Call Hierarchy Extraction**: Function-to-function call relationships
 - **Initial Language Support**: TypeScript/JavaScript and Python
 
-### 4. Caching & Update System
+### 5. Caching & Update System
 
-- **Blueprint Storage**: Efficient storage format for graph representation
+- **Blueprint Storage**: Efficient storage format for blueprint representation
 - **Change Detection**: File hash-based change tracking
-- **Incremental Updates**: Partial graph regeneration for changed components
-- **Git Integration**: Support for hooking into version control events
+- **Incremental Updates**: Partial regeneration for changed components
+- **Synchronization Command**: `arch sync` for keeping representations up to date
 
-### 5. Output Formats
+### 6. Output Formats
 
-- **Internal Representation**: JSON-based graph structure for processing
+- **Internal Representation**: JSON-based structure for processing
 - **AI Consumption Format**: Semantic, structured format (potentially XML)
 - **Visualization Format**: Graph-compatible output for rendering tools
 - **Format Conversion**: On-demand transformation between formats
 
-### 6. Command-Line Interface
+### 7. Command-Line Interface
 
 - **Blueprint Generation**: Commands for generating different blueprint types
-- **Detail Selection**: Options for controlling output detail level
-- **Feature Filtering**: Ability to filter by tagged features
+- **YAML Support**: Blueprint creation from YAML definitions
+- **Synchronization**: Commands for updating code representations
 - **Output Control**: Format and destination options
 
-### 7. Proof-of-Concept Visualizer
+### 8. Proof-of-Concept Visualizer
 
-- **Graph Rendering**: Basic visualization of blueprint graph structure 
+- **Graph Rendering**: Basic visualization of relationship structure 
 - **Relationship Navigation**: Ability to follow connections between nodes
 - **Filter Controls**: Options to focus the view on specific aspects
 - **Export Capability**: Save or share visualizations
@@ -182,7 +197,7 @@ To transform how both AI assistants and humans understand and interact with soft
 ### Implementation Strategy
 
 - **Progressive Enhancement**:
-  1. Start with file-level analysis and basic graph structure
+  1. Start with file-level analysis and basic relationship structure
   2. Add function relationship mapping
   3. Implement feature tagging
   4. Build visualization capabilities
@@ -192,6 +207,12 @@ To transform how both AI assistants and humans understand and interact with soft
   - Leverage scripts and automation for efficiency
   - Implement caching to minimize redundant processing
   - Integrate with development workflows for automatic updates
+
+- **YAML-Based Blueprint Definition**:
+  - Use YAML files to declaratively define blueprint contents
+  - Support for file and component specifications
+  - Enable feature tagging and documentation
+  - Standardize blueprint configuration format
 
 - **Format Flexibility**:
   - JSON for internal processing
@@ -216,26 +237,29 @@ To transform how both AI assistants and humans understand and interact with soft
 
 ## Roadmap Overview
 
-### Phase 1: Core Blueprint Generation
+### Phase 1: Core Representation System
 
-- Establish graph data model
+- Establish Relationship Map data model
+- Implement JSON Mirrors structure
 - Implement basic LSP integration
-- Create directory blueprint generation
+- Create synchronization workflow
 - Set up caching framework
 - Implement CLI interface
 
-### Phase 2: Relationship Mapping
+### Phase 2: Blueprint Types and YAML Definition
 
-- Implement function-to-function relationship extraction
-- Add file dependency mapping
-- Create file set blueprint functionality
-- Enhance detail levels
+- Implement File-Based Blueprint generation
+- Implement Component-Based Blueprint generation
+- Create YAML specification format
+- Implement blueprint generation from YAML
+- Add detail level configuration
 
-### Phase 3: Feature Slicing & Element Blueprint
+### Phase 3: Feature Blueprints and Persistence
 
 - Implement feature tagging system
-- Create virtual feature slice capability
-- Add code element blueprint generation
+- Create Feature Blueprint capability
+- Add persistence mechanisms
+- Implement Temporary Blueprint generation
 - Optimize for AI consumption
 
 ### Phase 4: Visualization & Enhancement
@@ -247,7 +271,7 @@ To transform how both AI assistants and humans understand and interact with soft
 
 ## Conclusion
 
-Architectum represents a fundamental shift in how we think about code representation for both AI and human consumption. By modeling code as a graph of relationships rather than a hierarchy of files, it enables both AI assistants and human developers to understand and navigate complex codebases with greater efficiency and clarity. The system bridges the gap between human-optimized architectures and AI-optimized comprehension patterns, creating a unified view that serves both audiences without compromising the underlying code organization.
+Architectum represents a fundamental shift in how we think about code representation for both AI and human consumption. By providing a dual representation through both Relationship Maps and JSON Mirrors, along with specialized Blueprint views, it enables AI assistants and human developers to understand and navigate complex codebases with greater efficiency and clarity. The system bridges the gap between human-optimized architectures and AI-optimized comprehension patterns, creating a unified view that serves both audiences without compromising the underlying code organization.
 
 ---
 

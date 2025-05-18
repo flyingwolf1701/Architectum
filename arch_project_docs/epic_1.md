@@ -1,151 +1,179 @@
-# Epic 1: Core Blueprint Generation Framework and Graph Model Implementation
+# Epic 1: Core Blueprint Generation Framework and Dual Representation Implementation
 
-**Goal:** To establish the foundational infrastructure for Architectum's graph-based blueprint generation and deliver the `DirectoryBlueprint` capability, enabling AI agents and visualization tools to analyze specified directory structures at varying levels of detail through a relationship-oriented view.
+**Goal:** To establish the foundational infrastructure for Architectum's blueprint generation system with its dual representation approach (Relationship Map and JSON Mirrors), and to deliver basic blueprint capabilities that enable AI agents and visualization tools to analyze code structures at varying levels of detail.
 
 ## Story List
 
-### Story 1.1: Setup Blueprint Generation Core Module and Graph Model
+### Story 1.1: Setup Blueprint Generation Core Module with Dual Representation Model
 
-- **User Story / Goal:** As a system architect, I want a core module for blueprint generation established with a graph-based data model, so that different blueprint types can be developed and integrated in a consistent and maintainable manner within the existing Architectum repository.
+- **User Story / Goal:** As a system architect, I want a core module for blueprint generation established with both a Relationship Map model and JSON Mirrors structure, so that different blueprint types can be developed and integrated in a consistent and maintainable manner within the existing Architectum repository.
 - **Detailed Requirements:**
   - **Establish a new module or package named `arch_blueprint_generator` within the existing `Architectum` repository to house the blueprint generation capabilities.**
-  - Design and implement the core graph data model that will represent code as a network of nodes and relationships:
-    - Define node types (files, functions, classes, methods, features)
-    - Define relationship types (contains, calls, implements, imports, inherits)
-    - Create base classes/interfaces for nodes and relationships with appropriate metadata fields
-  - Implement basic graph operations (creation, traversal, subgraph extraction)
-  - Create serialization/deserialization support for the graph model
-  - Implement a basic command-line interface (CLI) or an API endpoint structure that can later be used to invoke different blueprint generators from within the Architectum system.
-  - Set up initial logging and error handling mechanisms for the module.
-  - Include a basic README for this new module, outlining its purpose and how to use it.
+  - Design and implement the core dual representation model:
+    - **Relationship Map**: Define a node-relationship structure for navigation efficiency
+      - Define node types (files, functions, classes, methods, features)
+      - Define relationship types (contains, calls, implements, imports, inherits)
+      - Create base classes/interfaces for nodes and relationships
+    - **JSON Mirrors**: Define a structure for detailed content representation
+      - Create parallel file structure that mirrors the codebase
+      - Define JSON schema for file content representation
+  - Implement basic operations for both representations (creation, navigation, update)
+  - Create serialization/deserialization support for both models
+  - Implement a basic command-line interface (CLI) or an API endpoint structure
+  - Set up initial logging and error handling mechanisms for the module
+  - Include a basic README for this new module, outlining its purpose and how to use it
 - **Acceptance Criteria (ACs):**
   - AC1: The new module/package `arch_blueprint_generator` is created within the `Architectum` repository and is buildable/integrable with the main project.
-  - AC2: The graph data model is implemented with support for nodes, relationships, and metadata.
-  - AC3: Basic graph operations (creation, traversal, subgraph extraction) are functional.
-  - AC4: A placeholder CLI command or API endpoint for blueprint generation exists and returns a "not yet implemented" message or basic help.
-  - AC5: Basic logging for module initialization and errors is functional.
-  - AC6: The module includes a README with a graph-based overview of the system.
-  - **AC7: Testing Requirements:**
-    - **Coverage:** At least 80% code coverage for the graph data model and core operations
+  - AC2: The Relationship Map model is implemented with support for nodes, relationships, and efficient navigation.
+  - AC3: The JSON Mirrors structure is implemented with the ability to create and access JSON representations of source files.
+  - AC4: Basic operations for both representations are functional and can be used independently.
+  - AC5: A placeholder CLI command or API endpoint exists and returns a "not yet implemented" message or basic help.
+  - AC6: Basic logging for module initialization and errors is functional.
+  - AC7: The module includes a README with an overview of the dual representation approach.
+  - **AC8: Testing Requirements:**
+    - **Coverage:** At least 80% code coverage for both representation models and core operations
     - **Framework:** Implementation using pytest for unit testing
-    - **Property Testing:** Use hypothesis to test graph model operations with property-based tests for robustness across random inputs
-    - **Test Cases:** Must include tests for node creation, relationship establishment, and graph operations
+    - **Property Testing:** Use hypothesis to test operations with property-based tests for robustness across random inputs
+    - **Test Cases:** Must include tests for node creation, relationship establishment, and JSON mirror operations
     - **Documentation:** Test cases must document expected behavior through descriptive test names and docstrings
 
-### Story 1.2: Implement DirectoryBlueprint Logic with Graph Structure
+### Story 1.2: Implement Basic Directory Scan and Representation Generation
 
-- **User Story / Goal:** As an AI agent (via Architectum), I want to request a `DirectoryBlueprint`, so that I can receive a graph-based structural representation of a specified directory.
+- **User Story / Goal:** As an AI agent (via Architectum), I want to request a directory scan and have both representations generated, so that I can access both navigation-focused and content-focused views of a specified directory.
 - **Detailed Requirements:**
   - Implement the logic to traverse a directory structure based on a given path and depth parameter.
-  - For each directory and file encountered, create appropriate nodes in the graph model.
-  - Establish "contains" relationships between directories and their contents.
-  - For each file encountered, extract basic information (e.g., filename, path, extension) and store as node metadata.
-  - Implement subgraph extraction based on the specified directory scope.
+  - For each directory and file encountered:
+    - Create appropriate nodes in the Relationship Map
+    - Create JSON mirror representations for each source file
+  - Establish "contains" relationships between directories and their contents in the Relationship Map.
+  - For each file, extract basic information (e.g., filename, path, extension) for both representations.
   - Handle cases where the provided path is invalid or inaccessible.
-  - The output should be a structured graph object representing the directory tree and its contents, serializable to JSON.
+  - Implement a unified interface for requesting directory scans that updates both representations.
 - **Acceptance Criteria (ACs):**
-  - AC1: Given a valid directory path and depth, the system generates a graph output representing the directory structure (filenames and subdirectories) down to the specified depth.
+  - AC1: Given a valid directory path and depth, the system generates both a Relationship Map and JSON Mirrors for the directory structure.
   - AC2: Given an invalid directory path, the system returns an appropriate error.
-  - AC3: The graph output correctly represents nested structures of directories and files with "contains" relationships.
-  - AC4: Scan depth 0 correctly scans all subdirectories and files.
-  - AC5: Scan depth 1 correctly scans only the immediate files and folders in the specified directory.
-  - AC6: The output graph can be serialized to JSON format.
+  - AC3: The Relationship Map correctly represents nested structures of directories and files with "contains" relationships.
+  - AC4: The JSON Mirrors structure correctly contains JSON representations for each source file.
+  - AC5: Scan depth 0 correctly scans all subdirectories and files.
+  - AC6: Scan depth 1 correctly scans only the immediate files and folders in the specified directory.
   - **AC7: Testing Requirements:**
-    - **Coverage:** At least 80% code coverage for the directory traversal and graph construction functionality
+    - **Coverage:** At least 80% code coverage for the directory traversal and representation generation functionality
     - **Framework:** Implementation using pytest with appropriate fixtures for file system operations
     - **Mocking:** Tests should use mock file systems to avoid external dependencies
-    - **Contract Testing:** Use pact to verify the JSON output matches the expected schema for consumers
+    - **Contract Testing:** Use pact to verify the JSON outputs match the expected schemas
     - **Snapshot Testing:** Create snapshot tests for representative directory structures
     - **Edge Cases:** Tests must cover error conditions, empty directories, and unusual file names
 
-### Story 1.3: Integrate 'Minimal' Detail Level for DirectoryBlueprint with Basic Code Analysis
+### Story 1.3: Implement 'arch sync' Command for Representation Updates
 
-- **User Story / Goal:** As an AI agent, I want to request a `DirectoryBlueprint` with `Minimal` detail, so that I can quickly get a high-level graph view of functions/classes and their relationships within the directory scope.
+- **User Story / Goal:** As a developer, I want to use the `arch sync` command to synchronize code changes with Architectum's representations, so that both the Relationship Map and JSON Mirrors remain up to date.
 - **Detailed Requirements:**
-  - For files identified by `DirectoryBlueprint` (Story 1.2), parse them (initially for supported languages like Python/JavaScript - specific languages TBD by Architect) to identify function and class declarations.
-  - Create function and class nodes in the graph model.
-  - Establish "contains" relationships between files and their functions/classes.
-  - Capture high-level relationships if easily identifiable (e.g., a function defined within a class).
-  - The JSON output for `DirectoryBlueprint` with `Minimal` detail should include this graph structure for each relevant code element.
+  - Implement a command-line interface for the `arch sync` command with the following options:
+    - Sync a specific file
+    - Sync a directory
+    - Sync open/modified files (foundation for IDE integration)
+  - Create a change detection mechanism to identify which files have changed since last sync
+  - Implement incremental updates for both representations:
+    - Update only affected nodes and relationships in the Relationship Map
+    - Update only changed files in the JSON Mirrors
+  - Add status reporting to show which files were synchronized
+  - Implement error handling for synchronization failures
 - **Acceptance Criteria (ACs):**
-  - AC1: Requesting a `DirectoryBlueprint` with `Minimal` detail includes nodes for functions and classes within files in the specified scope.
-  - AC2: The graph clearly distinguishes between different node types (files, directories, classes, functions).
-  - AC3: Relationships (e.g., "contains" relationships between classes and methods) are represented in the graph.
-  - AC4: Output does not include detailed parameter types, return types, or code comments for `Minimal` detail level.
-  - AC5: The graph structure is serializable to JSON.
+  - AC1: The `arch sync` command successfully updates both representations when files change.
+  - AC2: Only changed files are processed, improving performance for incremental updates.
+  - AC3: The command supports synchronizing individual files, directories, and multiple files.
+  - AC4: Status information is displayed showing which files were synchronized.
+  - AC5: Proper error handling is implemented for synchronization failures.
   - **AC6: Testing Requirements:**
-    - **Coverage:** At least 80% code coverage for the code parsing and node generation functionality
-    - **Framework:** Implementation using pytest with language-specific test files
-    - **Snapshot Testing:** Create snapshots for each supported language showing the minimal detail level
-    - **Contract Testing:** Ensure the JSON output consistently meets the defined schema contract
-    - **Language Coverage:** Tests must cover all supported languages with their specific constructs
+    - **Coverage:** At least 80% code coverage for the synchronization functionality
+    - **Framework:** Implementation using pytest with file modification simulation
+    - **Mocking:** Mock file changes to test change detection
+    - **Integration Testing:** End-to-end tests for the sync command with various parameters
+    - **Performance Testing:** Verify incremental updates are significantly faster than full scans
+    - **Error Handling:** Test recovery from various error conditions during synchronization
 
-### Story 1.4: Integrate 'Standard' Detail Level for DirectoryBlueprint with Enhanced Relationship Data
+### Story 1.4: Implement Detail Level Configuration for Representations
 
-- **User Story / Goal:** As an AI agent, I want to request a `DirectoryBlueprint` with `Standard` detail, so that I can get a graph representation with more specific information like parameter types and return types for elements within the directory scope.
+- **User Story / Goal:** As an AI agent or developer, I want to configure the detail level of the representations, so that I can control the balance between comprehensiveness and efficiency for different use cases.
 - **Detailed Requirements:**
-  - Extend the parsing logic from Story 1.3 to extract additional node metadata.
-  - For function/method nodes, add parameter names and their types (if available/type-hinted) as metadata.
-  - Add return types (if available/type-hinted) as metadata on function/method nodes.
-  - For class nodes, add properties/attributes with their types (if available) as metadata.
-  - Begin establishing more relationship types in the graph (e.g., "calls" relationships between functions if detectable without full LSP analysis).
-  - The JSON output for `DirectoryBlueprint` with `Standard` detail should include this enhanced graph structure.
+  - Implement detail level configuration for both representations:
+    - **Minimal**: Basic structure and relationship information, optimized for navigation efficiency
+    - **Standard**: Additional type information and signatures, balancing detail and efficiency
+    - **Detailed**: Comprehensive information including documentation, maximizing completeness
+  - For the Relationship Map:
+    - Minimal: Basic node types and primary relationships
+    - Standard: Enhanced metadata and secondary relationships
+    - Detailed: Comprehensive metadata and full relationship network
+  - For JSON Mirrors:
+    - Minimal: Basic file structure and element signatures
+    - Standard: Type information and interface details
+    - Detailed: Documentation and implementation insights
+  - Allow per-representation detail level configuration
+  - Implement mechanisms to apply detail level settings during generation
 - **Acceptance Criteria (ACs):**
-  - AC1: Requesting a `DirectoryBlueprint` with `Standard` detail includes all `Minimal` graph elements plus enhanced metadata.
-  - AC2: The graph nodes include metadata for parameter names and types for functions/methods.
-  - AC3: The graph nodes include metadata for return types for functions/methods.
-  - AC4: The graph nodes include metadata for class properties/attributes and their types.
-  - AC5: Basic "calls" relationships are included in the graph if easily detectable.
-  - AC6: Output does not include detailed code comments or annotations beyond what's necessary for type/signature information.
-  - **AC7: Testing Requirements:**
-    - **Coverage:** At least 80% code coverage for the enhanced metadata extraction and relationship detection functionality
-    - **Framework:** Implementation using pytest with parameterized tests for different language constructs
-    - **Snapshot Testing:** Create snapshots comparing standard vs. minimal detail levels
-    - **Contract Testing:** Verify the enhanced JSON output continues to meet schema requirements
-    - **Property Testing:** Use hypothesis to test type extraction across various function signatures
+  - AC1: Detail level configuration can be specified for both representations independently.
+  - AC2: The Minimal detail level produces streamlined representations for efficiency.
+  - AC3: The Standard detail level includes type information and signatures.
+  - AC4: The Detailed detail level includes comprehensive information including documentation.
+  - AC5: Detail level settings are correctly applied during representation generation.
+  - **AC6: Testing Requirements:**
+    - **Coverage:** At least 80% code coverage for the detail level configuration functionality
+    - **Framework:** Implementation using pytest with parameterized tests for detail levels
+    - **Snapshot Testing:** Create snapshots comparing representations at different detail levels
+    - **Contract Testing:** Verify outputs at different detail levels meet schema requirements
+    - **Performance Testing:** Measure representation size and generation time at different detail levels
+    - **Configuration Testing:** Test application of different detail level combinations
 
-### Story 1.5: Integrate 'Detailed' Detail Level for DirectoryBlueprint with Documentation Data
+### Story 1.5: Implement Basic File-Based Blueprint Generation
 
-- **User Story / Goal:** As an AI agent, I want to request a `DirectoryBlueprint` with `Detailed` detail, so that I can obtain a comprehensive graph representation, including code comments and annotations, for elements within the directory scope.
+- **User Story / Goal:** As an AI agent, I want to request a basic File-Based Blueprint, so that I can receive a focused view of specific files regardless of their location in the directory structure.
 - **Detailed Requirements:**
-  - Extend the parsing logic from Story 1.4 for the graph nodes.
-  - Extract code comments (e.g., docstrings, block comments) associated with classes, functions, and methods and add as node metadata.
-  - Extract relevant annotations/decorators and add as node metadata.
-  - Add any additional metadata that would be valuable for detailed understanding.
-  - Enhance the relationship detection for the graph model where possible.
-  - The JSON output for `DirectoryBlueprint` with `Detailed` detail should include this information-rich graph structure.
+  - Implement the infrastructure for blueprint generation based on the dual representations
+  - Create a File-Based Blueprint generator that:
+    - Accepts a list of file paths
+    - Extracts relevant sections from both the Relationship Map and JSON Mirrors
+    - Combines them into a unified blueprint structure
+    - Preserves relationships between the specified files
+  - Create serialization support for the blueprint (initially JSON)
+  - Handle cases where specified files don't exist or aren't accessible
+  - Support different detail level configurations
 - **Acceptance Criteria (ACs):**
-  - AC1: Requesting a `DirectoryBlueprint` with `Detailed` detail includes all `Standard` graph elements and their relationships.
-  - AC2: The graph nodes include associated code comments/docstrings as metadata.
-  - AC3: The graph nodes include relevant annotations/decorators as metadata.
-  - AC4: The relationship structure is as complete as possible without full LSP integration (which will come in later epics).
-  - **AC5: Testing Requirements:**
-    - **Coverage:** At least 80% code coverage for the documentation extraction and enhanced relationship detection functionality
-    - **Framework:** Implementation using pytest with specific test cases for docstring formats and annotations
-    - **Snapshot Testing:** Create snapshots showing the detailed level output for well-documented code
-    - **Contract Testing:** Verify the detailed output format meets schema requirements
-    - **Language Specifics:** Test language-specific documentation formats (e.g., Python docstrings, JSDoc)
+  - AC1: Given a list of valid file paths, the system generates a File-Based Blueprint.
+  - AC2: The blueprint includes elements from both the Relationship Map and JSON Mirrors.
+  - AC3: Relationships between files are preserved in the blueprint.
+  - AC4: Different detail levels produce appropriately varied blueprint contents.
+  - AC5: Invalid file paths are handled gracefully with appropriate error messages.
+  - **AC6: Testing Requirements:**
+    - **Coverage:** At least 80% code coverage for the File-Based Blueprint generation functionality
+    - **Framework:** Implementation using pytest with file fixture sets
+    - **Snapshot Testing:** Create snapshots for various file combinations and detail levels
+    - **Contract Testing:** Verify blueprint outputs meet schema requirements
+    - **Error Handling:** Test responses to invalid paths and other error conditions
+    - **Detail Level Testing:** Verify blueprint content varies appropriately with detail level settings
 
-### Story 1.6: Expose DirectoryBlueprint via Initial API/CLI with Graph Output Options
+### Story 1.6: Expose Blueprint Generation via Initial API/CLI
 
-- **User Story / Goal:** As a developer or another service, I want to trigger the generation of a `DirectoryBlueprint` graph via a defined API endpoint or CLI command within Architectum, so that I can integrate this capability into other tools or workflows.
+- **User Story / Goal:** As a developer or another service, I want to trigger blueprint generation via a defined API endpoint or CLI command within Architectum, so that I can integrate this capability into other tools or workflows.
 - **Detailed Requirements:**
-  - If API-based: Define and implement an endpoint (e.g., `POST /blueprints/directory` accessible within Architectum) that accepts `targetDirectoryPath`, `scanDepth`, and `detailLevel` as parameters.
-  - If CLI-based: Define and implement a command (e.g., `architectum generate directory-blueprint --path <path> --depth <depth> --level <level>`, where `architectum` is the main CLI entry point) that accepts `targetDirectoryPath`, `scanDepth`, and `detailLevel` as parameters.
-  - The endpoint/command should invoke the `DirectoryBlueprint` generation logic with the specified parameters.
-  - Add options for output format (e.g., JSON, potentially other formats like XML for AI consumption).
-  - Add options for output destination (stdout, file, etc.).
-  - The generated graph blueprint should be returned as the response (API) or output to stdout/file (CLI).
+  - Implement a CLI interface for blueprint generation:
+    - `architectum blueprint file --files <file1,file2> --level <level>` for File-Based Blueprints
+    - Support for different output formats (JSON, potentially XML)
+    - Options for output destination (stdout, file)
+  - If API-based: Define and implement an endpoint (e.g., `POST /blueprints/file`) that accepts file paths and detail level parameters.
+  - Integrate the blueprint generation with the existing `arch sync` command to ensure representations are up to date.
+  - Add appropriate error handling and validation.
+  - Include comprehensive help documentation.
 - **Acceptance Criteria (ACs):**
-  - AC1: The API endpoint or CLI command successfully triggers `DirectoryBlueprint` graph generation.
-  - AC2: All required parameters (`targetDirectoryPath`, `scanDepth`, `detailLevel`) can be passed and are correctly used.
-  - AC3: The generated graph blueprint is returned correctly via the API response or CLI output.
-  - AC4: Output format options are functional (at minimum, JSON output).
+  - AC1: The CLI command successfully triggers blueprint generation.
+  - AC2: All required parameters can be passed and are correctly used.
+  - AC3: Generated blueprints are correctly output in the specified format.
+  - AC4: Output format and destination options are functional.
   - AC5: Proper error handling is implemented for invalid inputs or generation failures.
-  - **AC6: Testing Requirements:**
-    - **Coverage:** At least 80% code coverage for the API/CLI implementation and output formatting options
+  - AC6: Help documentation is clear and comprehensive.
+  - **AC7: Testing Requirements:**
+    - **Coverage:** At least 80% code coverage for the CLI implementation and output handling
     - **Framework:** Implementation using pytest with CLI invocation testing
-    - **Integration Testing:** End-to-end tests calling the API/CLI with various parameters
+    - **Integration Testing:** End-to-end tests calling the CLI with various parameters
     - **Contract Testing:** Verify the output format options produce valid outputs
     - **Parameter Testing:** Test all parameter combinations and error handling
     - **Output Format Testing:** Test different output formats if implemented
@@ -159,3 +187,4 @@
 | Initial draft | 05-16-2025 | 0.1     | Initial draft of Epic 1        | Product Manager |
 | Updated with graph approach | 05-17-2025 | 0.2 | Enhanced Epic 1 with graph-based model | Technical Scrum Master |
 | Added testing requirements | 05-17-2025 | 0.3 | Added comprehensive testing strategy | Technical Scrum Master |
+| Refined architecture | 05-18-2025 | 0.4 | Updated to reflect dual representation and revised blueprint approach | System Architect |

@@ -2,12 +2,13 @@
 
 ## Intro
 
-Architectum aims to revolutionize how both AI assistants and humans understand and interact with complex codebases by providing a graph-based representation of code relationships. Rather than treating code as a hierarchy of files and directories, Architectum reveals the true network of relationships between code elements, enabling "virtual feature slices" that transcend the physical organization of code. This initial version (MVP) focuses on establishing the core capability of generating structured, graph-based blueprints that can be consumed by AI agents and visualized by human developers.
+Architectum aims to revolutionize how both AI assistants and humans understand and interact with complex codebases through a dual representation approach. Rather than treating code as a hierarchy of files and directories, Architectum reveals the true network of relationships between code elements through its Relationship Map, while providing detailed content through JSON Mirrors. From these core representations, specialized Blueprints are assembled to enable "virtual feature slices" that transcend the physical organization of code. This initial version (MVP) focuses on establishing these core capabilities and the blueprint generation system that can be consumed by AI agents and visualized by human developers.
 
 ## Goals and Context
 
 - **Project Objectives:**
-    - To create a graph-based representation system that models code as a network of nodes and relationships
+    - To create a dual representation system with Relationship Maps (for efficient navigation) and JSON Mirrors (for detailed content)
+    - To enable blueprint generation for different use cases (File-Based, Component-Based, Feature, and Temporary)
     - To enable AI agents to understand code structure and relationships across architectural boundaries
     - To provide developers with visualization tools for navigating complex code relationships
     - To implement "virtual feature slicing" that creates feature-oriented views regardless of physical code organization
@@ -21,10 +22,11 @@ Architectum aims to revolutionize how both AI assistants and humans understand a
     - Blueprint update performance (target: <5 seconds for incremental updates on 100-file projects)
 
 - **Success Criteria:**
-    - The system successfully generates graph-based blueprints across all three types (Directory, FileSet, CodeElement)
-    - Incremental updates correctly maintain blueprint accuracy after code changes
+    - The system successfully generates all blueprint types from YAML definitions
+    - Incremental updates correctly maintain blueprint accuracy after code changes via `arch sync`
     - Generated blueprints can be consumed by AI agents to answer structure-related questions
-    - Proof-of-concept visualization demonstrates the graph-based relationships
+    - Proof-of-concept visualization demonstrates the relationship-based representation
+    - Feature Blueprints serve as persistent documentation for codebase features
 
 - **Key Performance Indicators (KPIs):**
     - Blueprint generation success rate
@@ -32,57 +34,65 @@ Architectum aims to revolutionize how both AI assistants and humans understand a
     - Token efficiency ratio (tokens in blueprint vs. tokens in raw code)
     - Update performance metrics (time to regenerate after changes)
     - AI task performance improvement metrics
+    - Feature Blueprint usage metrics (for documentation)
 
 ## Scope and Requirements (MVP / Current Version)
 
 ### Functional Requirements (High-Level)
 
-#### 1. Graph-Based Code Model
+#### 1. Core Representations
 
-- **1.1 Node Types**
-  - The system must support representing files, functions, classes, methods, and features as nodes in the graph
-  - Each node must have a unique identifier and type designation
-  - Nodes must contain metadata appropriate to their type (e.g., line numbers, signatures)
-  - The system must allow for tagging nodes with feature associations
+- **1.1 Relationship Map**
+  - The system must create and maintain a graph-based representation optimized for navigation
+  - Each node must have a unique identifier and type designation (file, function, class, method, feature)
+  - Relationships must be directional with clear source and target (calls, contains, imports, etc.)
+  - The Relationship Map should typically use "Minimal" detail level for efficiency
 
-- **1.2 Relationship Types**
-  - The system must support explicit relationships between nodes:
-    - Contains (file contains function, class contains method)
-    - Calls (function calls function)
-    - Implements (function implements feature)
-    - Imports (file imports file)
-    - Inherits (class extends class)
-    - Depends-On (various dependency types)
-  - Relationships must be directional with clear source and target
-  - Relationships must include relevant metadata (e.g., line numbers where calls occur)
+- **1.2 JSON Mirrors**
+  - The system must create and maintain JSON representations that mirror code files
+  - Mirrors must include detailed structure of each file (functions, classes, methods, properties)
+  - Mirrors must include type information, signatures, and file-level context
+  - JSON Mirrors should typically use "Standard" detail level for comprehensiveness
 
-- **1.3 Graph Operations**
-  - The system must support subgraph extraction based on nodes, relationships, or patterns
-  - The system must enable traversal of the graph in any direction
-  - The system must support filtering operations on the graph
-  - The system must maintain referential integrity between nodes and relationships
+- **1.3 Synchronization**
+  - The system must provide an `arch sync` command to update both representations when code changes
+  - Synchronization must be incremental, only updating affected parts
+  - The system must track which files need synchronization
+  - Synchronization must support individual files, directories, and interactive selection
 
 #### 2. Blueprint Generation System
 
-- **2.1 DirectoryBlueprint Generation**
-  - The system must generate a graph representation of a specified directory structure
-  - Users must be able to specify scan depth (e.g., 0 for all descendants, 1 for immediate children)
-  - The blueprint must include file nodes and their contained code elements
-  - Relationships between elements within the directory scope must be captured
-
-- **2.2 FileSetBlueprint Generation**
-  - The system must generate a graph based on a list of specified file paths
+- **2.1 File-Based Blueprint**
+  - The system must generate a blueprint from a specified list of files
   - The blueprint must include the specified files and their contained code elements
   - Relationships between elements across the specified files must be captured
   - The system must handle invalid or missing files gracefully
 
-- **2.3 CodeElementBlueprint Generation**
-  - The system must generate a focused graph centered on specified code elements (functions, classes)
+- **2.2 Component-Based Blueprint**
+  - The system must generate a blueprint focused on specific components within files
   - The blueprint must include the specified elements and their immediate relationships
-  - The system must capture both callers and callees of the specified elements
-  - The system must handle elements that cannot be found gracefully
+  - The system must provide file-level context necessary for the specified components
+  - The system must handle components that cannot be found gracefully
 
-- **2.4 Detail Level Configuration**
+- **2.3 Feature Blueprint**
+  - The system must generate persistent blueprints that document entire features
+  - Feature Blueprints must be defined through YAML specifications
+  - The system must store Feature Blueprints for reference and documentation
+  - Feature Blueprints must include all files and components related to a feature
+
+- **2.4 Temporary Blueprint**
+  - The system must support ad-hoc blueprint generation for immediate use
+  - Temporary Blueprints must have the same capabilities as Feature Blueprints
+  - The system must clear Temporary Blueprints after use to minimize storage
+  - Temporary Blueprints must be easily convertible to Feature Blueprints if desired
+
+- **2.5 YAML Blueprint Definition**
+  - The system must support blueprint definition through YAML files
+  - YAML definitions must allow specification of files and components to include
+  - YAML definitions must allow specification of blueprint type and persistence
+  - The system must validate YAML definitions before processing
+
+- **2.6 Detail Level Configuration**
   - All blueprint types must support three detail levels:
     - **Minimal**: Basic structure and relationship information
     - **Standard**: Additional type information and signatures
@@ -107,7 +117,7 @@ Architectum aims to revolutionize how both AI assistants and humans understand a
 - **3.3 Parser Abstraction**
   - The system must provide a consistent interface across different language parsers
   - The system must be extensible to support additional languages in the future
-  - The system must normalize language-specific constructs into the common graph model
+  - The system must normalize language-specific constructs into the common representations
   - The system must handle language-specific features appropriately
 
 #### 4. Caching & Incremental Updates
@@ -120,20 +130,21 @@ Architectum aims to revolutionize how both AI assistants and humans understand a
 
 - **4.2 Change Detection**
   - The system must track file hashes to detect changes
-  - The system must identify which parts of the graph are affected by file changes
+  - The system must identify which parts of the representations are affected by file changes
   - The system must support Git integration for change detection
   - The system must handle renamed or moved files appropriately
 
 - **4.3 Incremental Updates**
-  - The system must regenerate only affected portions of the graph when files change
+  - The system must regenerate only affected portions of the representations when files change
   - The system must maintain relationship integrity during partial updates
   - The system must handle cascading effects of changes
-  - The system must validate the consistency of the updated graph
+  - The system must validate the consistency of the updated representations
+  - The system must provide an `arch sync` command for managing updates
 
 #### 5. Output & Format Optimization
 
 - **5.1 Internal Representation**
-  - The system must use JSON for internal graph processing
+  - The system must use JSON for internal processing
   - The internal representation must be optimized for processing efficiency
   - The representation must preserve all node and relationship metadata
   - The representation must support serialization and deserialization
@@ -153,10 +164,22 @@ Architectum aims to revolutionize how both AI assistants and humans understand a
 #### 6. Command-Line Interface & API
 
 - **6.1 CLI Implementation**
-  - The system must provide a command-line interface for blueprint generation
+  - The system must provide a command-line interface for core operations
   - The CLI must support all blueprint types and detail levels
   - The CLI must include options for output format and destination
   - The CLI must provide clear error messages and help documentation
+
+- **6.1.1 Blueprint Commands**
+  - The CLI must support generating blueprints from YAML definitions
+  - The CLI must support both persistent Feature Blueprints and Temporary Blueprints
+  - The CLI must include commands for file-based and component-based blueprint creation
+  - The CLI must provide options for blueprint detail level and output format
+
+- **6.1.2 Synchronization Commands**
+  - The system must provide an `arch sync` command for synchronizing code with Architectum
+  - Synchronization must update both the Relationship Map and JSON Mirrors
+  - The system must support synchronizing individual files, open files, and directories
+  - The system must provide clear status information during synchronization
 
 - **6.2 API Design**
   - The system must provide a programmatic API for integration
@@ -206,7 +229,7 @@ Architectum aims to revolutionize how both AI assistants and humans understand a
 
 - **Maintainability:**
   - The codebase must be modular and well-documented
-  - The graph model must be extensible for future enhancements
+  - The architecture must be extensible for future enhancements
   - The system must include comprehensive logging for troubleshooting
   - The architecture must allow for component upgrades or replacements
 
@@ -251,25 +274,29 @@ Architectum aims to revolutionize how both AI assistants and humans understand a
 
 ### Epic 1: Core Blueprint Generation Framework and DirectoryBlueprint Implementation
 
-**Goal:** To establish the foundational infrastructure for Architectum's codebase blueprint generation and deliver the `DirectoryBlueprint` capability, enabling AI agents and visualization tools to analyze specified directory structures at varying levels of detail.
+**Goal:** To establish the foundational infrastructure for Architectum's codebase blueprint generation and deliver the core functionality for directory-based blueprint generation, enabling AI agents and visualization tools to analyze specified directory structures at varying levels of detail.
 
-### Epic 2: FileSetBlueprint Implementation
+### Epic 2: File-Based Blueprint Implementation
 
-**Goal:** To enable Architectum to generate blueprints based on an explicit list of user-specified files (`FileSetBlueprint`), allowing AI agents and visualization tools to analyze a curated collection of code files at varying levels of detail.
+**Goal:** To enable Architectum to generate blueprints based on an explicit list of user-specified files, allowing AI agents and visualization tools to analyze a curated collection of code files at varying levels of detail.
 
-### Epic 3: CodeElementBlueprint Implementation
+### Epic 3: Component-Based Blueprint Implementation
 
-**Goal:** To empower Architectum with the ability to generate highly focused blueprints detailing specific code elements (like functions, classes, methods) within a single file (`CodeElementBlueprint`), enabling AI agents to perform granular analysis.
+**Goal:** To empower Architectum with the ability to generate highly focused blueprints detailing specific code elements (like functions, classes, methods) within files, enabling AI agents to perform granular analysis.
 
-### Epic 4: Graph Model Enhancement and Relationship Extraction
+### Epic 4: Feature Blueprint Implementation
 
-**Goal:** To implement the comprehensive graph-based code model with nodes and relationships, enhancing the blueprint types with rich relationship data extracted through LSP.
+**Goal:** To implement persistent Feature Blueprints that serve as documentation for entire features across the codebase, with YAML-based definition and storage for reference.
 
-### Epic 5: Caching and Incremental Updates
+### Epic 5: Relationship Map and JSON Mirrors Enhancement
 
-**Goal:** To implement an intelligent caching system that stores blueprints and supports efficient incremental updates when code changes.
+**Goal:** To implement the comprehensive dual representation system with Relationship Map for navigation and JSON Mirrors for content, enabling efficient relationship extraction and navigation.
 
-### Epic 6: Proof-of-Concept Visualization
+### Epic 6: Caching and Incremental Updates
+
+**Goal:** To implement an intelligent caching system that stores blueprints and supports efficient incremental updates when code changes, including the `arch sync` command.
+
+### Epic 7: Proof-of-Concept Visualization
 
 **Goal:** To develop a basic web-based visualization component that renders blueprint graphs for human navigation and comprehension.
 
@@ -280,7 +307,9 @@ Architectum aims to revolutionize how both AI assistants and humans understand a
 - `docs/epic1.md`, `docs/epic2.md`, ...
 - `docs/tech-stack.md`
 - `docs/api-reference.md`
-- `docs/graph-model.md`
+- `docs/relationship-map.md`
+- `docs/json-mirrors.md`
+- `docs/yaml-specification.md`
 - `docs/output-formats.md`
 
 ## Post-MVP / Future Enhancements
@@ -299,6 +328,11 @@ Architectum aims to revolutionize how both AI assistants and humans understand a
   - AI-assisted feature association
   - Feature boundary detection
   - Automatic tagging based on naming conventions or comments
+
+- **Props Tracking:**
+  - Track component property flow across React/Vue components
+  - Identify prop origins and usage
+  - Visualize prop flow in relationship maps
 
 - **Enhanced Visualization:**
   - Interactive 3D graph visualization
@@ -320,6 +354,7 @@ Architectum aims to revolutionize how both AI assistants and humans understand a
 | Change        | Date       | Version | Description                  | Author         |
 | ------------- | ---------- | ------- | ---------------------------- | -------------- |
 | Initial draft | 05-17-2025 | 0.1     | Initial PRD with graph focus | Product Manager |
+| Update        | 05-17-2025 | 0.2     | Revised with dual representation and updated blueprint types | Product Manager |
 
 ## Initial Architect Prompt
 
@@ -328,16 +363,17 @@ Based on our discussions and requirements analysis for the Architectum platform,
 ### Technical Infrastructure
 
 - **Module Integration:** The `arch_blueprint_generator` module should be integrated within the existing `Architectum` repository while maintaining clear separation of concerns.
-- **Core Graph Model:** The foundation of the system should be a robust graph data model that represents code as a network of nodes and relationships.
+- **Dual Representation:** The foundation of the system should be a robust dual representation with Relationship Maps for navigation efficiency and JSON Mirrors for detailed content.
 - **LSP Integration:** The system should leverage Language Server Protocol for accurate code analysis, but with smart querying patterns to minimize overhead.
 - **Caching Strategy:** Implement an efficient caching system that enables incremental updates rather than full regeneration.
 
 ### Key Architectural Decisions
 
-1. **Graph Representation:** Design a flexible, extensible graph structure that can model the multi-dimensional nature of code relationships.
-2. **Parser Abstraction:** Create a clean abstraction layer over language-specific parsing to enable future language support.
-3. **Format Transformation:** Separate internal processing format (JSON) from AI consumption format (potentially XML) and visualization format.
-4. **Update Strategy:** Design an intelligent, incremental update system that minimizes processing overhead.
+1. **Blueprint Types:** Design a system that supports File-Based Blueprints, Component-Based Blueprints, Feature Blueprints, and Temporary Blueprints.
+2. **YAML Definition:** Implement support for declarative blueprint definition through YAML files.
+3. **Synchronization Workflow:** Create an `arch sync` command for keeping representations up to date with code changes.
+4. **Parser Abstraction:** Create a clean abstraction layer over language-specific parsing to enable future language support.
+5. **Format Transformation:** Separate internal processing format (JSON) from AI consumption format (potentially XML) and visualization format.
 
 ### Technical Constraints
 
@@ -352,4 +388,4 @@ Based on our discussions and requirements analysis for the Architectum platform,
 - **Automation:** Blueprint generation should be automatable through hooks and pipelines.
 - **Standalone Operations:** The system should be usable both within and independent of the main Architectum application.
 
-Please design an architecture that emphasizes the graph-based approach, with a focus on relationship extraction, incremental updates, and format optimization. The system should be modular, extensible, and performance-oriented, with clear boundaries between components. Consider both immediate implementation needs and future scalability as the system grows.
+Please design an architecture that emphasizes the dual representation approach, with YAML-based blueprint definition, efficient synchronization, and format optimization. The system should be modular, extensible, and performance-oriented, with clear boundaries between components. Consider both immediate implementation needs and future scalability as the system grows.
