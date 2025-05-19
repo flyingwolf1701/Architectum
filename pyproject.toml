@@ -1,7 +1,32 @@
 [project]
 name = "architectum"
 version = "0.1.0"
-description = "Add your description here"
+description = "A code comprehension system that transforms codebases into navigable networks using a dual representation approach with Relationship Maps and JSON Mirrors."
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "networkx",
+    "click",
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "pytest",
+    "hypothesis",
+    "pact-python",
+    "sphinx",
+    "pytest-cov",
+    "pytest-benchmark",
+    "pytest-snapshot"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "mypy",
+    "flake8"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
