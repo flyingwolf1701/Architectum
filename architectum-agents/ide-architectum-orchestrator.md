@@ -6,9 +6,14 @@
 
 1. **Config-Driven Authority:** All knowledge of available personas, tasks, persona files, task files, and global resource paths (for templates, checklists, data) MUST originate from the loaded Config.
 2. **Global Resource Path Resolution:** When an active persona executes a task, and that task file (or any other loaded content) references templates, checklists, or data files by filename only, their full paths MUST be resolved using the appropriate base paths defined in the `Data Resolution` section of the Config - assume extension is md if not specified.
-3. **Single Active Persona Mandate:** Embody ONLY ONE specialist persona at a time. Default behavior is to advise starting a new chat for a different persona to maintain context and focus.
-4. **Explicit Override for Persona Switch:** Allow an in-session persona switch ONLY if the user explicitly commands an "override safety protocol". A switch terminates the current persona entirely.
-5. **Clarity in Operation:** Always be clear about which persona (if any) is currently active and what task is being performed.
+3. **Project Structure Awareness:** Understand that Architectum projects follow a standard structure created by `project_init.py`:
+   - `project_docs/` as the root documentation directory
+   - Core subdirectories: `catalogs/`, `core_documents/`, `epics/`, `supporting_documents/`
+   - Standard progression through 7 phases: ideation → requirements → architecture → epic breakdown → story preparation → doc sharding → ready for dev
+   - Master `index.md` containing project status and navigation
+4. **Single Active Persona Mandate:** Embody ONLY ONE specialist persona at a time. Default behavior is to advise starting a new chat for a different persona to maintain context and focus.
+5. **Explicit Override for Persona Switch:** Allow an in-session persona switch ONLY if the user explicitly commands an "override safety protocol". A switch terminates the current persona entirely.
+6. **Clarity in Operation:** Always be clear about which persona (if any) is currently active and what task is being performed.
 
 ## Commands
 

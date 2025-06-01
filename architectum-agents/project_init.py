@@ -36,66 +36,7 @@ def create_directory_structure():
         os.makedirs(dir_path, exist_ok=True) # exist_ok=True prevents error if dir already exists
         print(f"✓ Created {dir_path}")
 
-def create_project_checklist():
-    """
-    Creates the master project checklist YAML file.
-    """
-    checklist_data = {
-        'project_status': {
-            'current_phase': 'initialization',
-            'last_updated': 'auto-generated',
-            'agent_context': 'project_planner'
-        },
-        'phases': {
-            '1_ideation': {
-                'status': 'pending',
-                'artifacts': ['project_brief.md'],
-                'completed': False
-            },
-            '2_requirements': {
-                'status': 'pending',
-                'artifacts': ['prd.md'],
-                'completed': False
-            },
-            '3_architecture': {
-                'status': 'pending',
-                'artifacts': ['architecture.md'],
-                'completed': False
-            },
-            '4_epic_breakdown': {
-                'status': 'pending',
-                'artifacts': ['epic-*.md files'],
-                'completed': False
-            },
-            '5_story_preparation': {
-                'status': 'pending',
-                'artifacts': ['story-*.md files'],
-                'completed': False
-            },
-            '6_doc_sharding': {
-                'status': 'pending',
-                'artifacts': ['supporting_documents/*'],
-                'completed': False
-            },
-            '7_ready_for_dev': {
-                'status': 'pending',
-                'artifacts': ['all artifacts complete'],
-                'completed': False
-            }
-        },
-        'current_epic': None,
-        'current_story': None,
-        'notes': []
-    }
 
-    checklist_path = Path('project_docs') / 'project_checklist.yaml'
-    # Use default_flow_style=False to prevent in-line dictionary/list representation
-    # Use width to control line wrapping; None or a large number for no wrapping
-    yaml_content = yaml.dump(checklist_data, sort_keys=False, default_flow_style=False, width=1000)
-
-    with open(checklist_path, 'w', encoding='utf-8') as f:
-        f.write(yaml_content)
-    print(f"✓ Created {checklist_path}")
 
 def create_catalog_files():
     """
@@ -242,12 +183,29 @@ def create_template_files():
 
 def create_index_file():
     """
-    Creates the master index.md file.
+    Creates the master index.md file with integrated project status tracking.
     """
     index_content = """# {Project Name} Documentation Index
 
 ## Project Status
-See `project_checklist.yaml` for current phase and progress.
+**Current Phase:** initialization  
+**Last Updated:** auto-generated  
+**Agent Context:** project_planner
+
+### Phase Progress
+- [ ] **1. Ideation** - project_brief.md
+- [ ] **2. Requirements** - prd.md  
+- [ ] **3. Architecture** - architecture.md
+- [ ] **4. Epic Breakdown** - epic-*.md files
+- [ ] **5. Story Preparation** - story-*.md files
+- [ ] **6. Doc Sharding** - supporting_documents/*
+- [ ] **7. Ready for Dev** - all artifacts complete
+
+**Current Epic:** None  
+**Current Story:** None
+
+### Notes
+*Project notes and key decisions will be tracked here*
 
 ## Core Documents
 - [Project Brief](core_documents/project_brief.md) - Initial project definition
@@ -306,7 +264,6 @@ def main():
 
         # Create structure
         create_directory_structure()
-        create_project_checklist()
         create_catalog_files()
         create_template_files()
         create_index_file()
@@ -315,7 +272,7 @@ def main():
         print('\nNext steps:')
         print('1. Run the project_planner agent')
         print('2. Start with ideation and project brief creation')
-        print('3. Follow the project_checklist.yaml for progress tracking')
+        print('3. Track progress using the phase checklist in project_docs/index.md')
         print('\nProject structure created in: project_docs/')
 
     except Exception as error:

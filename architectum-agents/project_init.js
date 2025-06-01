@@ -42,67 +42,7 @@ function createDirectoryStructure() {
     });
 }
 
-/**
- * Create the master project checklist YAML file
- */
-function createProjectChecklist() {
-    const checklistData = {
-        project_status: {
-            current_phase: 'initialization',
-            last_updated: 'auto-generated',
-            agent_context: 'project_planner'
-        },
-        phases: {
-            '1_ideation': {
-                status: 'pending',
-                artifacts: ['project-brief.md'],
-                completed: false
-            },
-            '2_requirements': {
-                status: 'pending',
-                artifacts: ['prd.md'],
-                completed: false
-            },
-            '3_architecture': {
-                status: 'pending',
-                artifacts: ['architecture.md'],
-                completed: false
-            },
-            '4_epic_breakdown': {
-                status: 'pending',
-                artifacts: ['epic-*.md files'],
-                completed: false
-            },
-            '5_story_preparation': {
-                status: 'pending',
-                artifacts: ['story-*.md files'],
-                completed: false
-            },
-            '6_doc_sharding': {
-                status: 'pending',
-                artifacts: ['supporting_documents/*'],
-                completed: false
-            },
-            '7_ready_for_dev': {
-                status: 'pending',
-                artifacts: ['all artifacts complete'],
-                completed: false
-            }
-        },
-        current_epic: null,
-        current_story: null,
-        notes: []
-    };
-    
-    const checklistPath = path.join('project_docs', 'project_checklist.yaml');
-    const yamlContent = yaml.dump(checklistData, { 
-        sortKeys: false,
-        lineWidth: -1 
-    });
-    
-    fs.writeFileSync(checklistPath, yamlContent);
-    console.log(`✓ Created ${checklistPath}`);
-}
+
 
 /**
  * Create initial catalog YAML files
@@ -116,6 +56,11 @@ function createCatalogFiles() {
     // Feature catalog structure
     const featureCatalog = {
         features: []
+    };
+    
+    // Test catalog structure
+    const testCatalog = {
+        tests: []
     };
     
     const catalogsPath = path.join('project_docs', 'catalogs');
@@ -242,16 +187,33 @@ function createTemplateFiles() {
 }
 
 /**
- * Create the master index.md file
+ * Create the master index.md file with integrated project status tracking
  */
 function createIndexFile() {
     const indexContent = `# {Project Name} Documentation Index
 
 ## Project Status
-See \`project_checklist.yaml\` for current phase and progress.
+**Current Phase:** initialization  
+**Last Updated:** auto-generated  
+**Agent Context:** project_planner
+
+### Phase Progress
+- [ ] **1. Ideation** - project_brief.md
+- [ ] **2. Requirements** - prd.md  
+- [ ] **3. Architecture** - architecture.md
+- [ ] **4. Epic Breakdown** - epic-*.md files
+- [ ] **5. Story Preparation** - story-*.md files
+- [ ] **6. Doc Sharding** - supporting_documents/*
+- [ ] **7. Ready for Dev** - all artifacts complete
+
+**Current Epic:** None  
+**Current Story:** None
+
+### Notes
+*Project notes and key decisions will be tracked here*
 
 ## Core Documents
-- [Project Brief](core_documents/project-brief.md) - Initial project definition
+- [Project Brief](core_documents/project_brief.md) - Initial project definition
 - [Product Requirements](core_documents/prd.md) - Detailed requirements and epics  
 - [Architecture](core_documents/architecture.md) - Technical architecture and design
 
@@ -320,7 +282,6 @@ async function main() {
         
         // Create structure
         createDirectoryStructure();
-        createProjectChecklist();
         createCatalogFiles();
         createTemplateFiles();
         createIndexFile();
@@ -329,7 +290,7 @@ async function main() {
         console.log('\nNext steps:');
         console.log('1. Run the project_planner agent');
         console.log('2. Start with ideation and project brief creation');
-        console.log('3. Follow the project_checklist.yaml for progress tracking');
+        console.log('3. Track progress using the phase checklist in project_docs/index.md');
         console.log('\nProject structure created in: project_docs/');
         
         rl.close();
@@ -348,7 +309,6 @@ if (require.main === module) {
 
 module.exports = {
     createDirectoryStructure,
-    createProjectChecklist,
     createCatalogFiles,
     createTemplateFiles,
     createIndexFile,

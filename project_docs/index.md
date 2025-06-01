@@ -1,7 +1,24 @@
 # {Project Name} Documentation Index
 
 ## Project Status
-See `project_checklist.yaml` for current phase and progress.
+**Current Phase:** initialization  
+**Last Updated:** auto-generated  
+**Agent Context:** project_planner
+
+### Phase Progress
+- [ ] **1. Ideation** - project_brief.md
+- [ ] **2. Requirements** - prd.md  
+- [ ] **3. Architecture** - architecture.md
+- [ ] **4. Epic Breakdown** - epic-*.md files
+- [ ] **5. Story Preparation** - story-*.md files
+- [ ] **6. Doc Sharding** - supporting_documents/*
+- [ ] **7. Ready for Dev** - all artifacts complete
+
+**Current Epic:** None  
+**Current Story:** None
+
+### Notes
+*Project notes and key decisions will be tracked here*
 
 ## Core Documents
 - [Project Brief](core_documents/project_brief.md) - Initial project definition
