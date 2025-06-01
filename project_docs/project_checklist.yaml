@@ -1,0 +1,43 @@
+project_status:
+  current_phase: initialization
+  last_updated: auto-generated
+  agent_context: project_planner
+phases:
+  1_ideation:
+    status: pending
+    artifacts:
+    - project-brief.md
+    completed: false
+  2_requirements:
+    status: pending
+    artifacts:
+    - prd.md
+    completed: false
+  3_architecture:
+    status: pending
+    artifacts:
+    - architecture.md
+    completed: false
+  4_epic_breakdown:
+    status: pending
+    artifacts:
+    - epic-*.md files
+    completed: false
+  5_story_preparation:
+    status: pending
+    artifacts:
+    - story-*.md files
+    completed: false
+  6_doc_sharding:
+    status: pending
+    artifacts:
+    - supporting_documents/*
+    completed: false
+  7_ready_for_dev:
+    status: pending
+    artifacts:
+    - all artifacts complete
+    completed: false
+current_epic: null
+current_story: null
+notes: []
