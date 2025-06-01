@@ -6,7 +6,6 @@ Creates the complete project_docs structure for new projects.
 
 import os
 import sys
-import subprocess
 from pathlib import Path
 
 def question(query: str) -> str:
