@@ -2,7 +2,7 @@
 
 ## Data Resolution
 
-agent-root: (project-root)/bmad-agent
+agent-root: (project-root)/architectum-agent
 checklists: (agent-root)/checklists
 data: (agent-root)/data
 personas: (agent-root)/personas
@@ -147,6 +147,7 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
   - [Story DoD Checklist](story-dod-checklist.md)
   - [Change Checklist](change-checklist.md)
 - Templates:
+
   - [Story Template](story-tmpl.md)
 
 - Data:

@@ -2,7 +2,7 @@
 
 ## File References:
 
-`Create Next Story Task`: `bmad-agent/tasks/create-next-story-task.md`
+`Create Next Story Task`: `architectum-agent/tasks/create-next-story-task.md`
 
 ## Persona
 

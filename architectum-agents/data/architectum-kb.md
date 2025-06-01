@@ -1,21 +1,21 @@
-# BMAD Knowledge Base
+# ARCHITECTUM Knowledge Base
 
 ## INDEX OF TOPICS
 
-- [BMAD Knowledge Base](#bmad-knowledge-base)
+- [ARCHITECTUM Knowledge Base](#architectum-knowledge-base)
   - [INDEX OF TOPICS](#index-of-topics)
-  - [BMAD METHOD - CORE PHILOSOPHY](#bmad-method---core-philosophy)
-  - [BMAD METHOD - AGILE METHODOLOGIES OVERVIEW](#bmad-method---agile-methodologies-overview)
+  - [ARCHITECTUM METHOD - CORE PHILOSOPHY](#architectum-method---core-philosophy)
+  - [ARCHITECTUM METHOD - AGILE METHODOLOGIES OVERVIEW](#architectum-method---agile-methodologies-overview)
     - [CORE PRINCIPLES OF AGILE](#core-principles-of-agile)
     - [KEY PRACTICES IN AGILE](#key-practices-in-agile)
     - [BENEFITS OF AGILE](#benefits-of-agile)
-  - [BMAD METHOD - ANALOGIES WITH AGILE PRINCIPLES](#bmad-method---analogies-with-agile-principles)
-  - [BMAD METHOD - TOOLING AND RESOURCE LOCATIONS](#bmad-method---tooling-and-resource-locations)
-  - [BMAD METHOD - COMMUNITY AND CONTRIBUTIONS](#bmad-method---community-and-contributions)
+  - [ARCHITECTUM METHOD - ANALOGIES WITH AGILE PRINCIPLES](#architectum-method---analogies-with-agile-principles)
+  - [ARCHITECTUM METHOD - TOOLING AND RESOURCE LOCATIONS](#architectum-method---tooling-and-resource-locations)
+  - [ARCHITECTUM METHOD - COMMUNITY AND CONTRIBUTIONS](#architectum-method---community-and-contributions)
     - [Licensing](#licensing)
-  - [BMAD METHOD - ETHOS \& BEST PRACTICES](#bmad-method---ethos--best-practices)
+  - [ARCHITECTUM METHOD - ETHOS \& BEST PRACTICES](#architectum-method---ethos--best-practices)
   - [AGENT ROLES AND RESPONSIBILITIES](#agent-roles-and-responsibilities)
-  - [NAVIGATING THE BMAD WORKFLOW - INITIAL GUIDANCE](#navigating-the-bmad-workflow---initial-guidance)
+  - [NAVIGATING THE ARCHITECTUM WORKFLOW - INITIAL GUIDANCE](#navigating-the-architectum-workflow---initial-guidance)
     - [STARTING YOUR PROJECT - ANALYST OR PM?](#starting-your-project---analyst-or-pm)
     - [UNDERSTANDING EPICS - SINGLE OR MULTIPLE?](#understanding-epics---single-or-multiple)
   - [SUGGESTED ORDER OF AGENT ENGAGEMENT (TYPICAL FLOW)](#suggested-order-of-agent-engagement-typical-flow)
@@ -23,14 +23,14 @@
   - [IDE VS UI USAGE - GENERAL RECOMMENDATIONS](#ide-vs-ui-usage---general-recommendations)
     - [CONCEPTUAL AND PLANNING PHASES](#conceptual-and-planning-phases)
     - [TECHNICAL DESIGN, DOCUMENTATION MANAGEMENT \& IMPLEMENTATION PHASES](#technical-design-documentation-management--implementation-phases)
-    - [BMAD METHOD FILES](#bmad-method-files)
+    - [ARCHITECTUM METHOD FILES](#architectum-method-files)
   - [LEVERAGING IDE TASKS FOR EFFICIENCY](#leveraging-ide-tasks-for-efficiency)
     - [PURPOSE OF IDE TASKS](#purpose-of-ide-tasks)
     - [EXAMPLES OF TASK FUNCTIONALITY](#examples-of-task-functionality)
 
-## BMAD METHOD - CORE PHILOSOPHY
+## ARCHITECTUM METHOD - CORE PHILOSOPHY
 
-**STATEMENT:** "Vibe CEO'ing" is about embracing the chaos, thinking like a CEO with unlimited resources and a singular vision, and leveraging AI as your high-powered team to achieve ambitious goals rapidly. The BMAD Method (Breakthrough Method of Agile (ai-driven) Development), currently in its V3 Release Preview "Bmad Agent", elevates "vibe coding" to advanced project planning, providing a structured yet flexible framework to plan, execute, and manage software projects using a team of specialized AI agents.
+**STATEMENT:** "Vibe CEO'ing" is about embracing the chaos, thinking like a CEO with unlimited resources and a singular vision, and leveraging AI as your high-powered team to achieve ambitious goals rapidly. The ARCHITECTUM Method (Breakthrough Method of Agile (ai-driven) Development), currently in its V3 Release Preview "Architectum Agent", elevates "vibe coding" to advanced project planning, providing a structured yet flexible framework to plan, execute, and manage software projects using a team of specialized AI agents.
 
 **DETAILS:**
 
@@ -38,7 +38,7 @@
 - Utilize AI as a force multiplier.
 - Adapt and overcome obstacles with a proactive mindset.
 
-## BMAD METHOD - AGILE METHODOLOGIES OVERVIEW
+## ARCHITECTUM METHOD - AGILE METHODOLOGIES OVERVIEW
 
 ### CORE PRINCIPLES OF AGILE
 
@@ -63,80 +63,80 @@
 - Enhanced Stakeholder Engagement: Close collaboration with users/clients.
 - Higher Team Morale: Empowered and self-organizing teams.
 
-## BMAD METHOD - ANALOGIES WITH AGILE PRINCIPLES
+## ARCHITECTUM METHOD - ANALOGIES WITH AGILE PRINCIPLES
 
-The BMAD Method, while distinct in its "Vibe CEO'ing" approach with AI, shares foundational parallels with Agile methodologies:
+The ARCHITECTUM Method, while distinct in its "Vibe CEO'ing" approach with AI, shares foundational parallels with Agile methodologies:
 
-- **Individuals and Interactions over Processes and Tools (Agile) vs. Vibe CEO & AI Team (BMAD):**
+- **Individuals and Interactions over Processes and Tools (Agile) vs. Vibe CEO & AI Team (ARCHITECTUM):**
 
   - **Agile:** Emphasizes the importance of skilled individuals and effective communication.
-  - **BMAD:** The "Vibe CEO" (you) actively directs and interacts with AI agents, treating them as a high-powered team. The quality of this interaction and clear instruction ("CLEAR_INSTRUCTIONS", "KNOW_YOUR_AGENTS") is paramount, echoing Agile's focus on human elements.
+  - **ARCHITECTUM:** The "Vibe CEO" (you) actively directs and interacts with AI agents, treating them as a high-powered team. The quality of this interaction and clear instruction ("CLEAR_INSTRUCTIONS", "KNOW_YOUR_AGENTS") is paramount, echoing Agile's focus on human elements.
 
-- **Working Software over Comprehensive Documentation (Agile) vs. Rapid Iteration & Quality Outputs (BMAD):**
+- **Working Software over Comprehensive Documentation (Agile) vs. Rapid Iteration & Quality Outputs (ARCHITECTUM):**
 
   - **Agile:** Prioritizes delivering functional software quickly.
-  - **BMAD:** Stresses "START_SMALL_SCALE_FAST" and "ITERATIVE_REFINEMENT." While "DOCUMENTATION_IS_KEY" for good inputs (briefs, PRDs), the goal is to leverage AI for rapid generation of working components or solutions. The focus is on achieving ambitious goals rapidly.
+  - **ARCHITECTUM:** Stresses "START_SMALL_SCALE_FAST" and "ITERATIVE_REFINEMENT." While "DOCUMENTATION_IS_KEY" for good inputs (briefs, PRDs), the goal is to leverage AI for rapid generation of working components or solutions. The focus is on achieving ambitious goals rapidly.
 
-- **Customer Collaboration over Contract Negotiation (Agile) vs. Vibe CEO as Ultimate Arbiter (BMAD):**
+- **Customer Collaboration over Contract Negotiation (Agile) vs. Vibe CEO as Ultimate Arbiter (ARCHITECTUM):**
 
   - **Agile:** Involves continuous feedback from the customer.
-  - **BMAD:** The "Vibe CEO" acts as the primary stakeholder and quality control ("QUALITY_CONTROL," "STRATEGIC_OVERSIGHT"), constantly reviewing and refining AI outputs, much like a highly engaged customer.
+  - **ARCHITECTUM:** The "Vibe CEO" acts as the primary stakeholder and quality control ("QUALITY_CONTROL," "STRATEGIC_OVERSIGHT"), constantly reviewing and refining AI outputs, much like a highly engaged customer.
 
-- **Responding to Change over Following a Plan (Agile) vs. Embrace Chaos & Adapt (BMAD):**
+- **Responding to Change over Following a Plan (Agile) vs. Embrace Chaos & Adapt (ARCHITECTUM):**
 
   - **Agile:** Values adaptability and responsiveness to new requirements.
-  - **BMAD:** Explicitly encourages to "EMBRACE_THE_CHAOS," "ADAPT & EXPERIMENT," and acknowledges that "ITERATIVE_REFINEMENT" means it's "not a linear process." This directly mirrors Agile's flexibility.
+  - **ARCHITECTUM:** Explicitly encourages to "EMBRACE_THE_CHAOS," "ADAPT & EXPERIMENT," and acknowledges that "ITERATIVE_REFINEMENT" means it's "not a linear process." This directly mirrors Agile's flexibility.
 
-- **Iterative Development & Incremental Delivery (Agile) vs. Story-based Implementation & Phased Value (BMAD):**
+- **Iterative Development & Incremental Delivery (Agile) vs. Story-based Implementation & Phased Value (ARCHITECTUM):**
 
   - **Agile:** Work is broken down into sprints, delivering value incrementally.
-  - **BMAD:** Projects are broken into Epics and Stories, with "Developer Agents" implementing stories one at a time. Epics represent "significant, deployable increments of value," aligning with incremental delivery.
+  - **ARCHITECTUM:** Projects are broken into Epics and Stories, with "Developer Agents" implementing stories one at a time. Epics represent "significant, deployable increments of value," aligning with incremental delivery.
 
-- **Continuous Feedback & Retrospectives (Agile) vs. Iterative Refinement & Quality Control (BMAD):**
+- **Continuous Feedback & Retrospectives (Agile) vs. Iterative Refinement & Quality Control (ARCHITECTUM):**
   - **Agile:** Teams regularly reflect and adjust processes.
-  - **BMAD:** The "Vibe CEO" continuously reviews outputs ("QUALITY_CONTROL") and directs "ITERATIVE_REFINEMENT," serving a similar function to feedback loops and process improvement.
+  - **ARCHITECTUM:** The "Vibe CEO" continuously reviews outputs ("QUALITY_CONTROL") and directs "ITERATIVE_REFINEMENT," serving a similar function to feedback loops and process improvement.
 
-## BMAD METHOD - TOOLING AND RESOURCE LOCATIONS
+## ARCHITECTUM METHOD - TOOLING AND RESOURCE LOCATIONS
 
-Effective use of the BMAD Method relies on understanding where key tools, configurations, and informational resources are located and how they are used. The method is designed to be tool-agnostic in principle, with agent instructions and workflows adaptable to various AI platforms and IDEs.
+Effective use of the ARCHITECTUM Method relies on understanding where key tools, configurations, and informational resources are located and how they are used. The method is designed to be tool-agnostic in principle, with agent instructions and workflows adaptable to various AI platforms and IDEs.
 
-- **BMAD Knowledge Base:** This document (`bmad-agent/data/bmad-kb.md`) serves as the central repository for understanding the BMAD method, its principles, agent roles, and workflows.
-- **Orchestrator Agents:** A key feature of V3 is the Orchestrator agent (e.g., "BMAD"), a master agent capable of embodying any specialized agent role.
+- **ARCHITECTUM Knowledge Base:** This document (`architectum-agent/data/architectum-kb.md`) serves as the central repository for understanding the ARCHITECTUM method, its principles, agent roles, and workflows.
+- **Orchestrator Agents:** A key feature of V3 is the Orchestrator agent (e.g., "ARCHITECTUM"), a master agent capable of embodying any specialized agent role.
   - **Web Agent Orchestrator:**
-    - **Setup:** Utilizes a Node.js build script (`build-bmad-web-orchestrator.js`) configured by `build-agent-cfg.js`.
-    - **Process:** Consolidates assets (personas, tasks, templates, checklists, data) from an `asset_root` (e.g., `./bmad-agent/`) into a `build_dir` (e.g., `./bmad-agent/build/`).
-    - **Output:** Produces bundled asset files (e.g., `personas.txt`, `tasks.txt`), an `agent-prompt.txt` (from `orchestrator_agent_prompt`), and an `agent-config.txt` (from `agent_cfg` like `web-bmad-orchestrator-agent-cfg.md`).
+    - **Setup:** Utilizes a Node.js build script (`build-architectum-web-orchestrator.js`) configured by `build-agent-cfg.js`.
+    - **Process:** Consolidates assets (personas, tasks, templates, checklists, data) from an `asset_root` (e.g., `./architectum-agent/`) into a `build_dir` (e.g., `./architectum-agent/build/`).
+    - **Output:** Produces bundled asset files (e.g., `personas.txt`, `tasks.txt`), an `agent-prompt.txt` (from `orchestrator_agent_prompt`), and an `agent-config.txt` (from `agent_cfg` like `web-architectum-orchestrator-agent-cfg.md`).
     - **Usage:** The `agent-prompt.txt` is used for the main custom web agent instruction set (e.g., Gemini 2.5 Gem or OpenAI Custom GPT), and the other build files are attached as knowledge/files.
-  - **IDE Agent Orchestrator (`ide-bmad-orchestrator.md`):**
+  - **IDE Agent Orchestrator (`ide-architectum-orchestrator.md`):**
     - **Setup:** Works without a build step, dynamically loading its configuration.
-    - **Configuration (`ide-bmad-orchestrator-cfg.md`):** Contains a `Data Resolution` section (defining base paths for assets like personas, tasks) and `Agent Definitions` (Title, Name, Customize, Persona file, Tasks).
+    - **Configuration (`ide-architectum-orchestrator-cfg.md`):** Contains a `Data Resolution` section (defining base paths for assets like personas, tasks) and `Agent Definitions` (Title, Name, Customize, Persona file, Tasks).
     - **Operation:** Loads its config, lists available personas, and upon user request, embodies the chosen agent by loading its persona file and applying customizations.
 - **Standalone IDE Agents:**
   - Optimized for IDE environments (e.g., Windsurf, Cursor), often under 6K characters (e.g., `dev.ide.md`, `sm.ide.md`).
   - Can directly reference and execute tasks.
 - **Agent Configuration Files:**
-  - `web-bmad-orchestrator-agent-cfg.md`: Defines agents the Web Orchestrator can embody, including references to personas, tasks, checklists, and templates (e.g., `personas#pm`, `tasks#create-prd`).
-  - `ide-bmad-orchestrator-cfg.md`: Configures the IDE Orchestrator, defining `Data Resolution` paths (e.g., `(project-root)/bmad-agent/personas`) and agent definitions with persona file names (e.g., `analyst.md`) and task file names (e.g., `create-prd.md`).
-  - `web-bmad-orchestrator-agent.md`: Main prompt for the Web Orchestrator.
-  - `ide-bmad-orchestrator.md`: Main prompt/definition of the IDE Orchestrator agent.
+  - `web-architectum-orchestrator-agent-cfg.md`: Defines agents the Web Orchestrator can embody, including references to personas, tasks, checklists, and templates (e.g., `personas#pm`, `tasks#create-prd`).
+  - `ide-architectum-orchestrator-cfg.md`: Configures the IDE Orchestrator, defining `Data Resolution` paths (e.g., `(project-root)/architectum-agent/personas`) and agent definitions with persona file names (e.g., `analyst.md`) and task file names (e.g., `create-prd.md`).
+  - `web-architectum-orchestrator-agent.md`: Main prompt for the Web Orchestrator.
+  - `ide-architectum-orchestrator.md`: Main prompt/definition of the IDE Orchestrator agent.
 - **Task Files:**
-  - Located in `bmad-agent/tasks/` (and sometimes `bmad-agent/checklists/` for checklist-like tasks).
+  - Located in `architectum-agent/tasks/` (and sometimes `architectum-agent/checklists/` for checklist-like tasks).
   - Self-contained instruction sets for specific jobs (e.g., `create-prd.md`, `checklist-run-task.md`).
   - Reduce agent bloat and provide on-demand functionality for any capable agent.
 - **Core Agent Definitions (Personas):**
   - Files (typically `.md`) defining core personalities and instructions for different agents.
-  - Located in `bmad-agent/personas/` (e.g., `analyst.md`, `pm.md`).
+  - Located in `architectum-agent/personas/` (e.g., `analyst.md`, `pm.md`).
 - **Project Documentation (Outputs):**
 - **Project Briefs:** Generated by the Analyst agent.
 - **Product Requirements Documents (PRDs):** Produced by the PM agent, containing epics and stories.
 - **UX/UI Specifications & Architecture Documents:** Created by Design Architect and Architect agents.
 - The **POSM agent** is crucial for organizing and managing these documents.
-- **Templates:** Standardized formats for briefs, PRDs, checklists, etc., likely stored in `bmad-agent/templates/`.
-- **Data Directory (`bmad-agent/data/`):** Stores persistent data, knowledge bases (like this one), and other key information for the agents.
+- **Templates:** Standardized formats for briefs, PRDs, checklists, etc., likely stored in `architectum-agent/templates/`.
+- **Data Directory (`architectum-agent/data/`):** Stores persistent data, knowledge bases (like this one), and other key information for the agents.
 
-## BMAD METHOD - COMMUNITY AND CONTRIBUTIONS
+## ARCHITECTUM METHOD - COMMUNITY AND CONTRIBUTIONS
 
-The BMAD Method thrives on community involvement and collaborative improvement.
+The ARCHITECTUM Method thrives on community involvement and collaborative improvement.
 
 - **Getting Involved:**
   - **GitHub Discussions:** The primary platform for discussing potential ideas, use cases, additions, and enhancements to the method.
@@ -155,9 +155,9 @@ The BMAD Method thrives on community involvement and collaborative improvement.
 
 ### Licensing
 
-The BMAD Method and its associated documentation and software are distributed under the **MIT License**.
+The ARCHITECTUM Method and its associated documentation and software are distributed under the **MIT License**.
 
-Copyright (c) 2025 Brian AKA BMad AKA Bmad Code
+Copyright (c) 2025 Brian AKA Architectum AKA Architectum Code
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -165,7 +165,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## BMAD METHOD - ETHOS & BEST PRACTICES
+## ARCHITECTUM METHOD - ETHOS & BEST PRACTICES
 
 - **CORE_ETHOS:** You are the "Vibe CEO." Think like a CEO with unlimited resources and a singular vision. Your AI agents are your high-powered team. Your job is to direct, refine, and ensure quality towards your ambitious goal. The method elevates "vibe coding" to advanced project planning.
 - **MAXIMIZE_AI_LEVERAGE:** Push the AI. Ask for more. Challenge its outputs. Iterate.
@@ -177,20 +177,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 - **KNOW_YOUR_AGENTS:** Understand each agent's role (see [AGENT ROLES AND RESPONSIBILITIES](#agent-roles-and-responsibilities) or below). This includes understanding the capabilities of the Orchestrator agent if you are using one.
 - **START_SMALL_SCALE_FAST:** Test concepts, then expand.
 - **EMBRACE_THE_CHAOS:** Pioneering new methods is messy. Adapt and overcome.
-- **ADAPT & EXPERIMENT:** The BMAD Method provides a structure, but feel free to adapt its principles, agent order, or templates to fit your specific project needs and working style. Experiment to find what works best for you. **Define agile the BMad way - or your way!** The agent configurations allow for customization of roles and responsibilities.
+- **ADAPT & EXPERIMENT:** The ARCHITECTUM Method provides a structure, but feel free to adapt its principles, agent order, or templates to fit your specific project needs and working style. Experiment to find what works best for you. **Define agile the Architectum way - or your way!** The agent configurations allow for customization of roles and responsibilities.
 
 ## AGENT ROLES AND RESPONSIBILITIES
 
-Understanding the distinct roles and responsibilities of each agent is key to effectively navigating the BMAD workflow. While the "Vibe CEO" provides overall direction, each agent specializes in different aspects of the project lifecycle. V3 introduces Orchestrator agents that can embody these roles, with configurations specified in `web-bmad-orchestrator-agent-cfg.md` for web and `ide-bmad-orchestrator-cfg.md` for IDE environments.
+Understanding the distinct roles and responsibilities of each agent is key to effectively navigating the ARCHITECTUM workflow. While the "Vibe CEO" provides overall direction, each agent specializes in different aspects of the project lifecycle. V3 introduces Orchestrator agents that can embody these roles, with configurations specified in `web-architectum-orchestrator-agent-cfg.md` for web and `ide-architectum-orchestrator-cfg.md` for IDE environments.
 
-- **Orchestrator Agent (BMAD):**
+- **Orchestrator Agent (ARCHITECTUM):**
 
-  - **Function:** The primary orchestrator, initially "BMAD." It can embody various specialized agent personas. It handles general BMAD queries, provides oversight, and is the go-to when unsure which specialist is needed.
-  - **Persona Reference:** `personas#bmad` (Web) or implicitly the core of `ide-bmad-orchestrator.md` (IDE).
-  - **Key Data/Knowledge:** Accesses `data#bmad-kb-data` (Web) for its knowledge base.
+  - **Function:** The primary orchestrator, initially "ARCHITECTUM." It can embody various specialized agent personas. It handles general ARCHITECTUM queries, provides oversight, and is the go-to when unsure which specialist is needed.
+  - **Persona Reference:** `personas#architectum` (Web) or implicitly the core of `ide-architectum-orchestrator.md` (IDE).
+  - **Key Data/Knowledge:** Accesses `data#architectum-kb-data` (Web) for its knowledge base.
   - **Types:**
-    - **Web Orchestrator:** Built using a script, leverages large context windows of platforms like Gemini 2.5 or OpenAI GPTs. Uses bundled assets. Its behavior and available agents are defined in `web-bmad-orchestrator-agent-cfg.md`.
-    - **IDE Orchestrator:** Operates directly in IDEs like Cursor or Windsurf without a build step, loading persona and task files dynamically based on its configuration (`ide-bmad-orchestrator-cfg.md`). The orchestrator itself is defined in `ide-bmad-orchestrator.md`.
+    - **Web Orchestrator:** Built using a script, leverages large context windows of platforms like Gemini 2.5 or OpenAI GPTs. Uses bundled assets. Its behavior and available agents are defined in `web-architectum-orchestrator-agent-cfg.md`.
+    - **IDE Orchestrator:** Operates directly in IDEs like Cursor or Windsurf without a build step, loading persona and task files dynamically based on its configuration (`ide-architectum-orchestrator-cfg.md`). The orchestrator itself is defined in `ide-architectum-orchestrator.md`.
   - **Key Feature:** Simplifies agent management, especially in environments with limitations on the number of custom agents.
 
 - **Analyst:**
@@ -240,10 +240,10 @@ Understanding the distinct roles and responsibilities of each agent is key to ef
   - **IDE Personas:** Multiple configurations can exist, using the `dev.ide.md` persona file (optimized for <6K characters for IDEs). Examples:
     - `Frontend Dev (DevFE)`: Specialized in NextJS, React, Typescript, HTML, Tailwind.
     - `Dev (Dev)`: Master Generalist Expert Senior Full Stack Developer.
-  - **Configuration:** Specialized agents can be configured in `ide-bmad-orchestrator-cfg.md` for the IDE Orchestrator, or defined for the Web Orchestrator. Standalone IDE developer agents (e.g., `dev.ide.md`) are also available.
+  - **Configuration:** Specialized agents can be configured in `ide-architectum-orchestrator-cfg.md` for the IDE Orchestrator, or defined for the Web Orchestrator. Standalone IDE developer agents (e.g., `dev.ide.md`) are also available.
   - **When to Use:** During the implementation phase, typically working within an IDE.
 
-## NAVIGATING THE BMAD WORKFLOW - INITIAL GUIDANCE
+## NAVIGATING THE ARCHITECTUM WORKFLOW - INITIAL GUIDANCE
 
 ### STARTING YOUR PROJECT - ANALYST OR PM?
 
@@ -260,7 +260,7 @@ Understanding the distinct roles and responsibilities of each agent is key to ef
 
 ## SUGGESTED ORDER OF AGENT ENGAGEMENT (TYPICAL FLOW)
 
-**NOTE:** This is a general guideline. The BMAD method is iterative; phases/agents might be revisited.
+**NOTE:** This is a general guideline. The ARCHITECTUM method is iterative; phases/agents might be revisited.
 
 1. **Analyst** - brainstorm and create a project brief.
 2. **PM (Product Manager)** - use the brief to produce a PRD with high level epics and stories.
@@ -270,13 +270,13 @@ Understanding the distinct roles and responsibilities of each agent is key to ef
 6. **Design Architect (If project has a UI)** - Optionally create a prompt to generate a UI from AI services such as Lovable or V0 from Vercel.
 7. **PO**: Validate documents are aligned, sequencing makes sense, runs a final master checklist. The PO can also help midstream development replan or course correct if major changes occur.
 8. **PO or SM**: Generate Stories 1 at a time (or multiple but not recommended) - this is generally done in the IDE after each story is completed by the Developer Agents.
-9. **Developer Agents**: Implement Stories 1 at a time. You can craft different specialized Developer Agents, or use a generic developer agent. It is recommended to create specialized developer agents and configure them in the `ide-bmad-orchestrator-cfg`.
+9. **Developer Agents**: Implement Stories 1 at a time. You can craft different specialized Developer Agents, or use a generic developer agent. It is recommended to create specialized developer agents and configure them in the `ide-architectum-orchestrator-cfg`.
 
 ## HANDLING MAJOR CHANGES
 
-Major changes are an inherent part of ambitious projects. The BMAD Method embraces this through its iterative nature and specific agent roles:
+Major changes are an inherent part of ambitious projects. The ARCHITECTUM Method embraces this through its iterative nature and specific agent roles:
 
-- **Iterative by Design:** The entire BMAD workflow is built on "ITERATIVE_REFINEMENT." Expect to revisit previous steps and agents as new information emerges or requirements evolve. It's "not a linear process."
+- **Iterative by Design:** The entire ARCHITECTUM workflow is built on "ITERATIVE_REFINEMENT." Expect to revisit previous steps and agents as new information emerges or requirements evolve. It's "not a linear process."
 - **Embrace and Adapt:** The core ethos includes "EMBRACE_THE_CHAOS" and "ADAPT & EXPERIMENT." Major changes are opportunities to refine the vision and approach.
 - **PO's Role in Re-planning:** The **Product Owner (PO)** is key in managing the impact of significant changes. They can "help midstream development replan or course correct if major changes occur." This involves reassessing priorities, adjusting the backlog, and ensuring alignment with the overall project goals.
 - **Strategic Oversight by Vibe CEO:** As the "Vibe CEO," your role is to maintain "STRATEGIC_OVERSIGHT." When major changes arise, you guide the necessary pivots, ensuring the project remains aligned with your singular vision.
@@ -284,7 +284,7 @@ Major changes are an inherent part of ambitious projects. The BMAD Method embrac
 
 ## IDE VS UI USAGE - GENERAL RECOMMENDATIONS
 
-The BMAD method can be orchestrated through different interfaces, typically a web UI for higher-level planning and an IDE for development and technical tasks.
+The ARCHITECTUM method can be orchestrated through different interfaces, typically a web UI for higher-level planning and an IDE for development and technical tasks.
 
 ### CONCEPTUAL AND PLANNING PHASES
 
@@ -292,33 +292,33 @@ The BMAD method can be orchestrated through different interfaces, typically a we
 - **Agents Involved:**
   - **Analyst:** Brainstorming, research, and initial project brief creation.
   - **PM (Product Manager):** PRD development, epic and high-level story definition.
-- **Activities:** Defining the vision, initial requirements gathering, market analysis, high-level planning. The `web-bmad-orchestrator-agent.md` and its configuration likely support these activities.
+- **Activities:** Defining the vision, initial requirements gathering, market analysis, high-level planning. The `web-architectum-orchestrator-agent.md` and its configuration likely support these activities.
 
 ### TECHNICAL DESIGN, DOCUMENTATION MANAGEMENT & IMPLEMENTATION PHASES
 
-- **Interface:** Primarily within the Integrated Development Environment (IDE), leveraging specialized agents (standalone or via the **IDE Agent Orchestrator** configured with `ide-bmad-orchestrator-cfg.md`).
+- **Interface:** Primarily within the Integrated Development Environment (IDE), leveraging specialized agents (standalone or via the **IDE Agent Orchestrator** configured with `ide-architectum-orchestrator-cfg.md`).
 - **Agents Involved:**
   - **Architect / Design Architect (UI):** Detailed technical design and specification.
   - **POSM Agent:** Ongoing documentation management and organization.
   - **PO (Product Owner) / SM (Scrum Master):** Detailed story generation, backlog refinement, often directly in the IDE or tools integrated with it.
   - **Developer Agents:** Code implementation for stories, working directly with the codebase in the IDE.
-- **Activities:** Detailed architecture, front-end/back-end design, code development, testing, leveraging IDE tasks (see "LEVERAGING IDE TASKS FOR EFFICIENCY"), using configurations like `ide-bmad-orchestrator-cfg.md`.
+- **Activities:** Detailed architecture, front-end/back-end design, code development, testing, leveraging IDE tasks (see "LEVERAGING IDE TASKS FOR EFFICIENCY"), using configurations like `ide-architectum-orchestrator-cfg.md`.
 
-### BMAD METHOD FILES
+### ARCHITECTUM METHOD FILES
 
-Understanding key files helps in navigating and customizing the BMAD process:
+Understanding key files helps in navigating and customizing the ARCHITECTUM process:
 
 - **Knowledge & Configuration:**
-  - `bmad-agent/data/bmad-kb.md`: This central knowledge base.
-  - `ide-bmad-orchestrator-cfg.md`: Configuration for IDE developer agents.
-  - `ide-bmad-orchestrator.md`: Definition of the IDE orchestrator agent.
-  - `web-bmad-orchestrator-agent-cfg.md`: Configuration for the web orchestrator agent.
-  - `web-bmad-orchestrator-agent.md`: Definition of the web orchestrator agent.
+  - `architectum-agent/data/architectum-kb.md`: This central knowledge base.
+  - `ide-architectum-orchestrator-cfg.md`: Configuration for IDE developer agents.
+  - `ide-architectum-orchestrator.md`: Definition of the IDE orchestrator agent.
+  - `web-architectum-orchestrator-agent-cfg.md`: Configuration for the web orchestrator agent.
+  - `web-architectum-orchestrator-agent.md`: Definition of the web orchestrator agent.
 - **Task Definitions:**
-  - Files in `bmad-agent/tasks/` or `bmad-agent/checklists/` (e.g., `checklist-run-task.md`): Reusable prompts for specific actions and also used by agents to keep agent persona files lean.
+  - Files in `architectum-agent/tasks/` or `architectum-agent/checklists/` (e.g., `checklist-run-task.md`): Reusable prompts for specific actions and also used by agents to keep agent persona files lean.
 - **Agent Personas & Templates:**
-  - Files in `bmad-agent/personas/`: Define the core behaviors of different agents.
-  - Files in `bmad-agent/templates/`: Standard formats for documents like Project Briefs, PRDs that the agents will use to populate instances of these documents.
+  - Files in `architectum-agent/personas/`: Define the core behaviors of different agents.
+  - Files in `architectum-agent/templates/`: Standard formats for documents like Project Briefs, PRDs that the agents will use to populate instances of these documents.
 - **Project Artifacts (Outputs - locations vary based on project setup):**
   - Project Briefs
   - Product Requirements Documents (PRDs)
@@ -331,14 +331,14 @@ Understanding key files helps in navigating and customizing the BMAD process:
 ### PURPOSE OF IDE TASKS
 
 - **Reduce Agent Bloat:** Avoid adding numerous, rarely used instructions to primary IDE agent modes (Dev Agent, SM Agent) or even the Orchestrator's base prompt. Keeps agents lean, beneficial for IDEs with limits on custom agent complexity/numbers.
-- **On-Demand Functionality:** Instruct an active IDE agent (standalone or an embodied persona within the IDE Orchestrator) to perform a task by providing the content of the relevant task file (e.g., from `bmad-agent/tasks/checklist-run-task.md`) as a prompt, or by referencing it if the agent is configured to find it (as with the IDE Orchestrator).
+- **On-Demand Functionality:** Instruct an active IDE agent (standalone or an embodied persona within the IDE Orchestrator) to perform a task by providing the content of the relevant task file (e.g., from `architectum-agent/tasks/checklist-run-task.md`) as a prompt, or by referencing it if the agent is configured to find it (as with the IDE Orchestrator).
 - **Versatility:** Any sufficiently capable agent can be asked to execute a task. Tasks can handle specific functions like running checklists, creating stories, sharding documents, indexing libraries, etc. They are self-contained instruction sets.
 
 ### EXAMPLES OF TASK FUNCTIONALITY
 
 **CONCEPT:** Think of tasks as specialized, callable mini-agents or on-demand instruction sets that main IDE agents or the Orchestrator (when embodying a persona) can invoke, keeping primary agent definitions streamlined. They are particularly useful for operations not performed frequently. The `docs/instruction.md` file provides more details on task setup and usage.
 
-Here are some examples of functionalities provided by tasks found in `bmad-agent/tasks/`:
+Here are some examples of functionalities provided by tasks found in `architectum-agent/tasks/`:
 
 - **`create-prd.md`:** Guides the generation of a Product Requirements Document.
 - **`create-next-story-task.md`:** Helps in defining and creating the next user story for development.

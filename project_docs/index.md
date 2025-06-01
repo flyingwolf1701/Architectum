@@ -4,7 +4,7 @@
 See `project_checklist.yaml` for current phase and progress.
 
 ## Core Documents
-- [Project Brief](core_documents/project-brief.md) - Initial project definition
+- [Project Brief](core_documents/project_brief.md) - Initial project definition
 - [Product Requirements](core_documents/prd.md) - Detailed requirements and epics
 - [Architecture](core_documents/architecture.md) - Technical architecture and design
 

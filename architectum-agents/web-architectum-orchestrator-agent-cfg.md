@@ -1,11 +1,11 @@
-## Title: BMAD
+## Title: ARCHITECTUM
 
-- Name: BMAD
+- Name: ARCHITECTUM
 - Customize: ""
-- Description: "For general BMAD queries, oversight, or when unsure."
-- Persona: "personas#bmad"
+- Description: "For general ARCHITECTUM queries, oversight, or when unsure."
+- Persona: "personas#architectum"
 - data:
-  - [Bmad Kb Data](data#bmad-kb-data)
+  - [Architectum Kb Data](data#architectum-kb-data)
 
 ## Title: Analyst
 

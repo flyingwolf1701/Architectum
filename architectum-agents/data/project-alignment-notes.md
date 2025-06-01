@@ -1,14 +1,15 @@
-# Project Alignment Notes: Architectum & BMAD Agent Integration
+# Project Alignment Notes: Architectum & ARCHITECTUM Agent Integration
 
 ## Overview
 
-This document outlines the alignment between the Architectum project structure and the BMAD agent system, ensuring both approaches work harmoniously.
+This document outlines the alignment between the Architectum project structure and the ARCHITECTUM agent system, ensuring both approaches work harmoniously.
 
 ## Key Alignments Made
 
 ### 1. File Path Structure Alignment
 
 **Architectum Project Structure:**
+
 ```
 docs/
 ├── catalogs/
@@ -35,7 +36,8 @@ docs/
 └── index.md
 ```
 
-**BMAD Agent References Updated:**
+**ARCHITECTUM Agent References Updated:**
+
 - ✅ Updated `create-next-story-task.md` to use `docs/epics/epic_{n}/` structure
 - ✅ Updated `dev.ide.md` persona to reference correct paths
 - ✅ Updated story file creation to use `docs/epics/epic_{epicNum}/story-{epicNum}.{storyNum}.md`
@@ -43,8 +45,9 @@ docs/
 ### 2. Documentation Reference Alignment
 
 **Core Documents Referenced:**
+
 - `docs/core_documents/architecture.md` ✅
-- `docs/core_documents/prd.md` ✅  
+- `docs/core_documents/prd.md` ✅
 - `docs/core_documents/project-brief.md` ✅
 - `docs/supporting_documents/` hierarchy ✅
 - `docs/index.md` as navigation hub ✅
@@ -52,6 +55,7 @@ docs/
 ### 3. Catalog System Integration
 
 Both approaches now emphasize:
+
 - ✅ Maintaining `project_catalog.yaml` with file inventory
 - ✅ Maintaining `feature_catalog.yaml` with feature mapping
 - ✅ Updating catalogs as part of story completion
@@ -60,6 +64,7 @@ Both approaches now emphasize:
 ### 4. Testing & Quality Standards
 
 Aligned requirements:
+
 - ✅ ≥80% unit test coverage (pytest + pytest-cov)
 - ✅ Story DoD checklist validation
 - ✅ QA Testing Guide creation
@@ -68,36 +73,43 @@ Aligned requirements:
 ### 5. Workflow Consistency
 
 **Standalone dev_agent.md approach:**
+
 - Epic ID selection → Load docs → Find incomplete story → Execute → DoD → Review
 
-**BMAD Orchestrator approach:**
+**ARCHITECTUM Orchestrator approach:**
+
 - Agent selection → Story task loading → Context gathering → Execute → DoD → Review
 
 Both approaches now use the same:
+
 - ✅ Story file structure and location
-- ✅ Catalog maintenance requirements  
+- ✅ Catalog maintenance requirements
 - ✅ DoD checklist validation
 - ✅ Testing standards
 
 ## Key Differences (By Design)
 
 ### Standalone vs Orchestrated
+
 - **dev_agent.md**: Direct, focused developer agent for IDE use
-- **BMAD agents**: Orchestrated team approach with specialized roles
+- **ARCHITECTUM agents**: Orchestrated team approach with specialized roles
 
 ### Scope & Context
+
 - **dev_agent.md**: Story-focused with minimal context switching
-- **BMAD agents**: Full project lifecycle with role-based expertise
+- **ARCHITECTUM agents**: Full project lifecycle with role-based expertise
 
 ## Usage Recommendations
 
 ### Use Standalone dev_agent.md when:
+
 - Working directly in IDE (Cursor, Windsurf, etc.)
 - Focused on story implementation only
 - Want minimal agent complexity
 - Need maximum implementation focus
 
-### Use BMAD Orchestrator when:
+### Use ARCHITECTUM Orchestrator when:
+
 - Need full project lifecycle management
 - Want role-based agent expertise (PM, Architect, etc.)
 - Working in environments supporting agent orchestration
@@ -106,6 +118,7 @@ Both approaches now use the same:
 ## Implementation Notes
 
 All Epic 3 stories created are compatible with both approaches:
+
 - ✅ Follow standard story template format
 - ✅ Include comprehensive acceptance criteria
 - ✅ Reference correct file paths and structures
