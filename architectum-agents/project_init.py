@@ -6,9 +6,6 @@ Creates the complete project_docs structure for new projects.
 
 import os
 import sys
-# The 'yaml' module is provided by the 'pyyaml' package.
-# You need to install pyyaml: pip install pyyaml or uv add pyyaml
-import yaml
 import subprocess
 from pathlib import Path
 
@@ -42,39 +39,24 @@ def create_catalog_files():
     """
     Creates initial catalog YAML files.
     """
-    # Project catalog structure
-    project_catalog = {
-        'files': []
-    }
-
-    # Feature catalog structure
-    feature_catalog = {
-        'features': []
-    }
-    
-    # Test catalog structure (added to match Node.js script)
-    test_catalog = {
-        'tests': [] # Assuming 'tests' as the key for consistency
-    }
-
     catalogs_path = Path('project_docs') / 'catalogs'
 
     # Write project catalog
     project_catalog_path = catalogs_path / 'project_catalog.yaml'
     with open(project_catalog_path, 'w', encoding='utf-8') as f:
-        yaml.dump(project_catalog, f, default_flow_style=False)
+        f.write('files: []\n')
     print(f"✓ Created {project_catalog_path}")
 
     # Write feature catalog
     feature_catalog_path = catalogs_path / 'feature_catalog.yaml'
     with open(feature_catalog_path, 'w', encoding='utf-8') as f:
-        yaml.dump(feature_catalog, f, default_flow_style=False)
+        f.write('features: []\n')
     print(f"✓ Created {feature_catalog_path}")
 
     # Write test catalog
     test_catalog_path = catalogs_path / 'test_catalog.yaml'
     with open(test_catalog_path, 'w', encoding='utf-8') as f:
-        yaml.dump(test_catalog, f, default_flow_style=False)
+        f.write('tests: []\n')
     print(f"✓ Created {test_catalog_path}")
 
 def create_template_files():
@@ -232,17 +214,7 @@ def create_index_file():
         f.write(index_content)
     print(f"✓ Created {index_path}")
 
-def check_dependencies():
-    """
-    Checks if pyyaml is available.
-    """
-    try:
-        import yaml # This imports the 'yaml' module, which is provided by the 'pyyaml' package.
-        return True
-    except ImportError:
-        print('❌ Required dependency "pyyaml" not found.')
-        print('Please install it using: pip install pyyaml or uv add pyyaml')
-        return False
+
 
 def main():
     """
@@ -250,10 +222,6 @@ def main():
     """
     try:
         print('🚀 Initializing Architectum project structure...')
-
-        # Check dependencies
-        if not check_dependencies():
-            sys.exit(1)
 
         # Check if project_docs already exists
         if Path('project_docs').exists():

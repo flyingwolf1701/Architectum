@@ -7,7 +7,6 @@
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
-const yaml = require('js-yaml');
 
 // Create readline interface for user input
 const rl = readline.createInterface({
@@ -48,36 +47,21 @@ function createDirectoryStructure() {
  * Create initial catalog YAML files
  */
 function createCatalogFiles() {
-    // Project catalog structure
-    const projectCatalog = {
-        files: []
-    };
-    
-    // Feature catalog structure
-    const featureCatalog = {
-        features: []
-    };
-    
-    // Test catalog structure
-    const testCatalog = {
-        tests: []
-    };
-    
     const catalogsPath = path.join('project_docs', 'catalogs');
     
     // Write project catalog
     const projectCatalogPath = path.join(catalogsPath, 'project_catalog.yaml');
-    fs.writeFileSync(projectCatalogPath, yaml.dump(projectCatalog));
+    fs.writeFileSync(projectCatalogPath, 'files: []\n');
     console.log(`✓ Created ${projectCatalogPath}`);
     
     // Write feature catalog
     const featureCatalogPath = path.join(catalogsPath, 'feature_catalog.yaml');
-    fs.writeFileSync(featureCatalogPath, yaml.dump(featureCatalog));
+    fs.writeFileSync(featureCatalogPath, 'features: []\n');
     console.log(`✓ Created ${featureCatalogPath}`);
 
     // Write test catalog
     const testCatalogPath = path.join(catalogsPath, 'test_catalog.yaml');
-    fs.writeFileSync(testCatalogPath, yaml.dump(testCatalog));
+    fs.writeFileSync(testCatalogPath, 'tests: []\n');
     console.log(`✓ Created ${testCatalogPath}`);
 }
 
@@ -237,26 +221,7 @@ function createIndexFile() {
     console.log(`✓ Created ${indexPath}`);
 }
 
-/**
- * Check if js-yaml is available, install if needed
- */
-function checkDependencies() {
-    try {
-        require('js-yaml');
-        return true;
-    } catch (error) {
-        console.log('📦 Installing required dependency: js-yaml');
-        const { execSync } = require('child_process');
-        try {
-            execSync('npm install js-yaml', { stdio: 'inherit' });
-            console.log('✓ js-yaml installed successfully');
-            return true;
-        } catch (installError) {
-            console.error('❌ Failed to install js-yaml. Please run: npm install js-yaml');
-            return false;
-        }
-    }
-}
+
 
 /**
  * Main initialization function
@@ -264,11 +229,6 @@ function checkDependencies() {
 async function main() {
     try {
         console.log('🚀 Initializing Architectum project structure...');
-        
-        // Check dependencies
-        if (!checkDependencies()) {
-            process.exit(1);
-        }
         
         // Check if project_docs already exists
         if (fs.existsSync('project_docs')) {
