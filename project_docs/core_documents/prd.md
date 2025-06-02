@@ -295,7 +295,7 @@ Monorepo structure with Python-based core system. The single repository will con
 - [Catalog System Docs](architectum-agents/data/catalog_system.md) - Project, feature and test catalog management documentation
 - [Catalog System](architectum-agents/data/catalog_system) - Folder containing catalogs
 - [Data Models](project_docs/supporting_documents/data-models.md) - Core data structures and schemas
-- [API Reference](project_docs//supporting_documents/api-reference.md) - CLI commands and internal API specifications
+- [API Reference](project_docs/supporting_documents/api-reference.md) - CLI commands and internal API specifications
 
 ## Out of Scope Ideas Post MVP
 
