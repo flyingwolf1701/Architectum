@@ -14,10 +14,10 @@
 
 MUST review and use:
 
-- `Assigned Story File`: `docs/epics/epic_{epicNumber}/story-{epicNumber}.{storyNumber}.md`
-- `Project Structure`: `docs/supporting_documents/project-structure.md`
-- `Operational Guidelines`: `docs/supporting_documents/operational-guidelines.md` (Covers Coding Standards, Testing Strategy, Error Handling, Security)
-- `Technology Stack`: `docs/supporting_documents/tech-stack.md`
+- `Assigned Story File`: `project_docs/epics/epic_{epicNumber}/story-{epicNumber}.{storyNumber}.md`
+- `Project Structure`: `project_docs/supporting_documents/project-structure.md`
+- `Operational Guidelines`: `project_docs/supporting_documents/operational-guidelines.md` (Covers Coding Standards, Testing Strategy, Error Handling, Security)
+- `Technology Stack`: `project_docs/supporting_documents/tech-stack.md`
 - `Story DoD Checklist`: `architectum-agent/checklists/story-dod-checklist.md`
 - `Debugging Log`: `TODO-revert.md` (project root, managed by Agent)
 

@@ -11,7 +11,7 @@ This document outlines the alignment between the Architectum project structure a
 **Architectum Project Structure:**
 
 ```
-docs/
+project_docs/
 ├── catalogs/
 │   ├── project_catalog.yaml
 │   ├── feature_catalog.yaml
@@ -42,19 +42,19 @@ docs/
 
 **ARCHITECTUM Agent References Updated:**
 
-- ✅ Updated `create-next-story-task.md` to use `docs/epics/epic_{n}/` structure
+- ✅ Updated `create-next-story-task.md` to use `project_docs/epics/epic_{n}/` structure
 - ✅ Updated `dev.ide.md` persona to reference correct paths
-- ✅ Updated story file creation to use `docs/epics/epic_{epicNum}/story-{epicNum}.{storyNum}.md`
+- ✅ Updated story file creation to use `project_docs/epics/epic_{epicNum}/story-{epicNum}.{storyNum}.md`
 
 ### 2. Documentation Reference Alignment
 
 **Core Documents Referenced:**
 
-- `docs/core_documents/architecture.md` ✅
-- `docs/core_documents/prd.md` ✅
-- `docs/core_documents/project-brief.md` ✅
-- `docs/supporting_documents/` hierarchy ✅
-- `docs/index.md` as navigation hub ✅
+- `project_docs/core_documents/architecture.md` ✅
+- `project_docs/core_documents/prd.md` ✅
+- `project_docs/core_documents/project_brief.md` ✅
+- `project_docs/supporting_documents/` hierarchy ✅
+- `project_docs/index.md` as navigation hub ✅
 
 ### 3. Catalog System Integration
 

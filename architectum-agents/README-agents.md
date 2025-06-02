@@ -81,7 +81,8 @@ Use `code_reviewer.md` for story validation and quality assurance.
 product-docs/
 ├── catalogs/
 │   ├── project_catalog.yaml      # File/component inventory
-│   └── feature_catalog.yaml      # Feature-to-code mapping
+│   ├── feature_catalog.yaml      # Feature-to-code mapping
+│   └── test_catalog.yaml         # Test code mapping
 ├── core_documents/
 │   ├── project-brief.md          # Initial project definition
 │   ├── prd.md                    # Product requirements & epics
@@ -93,7 +94,7 @@ product-docs/
 │   │   └── story-1.2.md
 │   └── epic_2/
 ├── supporting_documents/         # Token-efficient dev context
-│   ├── api-reference.md
+│   ├── api_reference.md
 │   ├── data-models.md
 │   ├── operational-guidelines.md
 │   └── tech-stack.md
