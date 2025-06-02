@@ -149,11 +149,42 @@ def create_template_files():
 {Deployment and operational considerations}
 """
 
+    # Frontend Architecture template
+    frontend_architecture_template = """# {Project Name} Frontend Architecture Document
+
+## Status: Draft
+
+## Technical Summary
+{Brief overview of frontend architecture approach}
+
+## Frontend Framework & Technology Stack
+{Frontend technology selections and frameworks}
+
+## Component Architecture
+{Component organization and structure}
+
+## State Management
+{State management approach and patterns}
+
+## Routing & Navigation
+{Routing strategy and navigation structure}
+
+## Build & Deployment
+{Frontend build process and deployment strategy}
+
+## Testing Strategy
+{Frontend testing approach and coverage}
+
+## Performance & Optimization
+{Frontend performance considerations}
+"""
+
     # Write template files
     templates = [
         ('project_brief.md', project_brief_template),
         ('prd.md', prd_template),
-        ('architecture.md', architecture_template)
+        ('architecture.md', architecture_template),
+        ('frontend-architecture.md', frontend_architecture_template)
     ]
 
     for filename, content in templates:
@@ -177,10 +208,11 @@ def create_index_file():
 - [ ] **1. Ideation** - project_brief.md
 - [ ] **2. Requirements** - prd.md  
 - [ ] **3. Architecture** - architecture.md
-- [ ] **4. Epic Breakdown** - epic-*.md files
-- [ ] **5. Story Preparation** - story-*.md files
-- [ ] **6. Doc Sharding** - supporting_documents/*
-- [ ] **7. Ready for Dev** - all artifacts complete
+- [ ] **4. Frontend Architecture** - frontend-architecture.md (if applicable)
+- [ ] **5. Epic Breakdown** - epic-*.md files
+- [ ] **6. Story Preparation** - story-*.md files
+- [ ] **7. Doc Sharding** - supporting_documents/*
+- [ ] **8. Ready for Dev** - all artifacts complete
 
 **Current Epic:** None  
 **Current Story:** None
@@ -192,6 +224,7 @@ def create_index_file():
 - [Project Brief](core_documents/project_brief.md) - Initial project definition
 - [Product Requirements](core_documents/prd.md) - Detailed requirements and epics
 - [Architecture](core_documents/architecture.md) - Technical architecture and design
+- [Frontend Architecture](core_documents/frontend-architecture.md) - Frontend-specific architecture (if applicable)
 
 ## Epics & Stories
 {Epic directories will be created during planning phase}
@@ -248,4 +281,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
