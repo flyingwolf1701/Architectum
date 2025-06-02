@@ -132,7 +132,7 @@ Produce the PRD with PM Prompt per the `prd-tmpl` utilizing the following guidan
 
       - The prompt should clearly state that the Design Architect is to operate in its **'UI/UX Specification Mode'**.
 
-      - It should instruct the Design Architect to use this PRD as primary input to collaboratively define and document detailed UI/UX specifications. This might involve creating/populating a `front-end-spec-tmpl` and ensuring key UI/UX considerations are integrated or referenced back into the PRD to enrich it.
+      - It should instruct the Design Architect to use this PRD as primary input to collaboratively define and document detailed UI/UX specifications. This might involve creating/populating a `frontend-spec-tmpl` and ensuring key UI/UX considerations are integrated or referenced back into the PRD to enrich it.
 
       - Example prompt text to insert:
 
@@ -147,14 +147,14 @@ Produce the PRD with PM Prompt per the `prd-tmpl` utilizing the following guidan
         1. Review the product goals, user stories, and any UI-related notes herein.
         2. Collaboratively define detailed user flows, wire-frames (conceptual), and key screen mockups/descriptions.
         3. Specify usability requirements and accessibility considerations.
-        4. Populate or create the `front-end-spec-tmpl` document.
+        4. Populate or create the `frontend-spec-tmpl` document.
         5. Ensure that this PRD is updated or clearly references the detailed UI/UX specifications derived from your work, so that it provides a comprehensive foundation for subsequent architecture and development phases.
 
         Please guide the user through this process to enrich the PRD with detailed UI/UX specifications.
         ```
 
   2.  **Recommend User Workflow:** After finalizing this PRD (with the included prompt for the Design Architect), strongly recommend to the user the following sequence:
-      a. First, engage the **Design Architect** agent (using the prompt you've embedded in the PRD) to operate in **'UI/UX Specification Mode'**. Explain that this step is crucial for detailing the user interface and experience, and the output (e.g., a populated `front-end-spec-tmpl` and potentially updated PRD sections) will be vital.
+      a. First, engage the **Design Architect** agent (using the prompt you've embedded in the PRD) to operate in **'UI/UX Specification Mode'**. Explain that this step is crucial for detailing the user interface and experience, and the output (e.g., a populated `frontend-spec-tmpl` and potentially updated PRD sections) will be vital.
       b. Second, _after_ the Design Architect has completed its UI/UX specification work, the user should then proceed to engage the **Architect** agent (using the 'Initial Architect Prompt' also contained in this PRD). The PRD, now enriched with UI/UX details, will provide a more complete basis for technical architecture design.
 
 - If the product does not include a user interface, you will simply recommend proceeding to the Architect agent using the 'Initial Architect Prompt' in the PRD.

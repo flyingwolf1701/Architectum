@@ -6,8 +6,8 @@ To generate a masterful, comprehensive, and optimized prompt that can be used wi
 
 ## Inputs
 
-- Completed UI/UX Specification (`front-end-spec-tmpl`)
-- Completed Frontend Architecture Document (`front-end-architecture`)
+- Completed UI/UX Specification (`frontend-spec-tmpl`)
+- Completed Frontend Architecture Document (`frontend-architecture`)
 - Main System Architecture Document (`architecture` - for API contracts and tech stack)
 - Primary Design Files (Figma, Sketch, etc. - for visual context if the tool can accept it or if descriptions are needed)
 
@@ -22,23 +22,23 @@ To generate a masterful, comprehensive, and optimized prompt that can be used wi
 
     - **Overall Project Context:**
       - Briefly state the project's purpose (from brief/PRD).
-      - Specify the chosen frontend framework, core libraries, and UI component library (from `front-end-architecture` and main `architecture`).
+      - Specify the chosen frontend framework, core libraries, and UI component library (from `frontend-architecture` and main `architecture`).
       - Mention the styling approach (e.g., Tailwind CSS, CSS Modules).
     - **Design System & Visuals:**
       - Reference the primary design files (e.g., Figma link).
-      - If the tool doesn't directly ingest design files, describe the overall visual style, color palette, typography, and key branding elements (from `front-end-spec-tmpl`).
+      - If the tool doesn't directly ingest design files, describe the overall visual style, color palette, typography, and key branding elements (from `frontend-spec-tmpl`).
       - List any global UI components or design tokens that should be defined or adhered to.
     - **Application Structure & Routing:**
-      - Describe the main pages/views and their routes (from `front-end-architecture` - Routing Strategy).
-      - Outline the navigation structure (from `front-end-spec-tmpl`).
+      - Describe the main pages/views and their routes (from `frontend-architecture` - Routing Strategy).
+      - Outline the navigation structure (from `frontend-spec-tmpl`).
     - **Key User Flows & Page-Level Interactions:**
-      - For a few critical user flows (from `front-end-spec-tmpl`):
+      - For a few critical user flows (from `frontend-spec-tmpl`):
         - Describe the sequence of user actions and expected UI changes on each relevant page.
         - Specify API calls to be made (referencing API endpoints from the main `architecture`) and how data should be displayed or used.
     - **Component Generation Instructions (Iterative or Key Components):**
       - Based on the chosen AI tool's capabilities, decide on a strategy:
         - **Option 1 (Scaffolding):** Prompt for the generation of main page structures, layouts, and placeholders for components.
-        - **Option 2 (Key Component Generation):** Select a few critical or complex components from the `front-end-architecture` (Component Breakdown) and provide detailed specifications for them (props, state, basic behavior, key UI elements).
+        - **Option 2 (Key Component Generation):** Select a few critical or complex components from the `frontend-architecture` (Component Breakdown) and provide detailed specifications for them (props, state, basic behavior, key UI elements).
         - **Option 3 (Holistic, if tool supports):** Attempt to describe the entire application structure and key components more broadly.
       - <important_note>Advise the user that generating an entire complex application perfectly in one go is rare. Iterative prompting or focusing on sections/key components is often more effective.</important_note>
     - **State Management (High-Level Pointers):**

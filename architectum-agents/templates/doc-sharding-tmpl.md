@@ -6,7 +6,7 @@ This plan directs the agent on how to break down large source documents into sma
 
 ## 1. Source Document: PRD (Project Requirements Document)
 
-- **Note to Agent:** Confirm the exact filename of the PRD with the user (e.g., `PRD.md`, `ProjectRequirements.md`, `8-prd-po-updated.md`).
+- **Note to Agent:** The exact filename of the PRD is `project_docs/core_documents/prd.md`.
 
 ### 1.1. Epic Granulation
 
@@ -19,7 +19,7 @@ This plan directs the agent on how to break down large source documents into sma
 
 ## 2. Source Document: Main Architecture Document
 
-- **Note to Agent:** Confirm the exact filename with the user (e.g., `architecture.md`, `SystemArchitecture.md`).
+- **Note to Agent:** The exact filename is `project_docs\core_documents\architecture.md`.
 
 ### 2.1. Core Architecture Granules
 
@@ -61,59 +61,41 @@ This plan directs the agent on how to break down large source documents into sma
 - **Source Section(s) to Copy:** Section(s) titled "Key Reference Documents".
 - **Target File:** `project_docs/supporting_documents/key-references.md`
 
-- **Source Section(s) to Copy:** Section(s) titled "Catalog System" or describing the catalog files (project_catalog.yaml and feature_catalog.yaml).
-- **Target File:** `project_docs/supporting_documents/catalog-system.md`
-
 ---
 
 ## 3. Source Document(s): Front-End Specific Documentation
 
-- **Note to Agent:** Confirm filenames with the user (e.g., `front-end-architecture.md`, `front-end-spec.md`, `ui-guidelines.md`). Multiple FE documents might exist.
+- **Note to Agent:** The primary filename for frontend architecture is `project_docs/core_documents/frontend-architecture.md`. Multiple FE documents might exist. Confirm with user that this is the only one.
 
 ### 3.1. Front-End Granules
 
 - **Source Section(s) to Copy:** Section(s) detailing "Front-End Project Structure" or "Detailed Frontend Directory Structure".
-- **Target File:** `project_docs/supporting_documents/front-end-project-structure.md`
+- **Target File:** `project_docs/supporting_documents/frontend-project-structure.md`
 
 - **Source Section(s) to Copy:** Section(s) detailing "UI Style Guide", "Brand Guidelines", "Visual Design Specifications", or "Styling Approach".
-- **Target File:** `project_docs/supporting_documents/front-end-style-guide.md`
+- **Target File:** `project_docs/supporting_documents/frontend-style-guide.md`
 
   - _Agent Note: This section might be a sub-section or refer to other documents (e.g., `ui-ux-spec.txt`). Extract the core styling philosophy and approach defined within the frontend architecture document itself._
 
 - **Source Section(s) to Copy:** Section(s) detailing "Component Library", "Reusable UI Components Guide", "Atomic Design Elements", or "Component Breakdown & Implementation Details".
-- **Target File:** `project_docs/supporting_documents/front-end-component-guide.md`
+- **Target File:** `project_docs/supporting_documents/frontend-component-guide.md`
 
 - **Source Section(s) to Copy:** Section(s) detailing "Front-End Coding Standards" (specifically for UI development, e.g., JavaScript/TypeScript style, CSS naming conventions, accessibility best practices for FE).
-- **Target File:** `project_docs/supporting_documents/front-end-coding-standards.md`
+- **Target File:** `project_docs/supporting_documents/frontend-coding-standards.md`
 
-  - _Agent Note: A dedicated top-level section for this might not exist. If not found, this shard might be empty or require cross-referencing with the main architecture's coding standards. Extract any front-end-specific coding conventions mentioned._
+  - _Agent Note: A dedicated top-level section for this might not exist. If not found, this shard might be empty or require cross-referencing with the main architecture's coding standards. Extract any frontend-specific coding conventions mentioned._
 
 - **Source Section(s) to Copy:** Section(s) titled "State Management In-Depth".
-- **Target File:** `project_docs/supporting_documents/front-end-state-management.md`
+- **Target File:** `project_docs/supporting_documents/frontend-state-management.md`
 
 - **Source Section(s) to Copy:** Section(s) titled "API Interaction Layer".
-- **Target File:** `project_docs/supporting_documents/front-end-api-interaction.md`
+- **Target File:** `project_docs/supporting_documents/frontend-api-interaction.md`
 
 - **Source Section(s) to Copy:** Section(s) titled "Routing Strategy".
-- **Target File:** `project_docs/supporting_documents/front-end-routing-strategy.md`
+- **Target File:** `project_docs/supporting_documents/frontend-routing-strategy.md`
 
 - **Source Section(s) to Copy:** Section(s) titled "Frontend Testing Strategy".
-- **Target File:** `project_docs/supporting_documents/front-end-testing-strategy.md`
-
----
-
-## 4. Catalog Files and Structure
-
-- **Note to Agent:** These are generated with their own specific format and would not typically be sharded from existing documentation.
-
-### 4.1. Catalog Files
-
-- **Target File:** `project_docs/catalogs/project_catalog.md`
-
-  - _Agent Note: This should be a summary description of the project catalog, explain its purpose and provide a template of what it looks like. If no content exists, create the structure based on information in the architecture document about the project catalog._
-
-- **Target File:** `project_docs/catalogs/feature_catalog.md`
-  - _Agent Note: This should be a summary description of the feature catalog, explain its purpose and provide a template of what it looks like. If no content exists, create the structure based on information in the architecture document about the feature catalog._
+- **Target File:** `project_docs/supporting_documents/frontend-testing-strategy.md`
 
 ---
 
