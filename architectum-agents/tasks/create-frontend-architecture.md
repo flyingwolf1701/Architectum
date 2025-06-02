@@ -2,12 +2,12 @@
 
 ## Purpose
 
-To define the technical architecture for the frontend application. This includes selecting appropriate patterns, structuring the codebase, defining component strategy, planning state management, outlining API interactions, and setting up testing and deployment approaches, all while adhering to the guidelines in `front-end-architecture-tmpl` template.
+To define the technical architecture for the frontend application. This includes selecting appropriate patterns, structuring the codebase, defining component strategy, planning state management, outlining API interactions, and setting up testing and deployment approaches, all while adhering to the guidelines in `frontend-architecture-tmpl` template.
 
 ## Inputs
 
 - Product Requirements Document (PRD) (`prd-tmpl` or equivalent)
-- Completed UI/UX Specification (`front-end-spec-tmpl` or equivalent)
+- Completed UI/UX Specification (`frontend-spec-tmpl` or equivalent)
 - Main System Architecture Document (`architecture` or equivalent) - The agent executing this task should particularly note the overall system structure (Monorepo/Polyrepo, backend service architecture) detailed here, as it influences frontend patterns.
 - Primary Design Files (Figma, Sketch, etc., linked from UI/UX Spec)
 
@@ -26,7 +26,7 @@ To define the technical architecture for the frontend application. This includes
 - Thoroughly review the inputs, including the UI/UX Specification and the main Architecture Document (especially "Definitive Tech Stack Selections", API contracts, and the documented overall system structure like monorepo/polyrepo choices).
 - Ask clarifying questions to bridge any gaps between the UI/UX vision and the overall system architecture.
 
-### 3. Define Overall Frontend Philosophy & Patterns (for `front-end-architecture`)
+### 3. Define Overall Frontend Philosophy & Patterns (for `frontend-architecture`)
 
 - Based on the main architecture's tech stack and overall system structure (monorepo/polyrepo, backend service details), confirm and detail:
   - Framework & Core Libraries choices.
@@ -36,53 +36,53 @@ To define the technical architecture for the frontend application. This includes
   - Styling Approach.
   - Key Design Patterns to be employed.
 
-### 4. Specify Detailed Frontend Directory Structure (for `front-end-architecture`)
+### 4. Specify Detailed Frontend Directory Structure (for `frontend-architecture`)
 
 - Collaboratively define or refine the frontend-specific directory structure, ensuring it aligns with the chosen framework and promotes modularity and scalability.
 
-### 5. Outline Component Strategy & Conventions (for `front-end-architecture`)
+### 5. Outline Component Strategy & Conventions (for `frontend-architecture`)
 
 - Define Component Naming & Organization conventions.
-- Establish the "Template for Component Specification" (as per `front-end-architecture`), emphasizing that most components will be detailed emergently but must follow this template.
+- Establish the "Template for Component Specification" (as per `frontend-architecture`), emphasizing that most components will be detailed emergently but must follow this template.
 - Optionally, specify a few absolutely foundational/shared UI components (e.g., a generic Button or Modal wrapper if the chosen UI library needs one, or if no UI library is used).
 
-### 6. Detail State Management Setup & Conventions (for `front-end-architecture`)
+### 6. Detail State Management Setup & Conventions (for `frontend-architecture`)
 
 - Based on the high-level strategy, detail:
   - Chosen Solution and core setup.
   - Conventions for Store Structure / Slices (e.g., "feature-based slices"). Define any genuinely global/core slices (e.g., session/auth).
   - Conventions for Selectors and Actions/Reducers/Thunks. Provide templates or examples.
 
-### 7. Plan API Interaction Layer (for `front-end-architecture`)
+### 7. Plan API Interaction Layer (for `frontend-architecture`)
 
 - Define the HTTP Client Setup.
 - Establish patterns for Service Definitions (how API calls will be encapsulated).
 - Outline frontend Error Handling & Retry strategies for API calls.
 
-### 8. Define Routing Strategy (for `front-end-architecture`)
+### 8. Define Routing Strategy (for `frontend-architecture`)
 
 - Confirm the Routing Library.
 - Collaboratively define the main Route Definitions and any Route Guards.
 
-### 9. Specify Build, Bundling, and Deployment Details (for `front-end-architecture`)
+### 9. Specify Build, Bundling, and Deployment Details (for `frontend-architecture`)
 
 - Outline the frontend-specific Build Process & Scripts.
 - Discuss and document Key Bundling Optimizations.
 - Confirm Deployment to CDN/Hosting details relevant to the frontend.
 
-### 10. Refine Frontend Testing Strategy (for `front-end-architecture`)
+### 10. Refine Frontend Testing Strategy (for `frontend-architecture`)
 
 - Elaborate on the main testing strategy with specifics for: Component Testing, UI Integration/Flow Testing, and E2E UI Testing scope and tools.
 
-### 11. Outline Performance Considerations (for `front-end-architecture`)
+### 11. Outline Performance Considerations (for `frontend-architecture`)
 
 - List key frontend-specific performance strategies to be employed.
 
-### 12. Document Drafting & Confirmation (Guided by `front-end-architecture-tmpl`)
+### 12. Document Drafting & Confirmation (Guided by `frontend-architecture-tmpl`)
 
 - **If "Incremental Mode" was selected:**
 
-  - For each relevant section of the `front-end-architecture` (as outlined in steps 3-11 above, covering topics from Overall Philosophy to Performance Considerations):
+  - For each relevant section of the `frontend-architecture` (as outlined in steps 3-11 above, covering topics from Overall Philosophy to Performance Considerations):
 
     - **a. Explain Purpose & Draft Section:** Explain the purpose of the section and present a draft for that section.
     - **b. Initial Discussion & Feedback:** Discuss the draft with the user, incorporate their feedback, and iterate as needed for initial revisions.
@@ -108,17 +108,17 @@ To define the technical architecture for the frontend application. This includes
 
     - **d. Final Approval & Documentation:** Obtain explicit user approval for the section. Ensure all placeholder links and references are correctly noted within each section. Then proceed to the next section.
 
-  - Once all sections are individually approved through this process, confirm with the user that the overall `front-end-architecture` document is populated and ready for Step 13 (Epic/Story Impacts) and then the checklist review (Step 14).
+  - Once all sections are individually approved through this process, confirm with the user that the overall `frontend-architecture` document is populated and ready for Step 13 (Epic/Story Impacts) and then the checklist review (Step 14).
 
 - **If "YOLO Mode" was selected:**
-  - Collaboratively populate all relevant sections of the `front-end-architecture-tmpl` (as outlined in steps 3-11 above) to create a comprehensive first draft.
-  - Present the complete draft of `front-end-architecture` to the user for a holistic review.
+  - Collaboratively populate all relevant sections of the `frontend-architecture-tmpl` (as outlined in steps 3-11 above) to create a comprehensive first draft.
+  - Present the complete draft of `frontend-architecture` to the user for a holistic review.
   - <important_note>After presenting the full draft in YOLO mode, you MAY still offer a condensed version of the 'Advanced Reflective & Elicitation Options' menu, perhaps focused on a few key overarching review actions (e.g., overall requirements alignment, major risk assessment) if the user wishes to perform a structured deep dive before detailed section-by-section feedback.</important_note>
-  - Obtain explicit user approval for the entire `front-end-architecture` document before proceeding to Step 13 (Epic/Story Impacts) and then the checklist review (Step 14).
+  - Obtain explicit user approval for the entire `frontend-architecture` document before proceeding to Step 13 (Epic/Story Impacts) and then the checklist review (Step 14).
 
 ### 13. Identify & Summarize Epic/Story Impacts (Frontend Focus)
 
-- After the `front-end-architecture` is confirmed, review it in context of existing epics and user stories (if provided or known).
+- After the `frontend-architecture` is confirmed, review it in context of existing epics and user stories (if provided or known).
 - Identify any frontend-specific technical tasks that might need to be added as new stories or sub-tasks (e.g., "Implement responsive layout for product details page based on defined breakpoints," "Set up X state management slice for user profile," "Develop reusable Y component as per specification").
 - Identify if any existing user stories require refinement of their acceptance criteria due to frontend architectural decisions (e.g., specifying interaction details, component usage, or performance considerations for UI elements).
 - Collaborate with the user to define these additions or refinements.
@@ -126,14 +126,14 @@ To define the technical architecture for the frontend application. This includes
 
 ### 14. Checklist Review and Finalization
 
-- Once the `front-end-architecture` has been populated and reviewed with the user, and epic/story impacts have been summarized, use the `frontend-architecture-checklist`.
-- Go through each item in the checklist to ensure the `front-end-architecture` is comprehensive and all sections are adequately addressed - for each checklist item you MUST consider if it is really complete or deficient.
+- Once the `frontend-architecture` has been populated and reviewed with the user, and epic/story impacts have been summarized, use the `frontend-architecture-checklist`.
+- Go through each item in the checklist to ensure the `frontend-architecture` is comprehensive and all sections are adequately addressed - for each checklist item you MUST consider if it is really complete or deficient.
 - For each checklist section, confirm its status (e.g., \[x] Completed, \[ ] N/A, \[!] Needs Attention).
 - If deficiencies or areas needing more detail are identified with a section:
   - Discuss these with the user.
-  - Collaboratively make necessary updates or additions to the `front-end-architecture`.
+  - Collaboratively make necessary updates or additions to the `frontend-architecture`.
 - After addressing all points and ensuring the document is robust, present a summary of the checklist review to the user. This summary should highlight:
   - Confirmation that all relevant sections of the checklist have been satisfied.
   - Any items marked N/A and a brief reason.
   - A brief note on any significant discussions or changes made as a result of the checklist review.
-- The goal is to ensure the `front-end-architecture` is a complete and actionable document.
+- The goal is to ensure the `frontend-architecture` is a complete and actionable document.

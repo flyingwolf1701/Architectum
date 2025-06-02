@@ -82,8 +82,8 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
 - Checklists:
   - [Frontend Architecture Checklist](frontend-architecture-checklist.md)
 - Templates:
-  - [Frontend Architecture Template](front-end-architecture-tmpl.md)
-  - [Frontend Spec Template](front-end-spec-tmpl.md)
+  - [Frontend Architecture Template](frontend-architecture-tmpl.md)
+  - [Frontend Spec Template](frontend-spec-tmpl.md)
 - Interaction Modes:
   - "Interactive"
   - "YOLO"

@@ -5,7 +5,7 @@
 {This document outlines the overall project architecture, including backend systems, shared services, and non-UI specific concerns. Its primary goal is to serve as the guiding architectural blueprint for AI-driven development, ensuring consistency and adherence to chosen patterns and technologies.
 
 **Relationship to Frontend Architecture:**
-If the project includes a significant user interface, a separate Frontend Architecture Document (typically named `front-end-architecture-tmpl.txt` or similar, and linked in the "Key Reference Documents" section) details the frontend-specific design and MUST be used in conjunction with this document. Core technology stack choices documented herein (see "Definitive Tech Stack Selections") are definitive for the entire project, including any frontend components.}
+If the project includes a significant user interface, a separate Frontend Architecture Document (typically named `frontend-architecture-tmpl.txt` or similar, and linked in the "Key Reference Documents" section) details the frontend-specific design and MUST be used in conjunction with this document. Core technology stack choices documented herein (see "Definitive Tech Stack Selections") are definitive for the entire project, including any frontend components.}
 
 ## Table of Contents
 
@@ -43,7 +43,7 @@ If the project includes a significant user interface, a separate Frontend Archit
 
 ## Project Structure
 
-{Provide an ASCII or Mermaid diagram representing the project's folder structure. The following is a general example. If a `front-end-architecture-tmpl.txt` (or equivalent) is in use, it will contain the detailed structure for the frontend portion (e.g., within `src/frontend/` or a dedicated `frontend/` root directory). Shared code structure (e.g., in a `packages/` directory for a monorepo) should also be detailed here.}
+{Provide an ASCII or Mermaid diagram representing the project's folder structure. The following is a general example. If a `frontend-architecture-tmpl.txt` (or equivalent) is in use, it will contain the detailed structure for the frontend portion (e.g., within `src/frontend/` or a dedicated `frontend/` root directory). Shared code structure (e.g., in a `packages/` directory for a monorepo) should also be detailed here.}
 
 ```plaintext
 {project-root}/
@@ -127,15 +127,15 @@ If the project includes a significant user interface, a separate Frontend Archit
 - **Base URL(s):**
   - Production: `{URL}`
   - Staging/Dev: `{URL}`
-- **Authentication:** {Describe method - e.g., API Key in Header (Header Name: `X-API-Key`), OAuth 2.0 Client Credentials, Basic Auth. Reference `docs/environment-vars.md` for key names.}
+- **Authentication:** {Describe method - e.g., API Key in Header (Header Name: `X-API-Key`), OAuth 2.0 Client Credentials, Basic Auth. Reference `project_docs/supporting_documents/environment-vars.md` for key names.}
 - **Key Endpoints Used:**
   - **`{HTTP Method} {/path/to/endpoint}`:**
     - Description: {What does this endpoint do?}
     - Request Parameters: {Query params, path params}
-    - Request Body Schema: {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if the schema is exceptionally large or complex.}
+    - Request Body Schema: {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if the schema is exceptionally large or complex.}
     - Example Request: `{Code block}`
-    - Success Response Schema (Code: `200 OK`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
-    - Error Response Schema(s) (Codes: `4xx`, `5xx`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
+    - Success Response Schema (Code: `200 OK`): {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if very complex.}
+    - Error Response Schema(s) (Codes: `4xx`, `5xx`): {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if very complex.}
     - Example Response: `{Code block}`
   - **`{HTTP Method} {/another/endpoint}`:** {...}
 - **Rate Limits:** {If known}
@@ -154,9 +154,9 @@ If the project includes a significant user interface, a separate Frontend Archit
   - **`{HTTP Method} {/path/to/endpoint}`:**
     - Description: {What does this endpoint do?}
     - Request Parameters: {...}
-    - Request Body Schema: {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
-    - Success Response Schema (Code: `200 OK`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
-    - Error Response Schema(s) (Codes: `4xx`, `5xx`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
+    - Request Body Schema: {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if very complex.}
+    - Success Response Schema (Code: `200 OK`): {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if very complex.}
+    - Error Response Schema(s) (Codes: `4xx`, `5xx`): {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if very complex.}
   - **`{HTTP Method} {/another/endpoint}`:** {...}
 
 ## Data Models
@@ -365,7 +365,7 @@ Must be definitive selections; do not list open-ended choices (e.g., for web scr
 
 - **Input Sanitization/Validation:** {Specify library/method for ALL external inputs (API requests, user-provided data, file uploads). E.g., 'Use class-validator with NestJS DTOs for all API inputs; all validation rules must be defined in DTOs.' For other languages, 'Use {validation_library} for all external inputs; define schemas and constraints.' Validation must occur at the boundary before processing.}
 - **Output Encoding:** {Specify where and how output encoding should be performed to prevent XSS and other injection attacks. E.g., 'All dynamic data rendered in HTML templates must be contextually auto-escaped by the template engine (specify engine and confirm default behavior). If generating HTML/XML/JSON manually, use approved encoding libraries like {encoder_library_name}.'}
-- **Secrets Management:** {Reference `docs/environment-vars.md` regarding storage for different environments. In code, access secrets _only_ through a designated configuration module/service. Never hardcode secrets, include them in source control, or log them. Use specific tools for local development if applicable (e.g., Doppler, .env files NOT committed).}
+- **Secrets Management:** {Reference `project_docs/supporting_documents/environment-vars.md` regarding storage for different environments. In code, access secrets _only_ through a designated configuration module/service. Never hardcode secrets, include them in source control, or log them. Use specific tools for local development if applicable (e.g., Doppler, .env files NOT committed).}
 - **Dependency Security:** {Policy on checking for vulnerable dependencies. E.g., 'Run automated vulnerability scans (e.g., `npm audit`, `pip-audit`, Snyk, Dependabot alerts) as part of CI. Update vulnerable dependencies promptly based on severity.' Policy on adding new dependencies (vetting process).}
 - **Authentication/Authorization Checks:** {Where and how should these be enforced? E.g., 'All API endpoints (except explicitly public ones) must enforce authentication using the central auth module/middleware. Authorization (permission/role checks) must be performed at the service layer or entry point for protected resources.' Define patterns for implementing these checks.}
 - **Principle of Least Privilege (Implementation):** {e.g., 'Database connection users must have only the necessary permissions (SELECT, INSERT, UPDATE, DELETE) for the specific tables/schemas they access. IAM roles for cloud services must be narrowly scoped to the required actions and resources.'}
@@ -377,11 +377,12 @@ Must be definitive selections; do not list open-ended choices (e.g., for web scr
 ## Key Reference Documents
 
 { List important reference documents with their paths, e.g.:
-- [Project Brief](../docs/core_documents/project-brief.md)  
+
+- [Project Brief](../docs/core_documents/project-brief.md)
 - [PRD](../docs/core_documents/prd.md)
 - [Catalog System](../docs/supporting_documents/catalog-system.md)
 - [Data Models](../docs/supporting_documents/data-models.md)
-}
+  }
 
 ## Change Log
 

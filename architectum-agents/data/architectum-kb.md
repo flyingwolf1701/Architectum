@@ -147,7 +147,7 @@ The ARCHITECTUM Method thrives on community involvement and collaborative improv
   2. Create a new branch for your feature or bugfix (e.g., `feature/your-feature-name`).
   3. Make your changes, adhering to existing code style and conventions. Write clear comments for complex logic.
   4. Run any tests or linting to ensure quality.
-  5. Commit your changes with clear, descriptive messages (refer to the project's commit message convention, often found in `docs/commit.md`).
+  5. Commit your changes with clear, descriptive messages (refer to the project's commit message convention, often found in `project_docs/supporting_documents/commit.md`).
   6. Push your branch to your fork.
   7. Open a Pull Request against the main branch of the original repository.
 - **Code of Conduct:** All participants are expected to abide by the project's Code of Conduct.
@@ -216,8 +216,8 @@ Understanding the distinct roles and responsibilities of each agent is key to ef
 
 - **Design Architect:**
 
-  - **Function:** Focuses on UI/UX specifications, front-end technical architecture, and can generate prompts for AI UI generation services.
-  - **Web Persona:** `Design Architect (Jane)` with persona `personas#design-architect`. Uses `checklists#frontend-architecture-checklist`, `templates#front-end-architecture-tmpl` (for FE architecture), and `templates#front-end-spec-tmpl` (for UX/UI Spec). Tasks: `tasks#create-frontend-architecture`, `tasks#create-ai-frontend-prompt`, `tasks#create-uxui-spec`.
+  - **Function:** Focuses on UI/UX specifications, frontend technical architecture, and can generate prompts for AI UI generation services.
+  - **Web Persona:** `Design Architect (Jane)` with persona `personas#design-architect`. Uses `checklists#frontend-architecture-checklist`, `templates#frontend-architecture-tmpl` (for FE architecture), and `templates#frontend-spec-tmpl` (for UX/UI Spec). Tasks: `tasks#create-frontend-architecture`, `tasks#create-ai-frontend-prompt`, `tasks#create-uxui-spec`.
   - **IDE Persona:** `Design Architect (Millie)` with persona `design-architect.md`. Customized to be "Fun and carefree, but a frontend design master." Helps design web apps, produces UI generation prompts (`create-ai-frontend-prompt.md` task), plans FE architecture (`create-frontend-architecture.md` task), and creates UX/UI specs (`create-uxui-spec.md` task).
   - **Output:** `UX/UI Specification`, `Front-end Architecture Plan`, AI UI generation prompts.
 
@@ -302,7 +302,7 @@ The ARCHITECTUM method can be orchestrated through different interfaces, typical
   - **POSM Agent:** Ongoing documentation management and organization.
   - **PO (Product Owner) / SM (Scrum Master):** Detailed story generation, backlog refinement, often directly in the IDE or tools integrated with it.
   - **Developer Agents:** Code implementation for stories, working directly with the codebase in the IDE.
-- **Activities:** Detailed architecture, front-end/back-end design, code development, testing, leveraging IDE tasks (see "LEVERAGING IDE TASKS FOR EFFICIENCY"), using configurations like `ide-architectum-orchestrator-cfg.md`.
+- **Activities:** Detailed architecture, frontend/backend design, code development, testing, leveraging IDE tasks (see "LEVERAGING IDE TASKS FOR EFFICIENCY"), using configurations like `ide-architectum-orchestrator-cfg.md`.
 
 ### ARCHITECTUM METHOD FILES
 
@@ -336,14 +336,14 @@ Understanding key files helps in navigating and customizing the ARCHITECTUM proc
 
 ### EXAMPLES OF TASK FUNCTIONALITY
 
-**CONCEPT:** Think of tasks as specialized, callable mini-agents or on-demand instruction sets that main IDE agents or the Orchestrator (when embodying a persona) can invoke, keeping primary agent definitions streamlined. They are particularly useful for operations not performed frequently. The `docs/instruction.md` file provides more details on task setup and usage.
+**CONCEPT:** Think of tasks as specialized, callable mini-agents or on-demand instruction sets that main IDE agents or the Orchestrator (when embodying a persona) can invoke, keeping primary agent definitions streamlined. They are particularly useful for operations not performed frequently. The `architectum-agents/data/instruction.md` file provides more details on task setup and usage.
 
 Here are some examples of functionalities provided by tasks found in `architectum-agent/tasks/`:
 
 - **`create-prd.md`:** Guides the generation of a Product Requirements Document.
 - **`create-next-story-task.md`:** Helps in defining and creating the next user story for development.
 - **`create-architecture.md`:** Assists in outlining the technical architecture for a project.
-- **`create-frontend-architecture.md`:** Focuses specifically on designing the front-end architecture.
+- **`create-frontend-architecture.md`:** Focuses specifically on designing the frontend architecture.
 - **`create-uxui-spec.md`:** Facilitates the creation of a UX/UI Specification document.
 - **`create-ai-frontend-prompt.md`:** Helps in drafting a prompt for an AI service to generate UI/frontend elements.
 - **`doc-sharding-task.md`:** Provides a process for breaking down large documents into smaller, manageable parts.
