@@ -13,25 +13,29 @@ This document outlines the alignment between the Architectum project structure a
 ```
 docs/
 ├── catalogs/
+│   ├── project_catalog.yaml
 │   ├── feature_catalog.yaml
-│   └── project_catalog.yaml
+│   └── test_catalog.yaml
 ├── core_documents/
 │   ├── architecture.md
 │   ├── prd.md
-│   └── project-brief.md
+│   └── project_brief.md
 ├── epics/
 │   ├── epic_1/
 │   │   ├── epic-1.md
 │   │   ├── story-1.1.md
+│   │   ├── story-1.2.md
+│   │   ├── story-1.3.md
+│   │   ├── story-1.4.md
 │   │   └── ...
 │   ├── epic_2/
-│   └── epic_3/
-│       ├── epic-3.md
-│       ├── story-3.1.md
-│       ├── story-3.2.md
-│       ├── story-3.3.md
-│       ├── story-3.4.md
-│       └── story-3.5.md
+│   │   ├── epic-1.md
+│   │   ├── story-1.1.md
+│   │   ├── story-1.2.md
+│   │   ├── story-1.3.md
+│   │   ├── story-1.4.md
+│   │   └── ...
+│   └── ...
 ├── supporting_documents/
 └── index.md
 ```
@@ -58,6 +62,7 @@ Both approaches now emphasize:
 
 - ✅ Maintaining `project_catalog.yaml` with file inventory
 - ✅ Maintaining `feature_catalog.yaml` with feature mapping
+- ✅ Maintaining `test_catalog.yaml` with test mapping
 - ✅ Updating catalogs as part of story completion
 - ✅ Using catalogs for dependency understanding
 
@@ -117,12 +122,3 @@ Both approaches now use the same:
 
 ## Implementation Notes
 
-All Epic 3 stories created are compatible with both approaches:
-
-- ✅ Follow standard story template format
-- ✅ Include comprehensive acceptance criteria
-- ✅ Reference correct file paths and structures
-- ✅ Include catalog maintenance requirements
-- ✅ Specify testing requirements with ≥80% coverage
-
-Both agent approaches can now successfully implement these stories using the same workflow patterns and quality standards.
