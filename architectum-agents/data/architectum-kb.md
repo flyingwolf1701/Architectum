@@ -147,7 +147,7 @@ The ARCHITECTUM Method thrives on community involvement and collaborative improv
   2. Create a new branch for your feature or bugfix (e.g., `feature/your-feature-name`).
   3. Make your changes, adhering to existing code style and conventions. Write clear comments for complex logic.
   4. Run any tests or linting to ensure quality.
-  5. Commit your changes with clear, descriptive messages (refer to the project's commit message convention, often found in `docs/commit.md`).
+  5. Commit your changes with clear, descriptive messages (refer to the project's commit message convention, often found in `project_docs/supporting_documents/commit.md`).
   6. Push your branch to your fork.
   7. Open a Pull Request against the main branch of the original repository.
 - **Code of Conduct:** All participants are expected to abide by the project's Code of Conduct.

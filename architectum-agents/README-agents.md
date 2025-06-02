@@ -78,13 +78,13 @@ Use `code_reviewer.md` for story validation and quality assurance.
 ## Project Structure
 
 ```
-product-docs/
+project_docs/
 ├── catalogs/
 │   ├── project_catalog.yaml      # File/component inventory
 │   ├── feature_catalog.yaml      # Feature-to-code mapping
 │   └── test_catalog.yaml         # Test code mapping
 ├── core_documents/
-│   ├── project-brief.md          # Initial project definition
+│   ├── project_brief.md          # Initial project definition
 │   ├── prd.md                    # Product requirements & epics
 │   └── architecture.md           # Technical architecture
 ├── epics/

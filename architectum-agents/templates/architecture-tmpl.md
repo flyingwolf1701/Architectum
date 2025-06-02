@@ -132,10 +132,10 @@ If the project includes a significant user interface, a separate Frontend Archit
   - **`{HTTP Method} {/path/to/endpoint}`:**
     - Description: {What does this endpoint do?}
     - Request Parameters: {Query params, path params}
-    - Request Body Schema: {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if the schema is exceptionally large or complex.}
+    - Request Body Schema: {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if the schema is exceptionally large or complex.}
     - Example Request: `{Code block}`
-    - Success Response Schema (Code: `200 OK`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
-    - Error Response Schema(s) (Codes: `4xx`, `5xx`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
+    - Success Response Schema (Code: `200 OK`): {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if very complex.}
+    - Error Response Schema(s) (Codes: `4xx`, `5xx`): {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if very complex.}
     - Example Response: `{Code block}`
   - **`{HTTP Method} {/another/endpoint}`:** {...}
 - **Rate Limits:** {If known}
@@ -154,9 +154,9 @@ If the project includes a significant user interface, a separate Frontend Archit
   - **`{HTTP Method} {/path/to/endpoint}`:**
     - Description: {What does this endpoint do?}
     - Request Parameters: {...}
-    - Request Body Schema: {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
-    - Success Response Schema (Code: `200 OK`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
-    - Error Response Schema(s) (Codes: `4xx`, `5xx`): {Provide JSON schema inline, or link to a detailed definition in `docs/data-models.md` only if very complex.}
+    - Request Body Schema: {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if very complex.}
+    - Success Response Schema (Code: `200 OK`): {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if very complex.}
+    - Error Response Schema(s) (Codes: `4xx`, `5xx`): {Provide JSON schema inline, or link to a detailed definition in `project_docs/supporting_documents/data-models.md` only if very complex.}
   - **`{HTTP Method} {/another/endpoint}`:** {...}
 
 ## Data Models
@@ -377,11 +377,12 @@ Must be definitive selections; do not list open-ended choices (e.g., for web scr
 ## Key Reference Documents
 
 { List important reference documents with their paths, e.g.:
-- [Project Brief](../docs/core_documents/project-brief.md)  
+
+- [Project Brief](../docs/core_documents/project-brief.md)
 - [PRD](../docs/core_documents/prd.md)
 - [Catalog System](../docs/supporting_documents/catalog-system.md)
 - [Data Models](../docs/supporting_documents/data-models.md)
-}
+  }
 
 ## Change Log
 
