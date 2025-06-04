@@ -378,10 +378,10 @@ Must be definitive selections; do not list open-ended choices (e.g., for web scr
 
 { List important reference documents with their paths, e.g.:
 
-- [Project Brief](../docs/core_documents/project-brief.md)
-- [PRD](../docs/core_documents/prd.md)
-- [Catalog System](../docs/supporting_documents/catalog-system.md)
-- [Data Models](../docs/supporting_documents/data-models.md)
+- [Project Brief](../project_docs/core_documents/project-brief.md)
+- [PRD](../project_docs/core_documents/prd.md)
+- [Catalog System](../project_docs/supporting_documents/catalog-system.md)
+- [Data Models](../project_docs/supporting_documents/data-models.md)
   }
 
 ## Change Log

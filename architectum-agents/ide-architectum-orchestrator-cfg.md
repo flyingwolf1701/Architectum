@@ -151,6 +151,6 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
   - [Story Template](story-tmpl.md)
 
 - Data:
-  - [Catalog System Guide](../docs/supporting_documents/catalog-system.md)
+  - [Catalog System Guide](architectum-agents/data/catalog_system.md)
   - [Story Update Procedures](story-update-procedures.md)
-  - [Core Documents Index](../docs/index.md)
+  - [Core Documents Index](project_docs/index.md)
