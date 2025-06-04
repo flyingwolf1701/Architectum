@@ -186,9 +186,9 @@ Monorepo structure with Python-based core system. The single repository will con
 
 - Python 3.13+ runtime environment
 - UV package manager for dependency management and virtual environments
-- Node.js (for TypeScript/JavaScript LSP integration)
+- Bun.js (for TypeScript/JavaScript LSP integration)
 - Git for version control and project tracking
-- Standard development tools (pytest for testing, black for formatting)
+- Standard development tools (pytest for testing, ruff for formatting)
 
 **External Dependencies:**
 

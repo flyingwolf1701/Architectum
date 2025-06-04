@@ -63,7 +63,7 @@ Please provide:
 2.  **Documents to Process:**
     - Clearly state which of the provided documents you want me to shard in this session (e.g., "Process only the PRD," or "Process the Main Architecture and Front-End Architecture documents," or "Process all provided documents").
 3.  **Sharding Plan Confirmation:**
-    - Confirmation that `docs/templates/architectum-agents/tasks/doc-sharding-task.md` exists, is populated, and reflects your desired sharding strategy.
+    - Confirmation that `architectum-agents\tasks\doc-sharding-task.md` exists, is populated, and reflects your desired sharding strategy.
 4.  **Output Directory & Index Confirmation:**
     - The target directory for the sharded markdown files. (Default: `project_docs/supporting_documents/` relative to the workspace or project root).
     - Confirmation that an `project_docs/index.md` file should be created or updated in this target directory to catalog the sharded files.
