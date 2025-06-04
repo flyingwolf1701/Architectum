@@ -2,99 +2,81 @@
 
 ## Purpose
 
-To identify the next logical story based on project progress and epic definitions, and then to prepare a comprehensive, self-contained, and actionable story file using the `Story Template`. This task ensures the story is enriched with all necessary technical context, requirements, and acceptance criteria, making it ready for efficient implementation by a Developer Agent with minimal need for additional research.
+Identify next logical story based on project progress and epic definitions. Prepare comprehensive, self-contained story file using Story Template with technical context for efficient Developer Agent implementation.
 
-## Inputs for this Task
+## Inputs
 
-- Access to the project's documentation repository, specifically:
-  - `project_docs/index.md` (hereafter "Index Doc")
-  - All Epic files (e.g., `project_docs/epics/epic_{n}/epic-{n}.md` - hereafter "Epic Files")
-  - Existing story files in `project_docs/epics/epic_{n}/story-{n}.{n}.md`
-  - Main PRD (hereafter "PRD Doc")
-  - Main Architecture Document (hereafter "Main Arch Doc")
-  - Frontend Architecture Document (hereafter "Frontend Arch Doc," if relevant)
-  - Project Structure Guide (`project_docs/supporting_documents/project-structure.md`)
-  - Operational Guidelines Document (`project_docs/supporting_documents/operational-guidelines.md`)
-  - Technology Stack Document (`project_docs/supporting_documents/tech-stack.md`)
-  - Data Models Document (as referenced in Index Doc)
-  - API Reference Document (as referenced in Index Doc)
-  - UI/UX Specifications, Style Guides, Component Guides (if relevant, as referenced in Index Doc)
-- The `architectum-agent/templates/story-tmpl.md` (hereafter "Story Template")
-- The `architectum-agent/checklists/story-draft-checklist.md` (hereafter "Story Draft Checklist")
-- User confirmation to proceed with story identification and, if needed, to override warnings about incomplete prerequisite stories.
+**Required:**
+- `project_docs/index.md` (navigation hub)
+- Epic files (`project_docs/epics/epic_{n}/epic-{n}.md`)
+- Existing story files (`project_docs/epics/epic_{n}/story-{n}.{n}.md`)
+- Main PRD, Architecture Documents, Frontend Architecture
+- Supporting docs: Project Structure, Operational Guidelines, Tech Stack, Data Models, API Reference
+- UI/UX Specs, Style Guides (if relevant)
+- Story Template (`architectum-agents/templates/story-tmpl.md`)
+- Story Draft Checklist (`architectum-agents/checklists/story-draft-checklist.md`)
 
-## Task Execution Instructions
+## Instructions
 
-### 1. Identify Next Story for Preparation
+### 1. Identify Next Story
 
-- Review `project_docs/epics/epic_{n}/` directories to find the highest-numbered story file.
-- **If a highest story file exists (`project_docs/epics/epic_{lastEpicNum}/story-{lastEpicNum}.{lastStoryNum}.md`):**
+**Process:**
+- Find highest-numbered story file in `project_docs/epics/epic_{n}/`
+- **If highest story exists:**
+  - Verify Status is 'Done'
+  - **If not Done:** Present alert with options:
+    1. View incomplete story details
+    2. Cancel new story creation
+    3. Accept risk & Override to create next story
+  - **If Done/Override:** Check Epic File for next story number
+  - **If no next story in epic:** Find first story in next Epic with met prerequisites
+- **If no story files exist:** Start with first story in `epic_1` with met prerequisites
+- **If no suitable story found:** Report blocked prerequisites and HALT
 
-  - Verify its `Status` is 'Done' (or equivalent).
-  - If not 'Done', present an alert to the user:
+**Output:** "Identified next story: {epicNum}.{storyNum} - {Story Title}"
 
-    ```
-    ALERT: Found incomplete story:
-    File: docs/epics/epic_{lastEpicNum}/story-{lastEpicNum}.{lastStoryNum}.md
-    Status: [current status]
+### 2. Gather Story Requirements
 
-    Would you like to:
-    1. View the incomplete story details (instructs user to do so, agent does not display)
-    2. Cancel new story creation at this time
-    3. Accept risk & Override to create the next story in draft
+**From Epic File:**
+- Extract exact Title, Goal/User Story, Requirements, Acceptance Criteria, predefined Tasks
+- Record original epic-defined scope for deviation analysis
 
-    Please choose an option (1/2/3):
-    ```
+### 3. Synthesize Technical Context
 
-  - Proceed only if user selects option 3 (Override) or if the last story was 'Done'.
-  - If proceeding: Check the Epic File for `project_docs/epics/epic_{lastEpicNum}/epic-{lastEpicNum}.md` for a story numbered `{lastStoryNum + 1}`. If it exists and its prerequisites (per Epic File) are met, this is the next story.
-  - Else (story not found or prerequisites not met): The next story is the first story in the next Epic File (e.g., `project_docs/epics/epic_{lastEpicNum + 1}/epic-{lastEpicNum + 1}.md`, then `epic_{lastEpicNum + 2}.md`, etc.) whose prerequisites are met.
+**Using `project_docs/index.md` as guide:**
+- Review PRD, Architecture Documents thoroughly
+- Extract specific relevant information:
+  - Data Models (structure, validation)
+  - API Reference (endpoints, schemas, auth)
+  - Architectural patterns, component designs
+  - UI/UX Specs, Style Guides (for UI stories)
+  - Tech Stack specifics
+  - Operational Guidelines (error handling, security)
+- **Goal:** Collect details to avoid extensive Developer Agent searching
+- Note discrepancies between epic and technical details
 
-- **If no story files exist in `project_docs/epics/`:**
-  - The next story is the first story in `project_docs/epics/epic_1/epic-1.md` (then `project_docs/epics/epic_2/epic-2.md`, etc.) whose prerequisites are met.
-- If no suitable story with met prerequisites is found, report to the user that story creation is blocked, specifying what prerequisites are pending. HALT task.
-- Announce the identified story to the user: "Identified next story for preparation: {epicNum}.{storyNum} - {Story Title}".
+### 4. Verify Project Structure
 
-### 2. Gather Core Story Requirements (from Epic File)
+- Cross-reference story requirements with Project Structure Guide
+- Ensure file paths, component locations, module names align
+- Document structural conflicts or undefined components
+- Add "Project Structure Notes" section to story draft
 
-- For the identified story, open its parent Epic File.
-- Extract: Exact Title, full Goal/User Story statement, initial list of Requirements, all Acceptance Criteria (ACs), and any predefined high-level Tasks.
-- Keep a record of this original epic-defined scope for later deviation analysis.
+### 5. Populate Story Template
 
-### 3. Gather & Synthesize In-Depth Technical Context for Dev Agent
+**Create:** `project_docs/epics/epic_{epicNum}/story-{epicNum}.{storyNum}.md`
 
-- <critical_rule>Systematically use the Index Doc (`project_docs/index.md`) as your primary guide to discover paths to ALL detailed documentation relevant to the current story's implementation needs.</critical_rule>
-- Thoroughly review the PRD Doc, Main Arch Doc, and Frontend Arch Doc (if a UI story).
-- Guided by the Index Doc and the story's needs, locate, analyze, and synthesize specific, relevant information from sources such as:
-  - Data Models Doc (structure, validation rules).
-  - API Reference Doc (endpoints, request/response schemas, auth).
-  - Applicable architectural patterns or component designs from Arch Docs.
-  - UI/UX Specs, Style Guides, Component Guides (for UI stories).
-  - Specifics from Tech Stack Doc if versions or configurations are key for this story.
-  - Relevant sections of the Operational Guidelines Doc (e.g., story-specific error handling nuances, security considerations for data handled in this story).
-- The goal is to collect all necessary details the Dev Agent would need, to avoid them having to search extensively. Note any discrepancies between the epic and these details for "Deviation Analysis."
-
-### 4. Verify Project Structure Alignment
-
-- Cross-reference the story's requirements and anticipated file manipulations with the Project Structure Guide (and frontend structure if applicable).
-- Ensure any file paths, component locations, or module names implied by the story align with defined structures.
-- Document any structural conflicts, necessary clarifications, or undefined components/paths in a "Project Structure Notes" section within the story draft.
-
-### 5. Populate Story Template with Full Context
-
-- Create a new story file: `project_docs/epics/epic_{epicNum}/story-{epicNum}.{storyNum}.md`.
-- Use the Story Template to structure the file.
-- Fill in:
-  - Story `{EpicNum}.{StoryNum}: {Short Title Copied from Epic File}`
-  - `Status: Draft`
-  - `Story` (User Story statement from Epic)
-  - `Acceptance Criteria (ACs)` (from Epic, to be refined if needed based on context)
-- **`Dev Technical Guidance` section (CRITICAL):**
-  - Based on all context gathered (Step 3 & 4), embed concise but critical snippets of information, specific data structures, API endpoint details, precise references to _specific sections_ in other documents (e.g., "See `Data Models Doc#User-Schema-ValidationRules` for details"), or brief explanations of how architectural patterns apply to _this story_.
-  - If UI story, provide specific references to Component/Style Guides relevant to _this story's elements_.
-  - The aim is to make this section the Dev Agent's primary source for _story-specific_ technical context.
-- **`Tasks / Subtasks` section:**
-  - Generate a detailed, sequential list of technical tasks and subtasks the Dev Agent must perform to complete the story, informed by the gathered context.
-  - Link tasks to ACs where applicable (e.g., `Task 1 (AC: 1, 3)`).
-- Add notes on project structure alignment or discrepancies found in Step 4.
-- Prepare content for the "Deviation Analysis" based on discrepancies noted in Step 3.
+**Fill Template:**
+- Story title, status (Draft), user story statement, ACs from epic
+- **Dev Technical Guidance (CRITICAL):**
+  - Embed critical technical snippets
+  - Specific data structures, API details
+  - References to specific document sections
+  - UI Component/Style Guide references (for UI stories)
+  - Make this Developer Agent's primary technical context source
+- **Tasks/Subtasks:**
+  - Generate detailed, sequential technical tasks
+  - Link to ACs where applicable
+  - Informed by gathered context
+- Project structure alignment notes
+- Deviation analysis from epic vs technical details
