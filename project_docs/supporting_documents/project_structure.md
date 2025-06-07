@@ -123,7 +123,6 @@ architectum/
 │       └── data_layer.yaml
 ├── .env.example          # Example environment variables
 ├── .gitignore           # Git ignore rules
-├── .flake8             # Flake8 configuration
 ├── pyproject.toml      # Project configuration and dependencies
 ├── requirements.txt    # Production dependencies
 ├── requirements-dev.txt # Development dependencies
@@ -258,7 +257,7 @@ architectum/
 ### Configuration Files
 - **YAML**: `snake_case.yaml` (e.g., `default_config.yaml`)
 - **Environment**: `.env.example`, `.env.local`
-- **Tool configuration**: `.flake8`, `pyproject.toml`
+- **Tool configuration**: `pyproject.toml`
 
 ### Documentation
 - **Markdown**: `kebab-case.md` (e.g., `api-reference.md`)
@@ -302,12 +301,12 @@ from architectum.utils.logging import get_logger
 2. Create virtual environment: `uv venv --python 3.13`
 3. Install dependencies: `uv pip install -r requirements-dev.txt`
 4. Run tests: `pytest`
-5. Run linting: `flake8 src tests`
+5. Run linting: `ruff src tests`
 6. Run type checking: `mypy src`
 
 ### Code Quality Gates
 - **All tests pass**: `pytest tests/`
-- **Linting passes**: `flake8 src tests`
+- **Linting passes**: `ruff src tests`
 - **Type checking passes**: `mypy src`
 - **Coverage threshold**: `pytest --cov=src --cov-fail-under=80`
 - **Security scanning**: Regular dependency audits
