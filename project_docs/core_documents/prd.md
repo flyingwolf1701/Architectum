@@ -39,7 +39,7 @@ Architectum addresses these challenges through a three-component architecture: S
 - Generate Path-Based Blueprints with configurable depth settings (0=all depth, 1=current folder, etc.)
 - Generate Method-Based Blueprints focusing on specific methods, functions, or classes
 - Support both persistent Feature Blueprints (saved as documentation) and temporary blueprints
-- Output formats optimized for AI consumption and human visualization
+- Output format optimized for AI consumption (JSON)
 
 **FR4: LSP-Powered Relationship Extraction**
 
@@ -303,12 +303,11 @@ Monorepo structure with Python-based core system. The single repository will con
 
 **Epic 3: Blueprint Generation System**
 
-- Goal: Create the blueprint generation capabilities that transform core representations into AI-optimized and human-readable outputs.
-- Story 3.1: As a user, I want to generate Path-Based Blueprints so that I can analyze directory structures with configurable depth.
-- Story 3.2: As a user, I want to generate Method-Based Blueprints so that I can focus on specific functions or classes.
-- Story 3.3: As a user, I want YAML-based blueprint definitions so that I can declaratively specify complex blueprint requirements.
-- Story 3.4: As a system, I want multiple output formats so that blueprints can serve both AI consumption and human visualization needs.
-- Story 3.5: As a user, I want persistent Feature Blueprints so that important code documentation can be saved and versioned.
+- Goal: Create the blueprint generation capabilities that transform System Map and JSON Mirror data into focused JSON outputs optimized for AI consumption, with flexible configuration through YAML definitions and visual selection.
+- Story 3.1: As a user, I want to generate path-based blueprints so that I can give AI everything in a folder context limited to a certain depth.
+- Story 3.2: As a user, I want to generate method-based blueprints so that I can provide AI with strategically focused code views using whitelist/blacklist controls.
+- Story 3.3: As a user, I want to define blueprint contents through YAML files so that I can create reusable, precise blueprint configurations.
+- Story 3.4: As a user, I want to save blueprint configurations as Feature Blueprints so that I can maintain and reuse important code views.
 
 **Epic 4: Caching & Performance Optimization**
 
@@ -326,6 +325,7 @@ Monorepo structure with Python-based core system. The single repository will con
 - Story 5.2: As a user, I want interactive navigation so that I can explore relationships by clicking through the graph.
 - Story 5.3: As a user, I want filtering controls so that I can focus on specific aspects of my codebase.
 - Story 5.4: As a user, I want export capabilities so that I can share visualizations with my team.
+- Story 5.5: As a user, I want to create blueprint configurations through the data visualizer so that I can visually select code elements and save them as YAML configurations.
 
 ## Key Reference Documents
 
@@ -351,3 +351,4 @@ Natural language querying of code relationships
 
 | Change | Date | Version | Description | Author |
 | ------ | ---- | ------- | ----------- | ------ |
+| Epic 3 Update | 2025-01-XX | 1.1 | Updated Epic 3 to reflect correct blueprint system design with YAML configuration and AI-focused JSON output | PO Agent |

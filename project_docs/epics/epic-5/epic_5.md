@@ -55,6 +55,22 @@ Deliver a basic but functional visualization capability that demonstrates the po
 - Batch export processes multiple views automatically
 - Export quality is suitable for presentations and documentation
 
+### Story 5.5: Blueprint Configuration Creation
+**As a user, I want to create blueprint configurations through the data visualizer so that I can visually select code elements and save them as YAML configurations.**
+
+**Acceptance Criteria:**
+- Click to select/deselect files, functions, classes in the graph view
+- Visual indication of selected elements (highlighting, different colors, selection badges)
+- Whitelist/blacklist controls for fine-grained selection within files
+- Preview panel shows what would be included in the resulting blueprint
+- Save selection as YAML configuration file with user-defined name and description
+- Integration with Feature Blueprint persistence from Epic 3
+- Generate and preview actual JSON blueprint before saving configuration
+- Clear selection and start over functionality
+- Undo/redo for selection operations
+- Bulk selection tools (select all in directory, select by type, etc.)
+- Configuration validation before saving (ensure valid selections)
+
 ## Dependencies
 - Epic 1: Foundation & Core Infrastructure (must be completed)
 - Epic 2: Language Parsing & Relationship Extraction (must be completed)
@@ -62,12 +78,15 @@ Deliver a basic but functional visualization capability that demonstrates the po
 - Epic 4: Caching & Performance Optimization (recommended)
 - Populated System Map with relationship data
 - Blueprint generation functionality
+- YAML configuration system from Epic 3
 
 ## Success Criteria
 - Web-based visualizer demonstrates relationship navigation effectively
 - Interactive features provide intuitive exploration experience
 - Filtering capabilities allow focused analysis of large codebases
 - Export functionality enables sharing and documentation
+- Blueprint configuration creation provides visual alternative to manual YAML editing
+- Visual selection process integrates seamlessly with Epic 3 blueprint system
 - Performance remains responsive with graphs of 1000+ nodes
 - User interface is intuitive for developers unfamiliar with the tool
 - All visualization components have ≥80% test coverage
